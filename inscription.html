@@ -22,7 +22,7 @@ color: black;
       background-color: #E5E4EA ;
       color: #E5E4EA
       padding: 60px 0 30px;
-      footer {position: absolute; bottom: 0;}
+
     }
 
     body {
@@ -56,32 +56,32 @@ color: black;
 
 @media screen and (max-width: 450px) {
     .login-form{
-        margin-top: 10%;
+        margin-top: 5%;
     }
 
     .register-form{
-        margin-top: 10%;
+        margin-top: 5%;
     }
 }
 
 @media screen and (min-width: 768px){
     .main{
-        margin-left: 40%;
+        margin-left: 0%;
     }
 
 
     .login-form{
-        margin-top: 10%;
+        margin-top: 5%;
     }
 
     .register-form{
-        margin-top: 20%;
+        margin-top: 5%;
     }
 }
 
 
 .login-main-text{
-    margin-top: 20%;
+    margin-top: 10%;
     padding: 60px;
     color: #fff;
 }
@@ -100,6 +100,10 @@ color: black;
 color: white;
 
 }
+
+
+
+
 
   </style>
 </head>
@@ -139,33 +143,77 @@ color: white;
 <div class="container">
 
     <div class="row">
+
       <div class="col-sm-12">
-        <h1 class="text-center">Login</h1>
-      </div>
+        <h1 class="text-center">Register</h1>
     </div>
+
+  </div>
 
 
 
     <div class="row">
       <div class="main">
-         <div class="col-md-6 col-sm-12">
+
             <div class="login-form">
-               <form action="traitement_login.php" method="POST">
+              <div class="col-sm-6">
+               <form action="traitement_inscription.php" method="POST">
 
                   <div class="form-group">
-                     <label>Email</label>
-                     <input type="text" class="form-control" placeholder="Email" required name="login">
+                     <label>Nom</label>
+                     <input type="text" class="form-control" placeholder="Nom" required name="Name">
+                  </div>
+
+                  <div class="form-group">
+                     <label>Prenom</label>
+                     <input type="text" class="form-control" placeholder="Prenom" required name="First_name">
+                  </div>
+
+                  <div class="form-group">
+                     <label>Date de Naissance</label>
+                     <input type="Date" class="form-control" placeholder="Date de naissance" required name="Birthdate">
+                  </div>
+
+                  <div class="form-group">
+                     <label>E-mail</label>
+                     <input type="text" class="form-control" placeholder="E-mail" required name="login">
+                  </div>
+
+                </div>
+                <div class="col-sm-6">
+
+
+
+
+
+
+                  <div class="form-group">
+                     <label>Pseudo </label>
+                     <input type="text" class="form-control" placeholder="Pseudo" required name="Pseudo">
+                  </div>
+
+                  <div class="form-group">
+
+                     <label>Téléphone</label>
+                     <input type="tel" class="form-control" placeholder="Téléphone" name="Num_tel" required>
                   </div>
 
                   <div class="form-group">
                      <label>Mot de passe</label>
-                     <input type="password" class="form-control" placeholder="Mot de passe" required name="password">
+                     <input type="password" class="form-control" placeholder="Mot de passe" required name="password1">
+                  </div>
+
+                  <div class="form-group">
+                     <label>Confirmer mot de passe</label>
+                     <input type="password" class="form-control" placeholder="Mot de passe" required name="password2">
                   </div>
 
 
-                  <button type="submit" id='submit'class="btn btn-black">Login</button>
 
-                  <a href="register.html" id="alink"target="blank"><button type="button" id='register'class="btn btn-secondary">Register</button></a>
+
+                  <button type="submit" id='submit'class="btn btn-black">Register</button>
+
+                 </div>
 
 
                </form>
@@ -178,11 +226,6 @@ color: white;
 
 
       <h1>AEZFAZEFAZ</h1>
-      <h1>AEZFAZEFAZ</h1>
-      <h2>AEZFAZEFAZ</h2>
-      <h4>AEZFAZEFAZ</h4>
-
-
 
      </div>
 
