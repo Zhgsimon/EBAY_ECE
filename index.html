@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Bootstrap Example</title>
+  <title>Le E-commerce</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -10,9 +10,13 @@
   <style>
     /* Add a gray background color and some padding to the footer */
 
+     a{
 
+color: black;
+}
     nav{
-       background-color: _#070239 ;
+       background-color: #070239 ;
+
 
     }
 
@@ -22,6 +26,7 @@
       color: #E5E4EA
 
        padding: 60px 0 30px;
+       footer {position: absolute; bottom: 0;}
 
     }
 
@@ -44,35 +49,35 @@
 </head>
 <body>
 
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#">Logo</a>
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">Logo</a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav" id="menu">
+          <li class="active"><a href="index.html">Home</a></li>
+          <li><a href="Catégorie.html">Catégories</a></li>
+          <li><a href="Achat.html">Achat</a></li>
+          <li><a href="Vendre.html">Vendre</a></li>
+          <li><a href="Votre compte.html">Votre compte</a></li>
+          <li><a href="Panier.html">Panier</a></li>
+          <li><a href="Admin.html">Admin</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="Login.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        </ul>
+      </div>
     </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav" id="menu">
-        <li class="active"><a href="#">Home</a></li>
-        <li><a href="#">Catégories</a></li>
-        <li><a href="#">Achat</a></li>
-        <li><a href="#">Vendre</a></li>
-        <li><a href="#">Votre compte</a></li>
-        <li><a href="#">Panier</a></li>
-        <li><a href="#">Admin</a></li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
+  </nav>
 
 <div class="container">
 
@@ -103,7 +108,7 @@
 
 
         <div class="item active">
-          <img  src="https://www.prix-or.fr/productimages/Goldbarren_50-g_Muenze-Oesterreich_Front.jpg" alt="Image">
+          <img  src="img_items/lingotdor.jpg" alt="Image">
           <div class="carousel-caption">
             <h3>Mini lingo d'or</h3>
 
@@ -111,7 +116,7 @@
         </div>
 
         <div class="item">
-          <img  src="https://lh3.googleusercontent.com/proxy/N3CK6lePxwZNUayp6dTf3ZKfniGiSoAwwgVovg3hO0_4sQobbt9yFVtipoDiwBqGuCOGxWiemj0QW5kFd5KMXcceE9eS3nQQB6Ej48W5PsQrhj9c9L_BGNtn-rrKSYg" alt="Image">
+          <img  src="img_items/trainargenté.jpg" alt="Image">
           <div class="carousel-caption">
             <h3>Train en argent</h3>
 
@@ -122,7 +127,7 @@
 
 
         <div class="item">
-          <img src="https://www.gifi.fr/media/catalog/product/cache/1/image/1000x/9df78eab33525d08d6e5fb8d27136e95/8/1/814307.jpg" alt="Image">
+          <img src="img_items/tableau_lion.jpg" alt="Image">
           <div class="carousel-caption">
             <h3>Tableau lion</h3>
 
@@ -150,14 +155,14 @@
     <center><h2>Catégories</h2></center>
 
     <div class="well" style="position: relative; top: 30px">
-      <li ><a href="#" >Ferraille ou Trésor</a></li>
+      <li ><a href="Catégories Ferraille" >Ferraille ou Trésor</a></li>
 
     </div>
     <div class="well" style="position: relative; top: 50px">
-       <li><a href="#">Bon pour le Musée</a></li>
+       <li><a href="Catégories Musée">Bon pour le Musée</a></li>
     </div>
     <div class="well" style="position: relative; top: 70px">
-      <li><a href="#"> Accessoire VIP</a></li>
+      <li><a href="Catégories VIP"> Accessoire VIP</a></li>
     </div>
   </div>
 
@@ -174,14 +179,14 @@
 
 
     <div class="col-sm-3">
-      <img src="https://true-id.com/wp-content/uploads/2018/09/VIP-membership-different-angle-1890x1680.jpg" class="img-responsive" style="width:100%" alt="Image">
+      <img src="img_items/cartevip.jpg" class="img-responsive" style="width:100%" alt="Image">
       <div class="caption"><p>Carte Vip : accès toilette illimité</p></div>
 
     </div>
 
     <div class="col-sm-3">
-      <img src="https://i.pinimg.com/736x/67/e7/16/67e7168e67762d603dca115e7974996b.jpg" class="img-responsive" style="width:100%" alt="Image">
-      <p>Tigrou en bois</p>
+      <img src="img_items/lion_sculpture_bois.jpg" class="img-responsive" style="width:100%" alt="Image">
+      <p>Tigrou des bois</p>
     </div>
 
     <div class="col-sm-6">
@@ -210,35 +215,35 @@
   <div class="row">
 
     <div class="col-sm-2">
-      <img src="https://www.atelierduloft.fr/wp-content/uploads/2016/07/1018-d%C3%A9tourage-steack-hach%C3%A9-copie-1022x1024.png" class="img-responsive" style="width:100%" alt="Image">
+      <img src="img_items/papier_toilette.jpg" class="img-responsive" style="width:100%" alt="Image">
       <p>papier toilette insolite</p>
     </div>
 
     <div class="col-sm-2">
-      <img src="https://www.richard-recuperation.com/ressources/images/59ec33729d5c.jpg" class="img-responsive" style="width:100%" alt="Image">
+      <img src="img_items/ferraille.jpg" class="img-responsive" style="width:100%" alt="Image">
       <p>8kg de ferraille</p>
     </div>
 
 
     <div class="col-sm-2">
-      <img src="https://www.melicado.fr/31950-large_default/tableau-singe-poker-sylvain-binet.jpg" class="img-responsive" style="width:100%" alt="Image">
+      <img src="img_items/tableau-singe-poker-sylvain-binet.jpg" class="img-responsive" style="width:100%" alt="Image">
       <p>Tableau : YOU</p>
     </div>
 
     <div class="col-sm-2">
-      <img src="https://www.pourquoidocteur.fr/media/article/thunbs/uploded_uploded_stock-image-42804635-1481825412-1487700008.jpg" class="img-responsive" style="width:100%" alt="Image">
+      <img src="img_items/cocaine.jpg" class="img-responsive" style="width:100%" alt="Image">
       <p>Fake cocain, to shine in nightclub</p>
     </div>
 
 
 
     <div class="col-sm-2">
-      <img src="https://images-na.ssl-images-amazon.com/images/I/31wLtUK0xIL._AC_SX450_.jpg" class="img-responsive" style="width:100%" alt="Image">
+      <img src="img_items/briquet_beurette.jpg" class="img-responsive" style="width:100%" alt="Image">
       <p>Briquet Beurette</p>
     </div>
 
     <div class="col-sm-2">
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRfYHf5tJzLaM7BPgCfOZ1C945B7cpG1PC3RblAwrbuchhDH97J&amp;usqp=CAU" class="img-responsive" style="width:100%" alt="Image">
+      <img src="img_items/lv.jpg" class="img-responsive" style="width:100%" alt="Image">
       <p>Tableau : Luki/Vist</p>
     </div>
 
