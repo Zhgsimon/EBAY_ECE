@@ -1,0 +1,57 @@
+/* Add a gray background color and some padding to the footer */
+
+
+nav{
+   background-color: _#070239 ;
+
+}
+
+body {
+  font-family: "Lato", sans-serif;
+
+}
+
+a{
+
+color: black;
+}
+
+#options_paiement a{
+  margin: 500 500px;
+}
+
+.alink{
+color: black;
+}
+
+.btn-black{
+    background-color: #000 !important;
+    color: #fff;
+}
+
+
+footer {
+  background-color: #E5E4EA ;
+  color: #E5E4EA
+
+   padding: 60px 0 30px;
+
+}
+
+.carousel-inner img {
+  width: 800px;
+  height: 400px;
+}
+
+/* Hide the carousel text when the screen is less than 600 pixels wide */
+@media (max-width: 600px) {
+  .carousel-caption {
+    display: none;
+  }
+
+
+
+
+
+
+}
