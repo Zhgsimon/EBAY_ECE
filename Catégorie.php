@@ -187,17 +187,10 @@ footer {
           <li class="active"><a href="index.html">Home</a></li>
           <li><a href="Catégorie.html">Catégories</a></li>
           <li><a href="Achat.html">Achat</a></li>
-<<<<<<< HEAD:Catégorie.html
           <li><a href="login_vendeur.html">Vendre</a></li>
           <li><a href="Votre compte.html">Votre compte</a></li>
           <li><a href="Panier.html">Panier</a></li>
           <li><a href="login_anim.html">Admin</a></li>
-=======
-          <li><a href="Vendre.html">Vendre</a></li>
-          <li><a href="espacemoncompte_acheteur/moncompte_acheteur.php">Votre compte</a></li>
-          <li><a href="Panier.html">Panier</a></li>
-          <li><a href="espace_admin/admin_vendeurs.php">Admin</a></li>
->>>>>>> developeeeee:Catégorie.php
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li><a href="Login.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
