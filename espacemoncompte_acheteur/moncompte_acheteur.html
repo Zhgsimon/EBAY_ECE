@@ -1,30 +1,5 @@
 <?php
 
-session_start();
-
-
-try
-{
-	// On se connecte à MySQL
-	//connectez-vous dans votre BDD
-	$db_handle = mysqli_connect('localhost', 'root', '');
-	$db_found = mysqli_select_db($db_handle, "EBAY_ECE");
-
-}
-catch(Exception $e)
-{
-	// En cas d'erreur, on affiche un message et on arrête tout
-        die('Erreur : '.$e->getMessage());
-}
-
-$req = "SELECT name, First_name, login, password, pseudo, photo, Num_tel, Birthdate FROM user WHERE ID_User = '1' ";
-$result=mysqli_query($db_handle,$req);
-$info=mysqli_fetch_assoc($result);
-
-
-
-
-
 ?>
 
 
@@ -48,64 +23,50 @@ $info=mysqli_fetch_assoc($result);
 <body>
 
 <!-- //barre de navigation du haut -->
-<body>
-  <nav class="navbar navbar-inverse">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="index.html">Logo</a>
-      </div>
-      <div class="collapse navbar-collapse" id="myNavbar">
-        <ul class="nav navbar-nav" id="menu">
-          <li><a href="../index.html">Home</a></li>
-          <li><a href="../Catégorie.html">Catégories</a></li>
-          <li><a href="../Achat.html">Achat</a></li>
-          <li><a href="../Vendre.html">Vendre</a></li>
-          <li class = "active"><a href="espacemoncompte_acheteur/moncompte_acheteur.php">Votre compte</a></li>
-          <li><a href="../Panier.html">Panier</a></li>
-          <li><a href="../espace_admin/admin_vendeurs.php">Admin</a></li>
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-          <li><a href="Login.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-        </ul>
-      </div>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Logo</a>
     </div>
-  </nav>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav" id="menu">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Catégories</a></li>
+        <li><a href="#">Achat</a></li>
+        <li><a href="#">Vendre</a></li>
+        <li class="active"><a href="#">Votre compte</a></li>
+        <li><a href="#">Panier</a></li>
+        <li><a href="#">Admin</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
 
 
 <div class="container">
  <div class="row ">
    <div class="col-sm-3 well ">
      <div class="well text-center">
-       <img src="../pic.jpg" class="img-circle" height="65" width="65" alt="Photo">
-       <h4>
-         <?php echo $_SESSION['Pseudo']; ?>
-      </h4>
-       <p> <?php echo $_SESSION['First_name']; ?> 
-           <?php echo $_SESSION['Name']; ?> </p>
-        
-
-
-       
+       <img src="pic.jpg" class="img-circle" height="65" width="65" alt="Photo">
+       <h4>Pseudo</h4>
+       <p>Nom Prenom</p>
      </div>
      <div class="well text-left">
        <h4>Vos informations : </h4>
-      <p> <span class ="glyphicon glyphicon-envelope"></span>
-        <?php echo $_SESSION['login']; ?>
-       </p>
-       <p> <span class ="glyphicon glyphicon-earphone"></span>
-         <?php echo $_SESSION['Num_tel']; ?>
-        </p>
-       <p><span class ="glyphicon glyphicon-gift"></span>
-         <?php echo $_SESSION['Birthdate']; ?>
-        </p>
+      <p> <span class ="glyphicon glyphicon-envelope"></span>  nom.prenom@edu.ece.fr</p>
+       <p> <span class ="glyphicon glyphicon-earphone"></span> 0600000000 </p>
+       <p><span class ="glyphicon glyphicon-gift"></span> 01-01-2000</p>
      </div>
 
      <p><a href="#Aide"><span class ="glyphicon glyphicon-question-sign"></span> Aide</a></p>
