@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+
+    #alink{
+
+color: black;
+}
+    /* Add a gray background color and some padding to the footer */
+    nav{
+       background-color: _#070239 ;
+    }
+
+    footer {
+      background-color: #E5E4EA ;
+      color: #E5E4EA
+      padding: 60px 0 30px;
+
+    }
+
+    body {
+    font-family: "Lato", sans-serif;
+
+}
+
+
+
+.main-head{
+    height: 150px;
+    background: #FFF;
+
+}
+
+.sidenav {
+    height: 100%;
+    background-color: #070239;
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+
+
+.main {
+    padding: 0px 10px;
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+}
+
+@media screen and (max-width: 450px) {
+    .login-form{
+        margin-top: 5%;
+    }
+
+    .register-form{
+        margin-top: 5%;
+    }
+}
+
+@media screen and (min-width: 768px){
+    .main{
+        margin-left: 0%;
+    }
+
+
+    .login-form{
+        margin-top: 5%;
+    }
+
+    .register-form{
+        margin-top: 5%;
+    }
+}
+
+
+.login-main-text{
+    margin-top: 10%;
+    padding: 60px;
+    color: #fff;
+}
+
+.login-main-text h2{
+    font-weight: 300;
+}
+
+.btn-black{
+    background-color: #000 !important;
+    color: #fff;
+}
+
+.containerblanc{
+
+color: white;
+
+}
+
+
+
+
+
+  </style>
+</head>
+<body>
+
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">Logo</a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav" id="menu">
+          <li ><a href="index.html">Home</a></li>
+          <li><a href="Catégorie.html">Catégories</a></li>
+          <li><a href="Achat.html">Achat</a></li>
+          <li class="active" ><a href="Vendre.html">Vendre</a></li>
+          <li><a href="Votre compte.html">Votre compte</a></li>
+          <li><a href="Panier.html">Panier</a></li>
+          <li><a href="Admin.html">Admin</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="Login.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+<!--login-->
+<div class="container">
+
+    <div class="row">
+
+      <div class="col-sm-12">
+        <h1 class="text-center">Register</h1>
+    </div>
+
+  </div>
+
+
+
+    <div class="row">
+      <div class="main">
+
+            <div class="login-form">
+              <div class="col-sm-6">
+               <form action="traitement_inscription_vendeur.php" method="POST">
+
+                  <div class="form-group">
+                     <label>Nom</label>
+                     <input type="text" class="form-control" placeholder="Nom" required name="Name">
+                  </div>
+
+                  <div class="form-group">
+                     <label>Prenom</label>
+                     <input type="text" class="form-control" placeholder="Prenom" required name="First_name">
+                  </div>
+
+                  <div class="form-group">
+                     <label>Date de Naissance</label>
+                     <input type="Date" class="form-control" placeholder="Date de naissance" required name="Birthdate">
+                  </div>
+
+                  <div class="form-group">
+                     <label>E-mail</label>
+                     <input type="text" class="form-control" placeholder="E-mail" required name="login">
+                  </div>
+
+                </div>
+                <div class="col-sm-6">
+
+
+
+
+
+
+                  <div class="form-group">
+                     <label>Pseudo </label>
+                     <input type="text" class="form-control" placeholder="Pseudo" required name="Pseudo">
+                  </div>
+
+                  <div class="form-group">
+
+                     <label>Téléphone</label>
+                     <input type="tel" class="form-control" placeholder="Téléphone" name="Num_tel" required>
+                  </div>
+
+                  <div class="form-group">
+                     <label>Mot de passe</label>
+                     <input type="password" class="form-control" placeholder="Mot de passe" required name="password1">
+                  </div>
+
+                  <div class="form-group">
+                     <label>Confirmer mot de passe</label>
+                     <input type="password" class="form-control" placeholder="Mot de passe" required name="password2">
+                  </div>
+
+
+
+
+                  <button type="submit" id='submit'class="btn btn-black">Register</button>
+
+                 </div>
+
+
+               </form>
+            </div>
+         </div>
+      </div>
+    </div>
+
+    <div class="containerblanc">
+
+
+
+     </div>
+
+
+</div>
+
+
+<footer class="container-fluid text-center">
+
+  <div class="container">
+ <div class="row">
+ <div class="col-lg-8 col-md-8 col-sm-12">
+ <h6><b>Information additionnelle</b></h6>
+ <p>
+Adolf Hitler [ˈadɔlf ˈhɪtlɐ]3 Écouter est un idéologue et homme d'État allemand, né le 20 avril 1889 à Braunau am Inn en Autriche-Hongrie (aujourd'hui en Autriche et toujours ville-frontière avec l’Allemagne) et mort par suicide le 30 avril 1945 à Berlin. Fondateur et figure centrale du nazisme, il prend le pouvoir en Allemagne en 1933 et instaure une dictature totalitaire, impérialiste, antisémite et raciste désignée sous le nom de Troisième Reich.
+</p>
+ <p>
+ L’antisémitisme est le nom donné de nos jours à la discrimination et à l'hostilité manifestées à l'encontre des Juifs
+ </p>
+ </div>
+ <div class="col-lg-4 col-md-4 col-sm-12">
+ <h6><b>Contact</b></h6>
+ <p>
+ 37, quai de Grenelle, 75015 Paris, France <br>
+ info@webDynamique.ece.fr <br>
+ +33 01 02 03 04 05 <br>
+ +33 01 03 02 05 04
+ </p>
+ </div>
+ </div>
+ <div class="footer-copyright text-center">&copy; 2019 Copyright | Droit d'auteur: webDynamique.ece.fr</div>
+</footer>
+
+
+</body>
+</html>
