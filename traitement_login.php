@@ -44,7 +44,9 @@ $password=$_POST['password'];
 
 				//récuperation de la photo de profile
 				$_SESSION['Photo'] = $donnees['Photo'];
-				header('Location: index.html');
+				if( $_SESSION['User_privilege']== '1') {header('Location: index.html');}
+				if ($_SESSION['User_privilege']== '2') { header('Location: vendre.html');}
+				if ($_SESSION['User_privilege']== '3') { header('Location: espace_admin/admin_vendeurs.php');}
 			}
 		}
 	}
