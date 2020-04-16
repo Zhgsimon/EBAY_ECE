@@ -1,3 +1,62 @@
+<?php
+// Starting session
+session_start();
+
+ // connexion à la base de donnée
+ try
+{
+ 	$bdd = new PDO('mysql:host=localhost;dbname=ece_ebay;charset=utf8', 'root', '',
+ 				array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+}
+catch (Exception $e)
+{
+ 	die('Erreur : ' . $e->getMessage());
+}
+
+//On sélectionne tous les items qui sont en état de vente
+$rep = $bdd->query('SELECT ID_item FROM item WHERE etat_vente="en_vente"');
+
+//on stocke dans des array les id des items
+$ID_item = array();
+
+//je parcours ma table item
+while ($donnees = $rep->fetch())
+{
+
+  //je remplis mon array d'informations
+  $ID_item [] = $donnees ['ID_item'];
+}
+
+//pagination automatique
+//Compter le nombre de pages
+$count=count($ID_item);
+
+$nombre_item_par_page=10;
+//nombre entier supérieur
+$nombre_de_page=ceil($count/$nombre_item_par_page);
+
+if(isset($_GET['page'])) // Si la variable $_GET['page'] existe...
+{
+     $pageActuelle=intval($_GET['page']);
+
+     if($pageActuelle>$nombre_de_page) // Si la valeur de $pageActuelle (le numéro de la page) est plus grande que $nombreDePages...
+     {
+          $pageActuelle=$nombre_de_page;
+     }
+}
+else // Sinon
+{
+     $pageActuelle=1; // La page actuelle est la n°1
+}
+
+$premiereEntree=($pageActuelle-1)*$nombre_item_par_page; // On calcul la première entrée à lire
+
+// La requête sql pour récupérer les items de la page actuelle.
+$item_page_actuelle=$bdd->query('SELECT * FROM item ORDER BY ID_item DESC LIMIT '.$premiereEntree.', '.$nombre_item_par_page.'');
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -200,13 +259,70 @@ footer {
 
               </div>
 
-
-
-
-
-
-
             </form>
+
+
+
+
+
+
+
+            <!--Affichage de 10 items par page-->
+            <div class="container text-center">
+
+              <?php while ($donnees = $item_page_actuelle->fetch()): ?>
+                <div class="row">
+                       <div class="col-sm-4">
+                         <img src="img_items/<?php echo $donnees['pic1']; ?>" class="img-responsive" style="width:100%" alt="Image">
+                       </div>
+
+                       <div class="col-sm-8">
+                         <u><p class="text-left"> <?php echo $donnees['name_item']; ?></p></u>
+                         <h4> <?php echo $donnees['description']; ?></h4>
+                         <h4> <?php echo $donnees['Categorie']; ?></h4>
+
+                         <?php if(!isset($donnees['prix_nego_init'])): ?>
+                         <h4> Prix de Négociation initial: <?php echo $donnees['prix_nego_init']; ?>€</h4>
+                        <?php endif; ?>
+
+                         <?php if(!isset($donnees['prix_immediat'])): ?>
+                         <h4> Prix d'achat immédiat: <?php echo $donnees['prix_immediat']; ?>€</h4>
+                       <?php endif; ?>
+
+                         <?php if(!isset($donnees['prix_enchere_2'])): ?>
+                         <h4> Début des enchères à partir de: <?php echo $donnees['prix_enchere_2']; ?>€</h4>
+                       <?php endif; ?>
+
+                         <h4> Un type d'infomation précis 3</h4>
+                         <li class="text-left"><a href="Détailitem.html" class="aI">Plus de détails</a></li>
+
+                       </div>
+                    </div>
+                <?php endwhile; ?>
+
+
+
+            <div class="containerblanc">
+              <h2>AEZFAZEFAZ</h2>
+
+              <p align="center">Page :
+              <?php for($i=1; $i<=$nombre_de_page; $i++): ?>
+
+                <?php if ($i==$pageActuelle):  ?>
+                   [<?php echo $i; ?>]
+
+                <?php else: ?>
+                  <a href="Catégorie.php?page=<?php echo $i; ?>"><?php echo $i; ?></a>
+                <?php endif ?>
+
+              <?php endfor; ?>
+
+
+
+
+
+            </div>
+          </div>
 
             <hr width="75%" size="4" color="#070239">
 
