@@ -126,9 +126,12 @@ $req_vendeur_signale = $bdd->query('SELECT ID_user, name, First_name, login, pse
         <div class = "col-sm-3 text-center">
           <?php
            $photo=$donnee['Photo'];
-             echo $photo;
-             if(!$photo) { $photo="../pic.jpg"; }
-             echo '<img src = "'.$photo.' " class="img-circle" height="80" width="80" alt="Photo"/>';
+           if(!$photo) {
+             echo '<img src = "../pic.jpg " class="img-circle" height="80" width="80" alt="Photo"/>';
+           }
+           else{
+           echo '<img src = "../img_user/'.$photo.' " class="img-circle" height="80" width="80" alt="Photo"/>';
+         }
           ?>
         </div><!-- col-sm-3 ligne 84-->
 
@@ -203,9 +206,12 @@ $req_vendeur_signale = $bdd->query('SELECT ID_user, name, First_name, login, pse
             <div class = "col-sm-3 text-center">
               <?php
                $photo=$donnee['Photo'];
-                 echo $photo;
-                 if(!$photo) { $photo="../pic.jpg"; }
-                 echo '<img src = "'.$photo.' " class="img-circle" height="80" width="80" alt="Photo"/>';
+               if(!$photo) {
+                 echo '<img src = "../pic.jpg " class="img-circle" height="80" width="80" alt="Photo"/>';
+               }
+               else{
+               echo '<img src = "../img_user/'.$photo.' " class="img-circle" height="80" width="80" alt="Photo"/>';
+             }
               ?>
             </div><!-- col-sm-3 ligne 84-->
 
@@ -311,9 +317,12 @@ $req_vendeur_signale = $bdd->query('SELECT ID_user, name, First_name, login, pse
             <div class = "col-sm-3 text-center">
               <?php
                $photo=$donnee['Photo'];
-                 echo $photo;
-                 if(!$photo) { $photo="../pic.jpg"; }
-                 echo '<img src = "'.$photo.' " class="img-circle" height="80" width="80" alt="Photo"/>';
+               if(!$photo) {
+                 echo '<img src = "../pic.jpg " class="img-circle" height="80" width="80" alt="Photo"/>';
+               }
+               else{
+               echo '<img src = "../img_user/'.$photo.' " class="img-circle" height="80" width="80" alt="Photo"/>';
+             }
               ?>
             </div><!-- col-sm-3 ligne 84-->
 
