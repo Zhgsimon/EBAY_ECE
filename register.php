@@ -2,14 +2,12 @@
 <!--login-->
 <div class="container">
 
-    <div class="row">
+  <div class="row">
 
-      <div class="col-sm-12">
-        <h1 class="text-center">Register</h1>
+    <div class="col-sm-12">
+      <h1 class="text-center">Register</h1>
     </div>
-
   </div>
-
 
 
     <div class="row">
@@ -40,12 +38,10 @@
                   </div>
 
                 </div>
+
+
+
                 <div class="col-sm-6">
-
-
-
-
-
 
                   <div class="form-group">
                      <label>Pseudo </label>
@@ -69,7 +65,6 @@
 
 
 
-
                   <button type="submit" id='submit'class="btn btn-black">Register</button>
 
                  </div>
@@ -83,10 +78,9 @@
 
     <div class="containerblanc">
 
-
       <h1>AEZFAZEFAZ</h1>
 
-     </div>
+    </div>
 
 
 </div>

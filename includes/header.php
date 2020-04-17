@@ -19,10 +19,11 @@ nav{
 }
 
 
+
 footer {
   background-color: #E5E4EA ;
-  color: #E5E4EA
-  padding: 60px 0 30px;
+  color: black;
+  padding: 30px 0 30px;
   footer {position: absolute; bottom: 0;}
 }
 
@@ -80,6 +81,8 @@ padding-top: 20px;
 .register-form{margin-top: 5%;}
 }
 
+
+
 .login-main-text{
   margin-top: 10%;
   padding: 60px;
@@ -99,7 +102,65 @@ padding-top: 20px;
   color: white;
 }
 
+
+.col-sm-8{
+  background-color: #E9E9E9;
+}
+
+input {
+  display:block;
+  width:150px;
+  line-height:39px;
+  text-align:center;
+  vertical-align:middle;
+  background-color:  #393939
+  color:white;
+  text-decoration:none;
+  position: relative;
+  left: 30%;
+  float:left;
+  margin:2px;
+}
+
+
+.img-responsive .centree {
+  margin: 0 auto;
+}
+
+
+.roundedImage{
+    overflow:hidden;
+    -webkit-border-radius:50px;
+    -moz-border-radius:50px;
+    border-radius:50px;
+    width:90px;
+    height:90px;
+}
+
+
+
+
+
 </style>
+
+<script>
+    $(document).ready(function(){
+
+
+      $("#1").click(function(){
+
+          $("#2").css("display", "block");
+          $("#3").css("display", "block");
+      });
+
+      $("#4").click(function(){
+
+          $("#2").css("display", "none");
+          $("#3").css("display", "none");
+
+      });
+    });
+</script>
 
 
 </head>
