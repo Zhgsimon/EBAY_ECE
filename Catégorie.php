@@ -57,7 +57,7 @@ $item_page_actuelle=$bdd->query('SELECT * FROM item ORDER BY ID_item DESC LIMIT 
 
 ?>
 
-<?php include('includes/header.php') ?>
+<?php include('includes/header.php'); ?>
       <div class="container">
 
 
@@ -191,4 +191,4 @@ $item_page_actuelle=$bdd->query('SELECT * FROM item ORDER BY ID_item DESC LIMIT 
 
         </div>
 
-<?php include('includes/footer.php') ?>
+<?php include('includes/footer.php'); ?>
