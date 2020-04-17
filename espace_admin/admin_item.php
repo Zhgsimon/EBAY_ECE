@@ -16,10 +16,10 @@ session_start();
 
 
 //selectionner tous les items
-$req_item_en_vente = $bdd->query('SELECT ID_item,name_item, pic1, description, categorie   FROM item WHERE etat_vente = \'en_vente\'');
+$req_item_en_vente = $bdd->query('SELECT ID_item,name_item, pic1, description, categorie, `#ID_vendeur`   FROM item WHERE etat_vente = \'en_vente\'');
 //$req_item_en_vente = $bdd->query('SELECT ID_item,name_item, pic1, description, categorie, #ID_vendeur'   FROM item WHERE etat_vente = \'en_vente\'');
-$req_item_en_attente = $bdd->query('SELECT ID_item,name_item, pic1, description, categorie   FROM item WHERE etat_vente = \'en_attente\'');
-$req_item_signale = $bdd->query('SELECT ID_item,name_item, pic1, description, categorie   FROM item WHERE etat_vente = \'signalé\'');
+$req_item_en_attente = $bdd->query('SELECT ID_item,name_item, pic1, description, categorie , `#ID_vendeur`  FROM item WHERE etat_vente = \'en_attente\'');
+$req_item_signale = $bdd->query('SELECT ID_item,name_item, pic1, description, categorie, `#ID_vendeur`   FROM item WHERE etat_vente = \'signalé\'');
 
 ?>
 
@@ -141,14 +141,16 @@ $req_item_signale = $bdd->query('SELECT ID_item,name_item, pic1, description, ca
               <?php
                 echo $donnee['name_item']; ?>
             </strong></h4>
-            <!--
-            <p><i>Mis en vente par <strong> -->
-              <?php
-              //$id_vendeur=$donnee['#ID_vendeur'];
 
-              //$vendeur= $bdd->query ("SELECT login FROM user INNER JOIN item ON ID_user  ='$id_vendeur'");
-              ?>
-            <!-- </strong></i></p> -->
+            <p>Par <strong>
+              <?php
+              $id_vendeur=$donnee['#ID_vendeur'];
+
+              $req_vendeur= $bdd->query ("SELECT login FROM user INNER JOIN item ON ID_user  ='$id_vendeur'");
+              $login_vendeur = $req_vendeur->fetch();
+                echo $login_vendeur['login'];
+                ?>
+            </strong></p>
             <p><?php echo $donnee['categorie'];?><i>
                 <br><?php echo $donnee['description'];?></i></p>
         </div><!-- col-sm-7 ligne 95-->
@@ -230,6 +232,17 @@ $req_item_signale = $bdd->query('SELECT ID_item,name_item, pic1, description, ca
               <?php
                 echo $donnee['name_item']; ?>
             </strong></h4>
+
+
+          <p>Par <strong>
+            <?php
+            $id_vendeur=$donnee['#ID_vendeur'];
+
+            $req_vendeur= $bdd->query ("SELECT login FROM user INNER JOIN item ON ID_user  ='$id_vendeur'");
+            $login_vendeur = $req_vendeur->fetch();
+              echo $login_vendeur['login'];
+              ?>
+          </strong></p>
             <p><?php echo $donnee['categorie'];?><i>
                 <br><?php echo $donnee['description'];?></i></p>
         </div><!-- col-sm-7 ligne 95-->
@@ -328,7 +341,17 @@ $req_item_signale = $bdd->query('SELECT ID_item,name_item, pic1, description, ca
                           <h4><strong>
                             <?php
                               echo $donnee['name_item']; ?>
-                          </strong></h4>
+                        </strong></h4>
+
+                        <p>Par <strong>
+                          <?php
+                          $id_vendeur=$donnee['#ID_vendeur'];
+
+                          $req_vendeur= $bdd->query ("SELECT login FROM user INNER JOIN item ON ID_user  ='$id_vendeur'");
+                          $login_vendeur = $req_vendeur->fetch();
+                            echo $login_vendeur['login'];
+                            ?>
+                        </strong></p>
                           <p><?php echo $donnee['categorie'];?><i>
                               <br><?php echo $donnee['description'];?></i></p>
                       </div><!-- col-sm-7 ligne 95-->
