@@ -1,6 +1,6 @@
 <?php
 session_start();
-echo "okkkkkkkkk";
+
 $login=$_POST['login'];
 $password=$_POST['password'];
 //$login=isset($_POST['user_mail']) ? $_POST['user_mail'] : "";
@@ -54,7 +54,7 @@ $password=$_POST['password'];
 	}
 
   $rep->closeCursor();
-	
+	<
 
 
 ?>
