@@ -95,7 +95,7 @@ $req_item_signale = $bdd->query('SELECT ID_item,name_item, pic1, description, ca
         <ul class="nav navbar-nav" id="menu">
           <li><a href="admin_vendeurs.php">Vendeurs</a></li>
           <li class="active"><a href="admin_item.php">Item</a></li>
-          <li><a href="Aide.html">Aide</a></li>
+          <li><a href="aide.php">Aide</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li><a href="../index.html"><span class="glyphicon glyphicon-log-out"></span> Quitter mon espace admin</a></li>
