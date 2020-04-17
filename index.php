@@ -1,3 +1,15 @@
+<?php
+session_start();
+if (isset($_SESSION['ID_user'])) {
+  if ($_SESSION['User_privilege']=='1') {
+    $my_profile = 'profile.php';
+  }
+  else {
+    $my_profile = 'profile_t.php';
+  }
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -60,21 +72,46 @@ color: black;
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="index.html">Logo</a>
+        <a class="navbar-brand" href="index.php">Logo</a>
       </div>
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav" id="menu">
-          <li class="active"><a href="index.html">Home</a></li>
-          <li><a href="Catégorie.html">Catégories</a></li>
-          <li><a href="Achat.html">Achat</a></li>
+          <li class="active"><a href="index.php">Home</a></li>
+          <li><a href="Catégorie.php">Catégories</a></li>
+
+          <?php if( isset($_SESSION['ID_user'])) :?>
+            <?php if ($_SESSION['User_privilege']==1): ?>
+              <!--Historique d'achats-->
+              <li><a href="Achat.html">Achat</a></li>
+              <!--Panier-->
+              <li><a href="Panier.html">Panier</a></li>
+              <!--Espace compte acheteur-->
+              <li><a href="espacemoncompte_acheteur/moncompte_acheteur.php">Votre compte</a></li>
+            <?php endif; ?>
+          <?php endif; ?>
+
           <li><a href="Vendre.html">Vendre</a></li>
-          <li><a href="espacemoncompte_acheteur/moncompte_acheteur.php">Votre compte</a></li>
-          <li><a href="Panier.html">Panier</a></li>
-          <li><a href="espace_admin/admin_vendeurs.php">Admin</a></li>
+
+
+          <?php if( isset($_SESSION['ID_user'])) :?>
+            <?php if ($_SESSION['User_privilege']==3): ?>
+              <!--Espace compte admiin-->
+              <li><a href="espace_admin/admin_vendeurs.php">Admin</a></li>
+            <?php endif; ?>
+          <?php endif; ?>
         </ul>
-        <ul class="nav navbar-nav navbar-right">
-          <li><a href="Login.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-        </ul>
+
+        <?php if(isset($_SESSION['ID_user'])): //si connecté?>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="traitement_deconnexion.php"><span class="glyphicon glyphicon-log-in"></span> Se déconnecter</a></li>
+          </ul>
+
+        <?php else: ?>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="Login.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+          </ul>
+        <?php endif; ?>
+
       </div>
     </div>
   </nav>
