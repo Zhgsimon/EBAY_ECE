@@ -44,7 +44,7 @@ $password=$_POST['password'];
 
 				//récuperation de la photo de profile
 				$_SESSION['Photo'] = $donnees['Photo'];
-				header('Location: index.html');
+				header('Location: index.php');
 			}
 		}
 	}
@@ -52,6 +52,9 @@ $password=$_POST['password'];
 		//echo $login;
 		//echo $password;
 	}
-        $rep->closeCursor();
+
+  $rep->closeCursor();
+	<
+
 
 ?>
