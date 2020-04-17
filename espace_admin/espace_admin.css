@@ -1,0 +1,42 @@
+/* Add a gray background color and some padding to the footer */
+
+
+nav{
+   background-color: _#070239 ;
+
+}
+
+body {
+  font-family: "Lato", sans-serif;
+
+}
+
+a{
+
+color: black;
+}
+
+.alink{
+color: black;
+}
+
+.btn-black{
+    background-color: #000 !important;
+    color: #fff;
+}
+
+
+footer {
+  background-color: #E5E4EA ;
+  color: #E5E4EA
+
+   padding: 60px 0 30px;
+
+}
+
+
+
+
+
+
+}
