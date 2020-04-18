@@ -37,7 +37,7 @@ $req_cb= $bdd->query("SELECT * FROM `infobancaire` WHERE `ID_user`='$id_user' AN
 
 <div class="container">
  <div class="row ">
-   <div class="col-sm-3 well ">
+   <div class="col-sm-4 well" style="margin-right:10px !important;" >
      <div class="well text-center">
        <img src="pic.jpg" class="img-circle" height="65" width="65" alt="Photo">
        <h4>
@@ -111,7 +111,7 @@ $req_cb= $bdd->query("SELECT * FROM `infobancaire` WHERE `ID_user`='$id_user' AN
        <div class="col-sm-12 well">
          <div class="col-sm-7">
 
-            <h3><span class ="glyphicon glyphicon-credit-card"></span>Vos informations de paiement</h3>
+            <h3><span class ="glyphicon glyphicon-credit-card"></span> Vos informations de paiement</h3>
             <p>
 							<strong>Type de carte</strong><br><?php echo $cb['type_carte'] ?><br>
 							<strong>Nom présent sur la carte</strong><br><?php echo $cb['nom_carte'] ?><br>
@@ -132,10 +132,7 @@ $req_cb= $bdd->query("SELECT * FROM `infobancaire` WHERE `ID_user`='$id_user' AN
      </div>
    </div>
 
-   <div class="col-sm-2 well">
-       <h4><span class ="glyphicon glyphicon-hourglass"></span>Prochaine(s) livraison(s)</h4>
-       <p><strong>Fri. 27 November 2015</strong></p>
-   </div>
+
 
 
  </div>
