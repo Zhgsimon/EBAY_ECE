@@ -156,8 +156,8 @@ $req_cb= $bdd->query("SELECT * FROM `infobancaire` WHERE `ID_user`='$id_user' AN
 		<form class="" role ="form" method="post">
 		<div>
 			 <input type="hidden" name="keytodelete" value="<?php echo $adresse['ID_adresse_livraison']; ?>" required>
-			<input type="submit" class="btn btn-black" name="supprimer" value="Valider"></input> </div>
-		<input type="submit" class="btn btn-black" name="annuler" value="Annuler"></input>
+			<input type="submit" class="btn btn-black" style="float: right;" name="supprimer" value="Valider"></input> </div>
+		<input type="submit" class="btn btn-black" style="float: left;"name="annuler" value="Annuler"></input>
 	</form>
 
 	<?php
@@ -252,8 +252,8 @@ $req_cb= $bdd->query("SELECT * FROM `infobancaire` WHERE `ID_user`='$id_user' AN
 		<form class="" role ="form" method="post">
 		<div>
 			 <input type="hidden" name="keytodelete" value="<?php echo $cb['ID_infobancaire']; ?>" required>
-			<input type="submit" class="btn btn-black" name="supprimer" value="Valider"></input> </div>
-		<input type="submit" class="btn btn-black" name="annuler" value="Annuler"></input>
+			<input type="submit" class="btn btn-black" style="float: right;" name="supprimer" value="Valider"></input> </div>
+		<input type="submit" class="btn btn-black" style="float: left;" name="annuler" value="Annuler"></input>
 	</form>
 
 	<?php
