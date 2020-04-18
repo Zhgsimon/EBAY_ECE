@@ -28,7 +28,7 @@
           <!--Panier-->
           <li><a href="Panier.php">Panier</a></li>
           <!--Espace compte acheteur-->
-          <li><a href="espacemoncompte_acheteur/moncompte_acheteur.php">Votre compte</a></li>
+          <li><a href="moncompte_acheteur.php">Votre compte</a></li>
 
         <?php endif; ?>
       <?php endif; ?>
@@ -55,14 +55,12 @@
         <?php if ($_SESSION['User_privilege']==3): ?>
           <!--affichage pour les admins-->
 
-          <!--Liste des vendeurs actifs-->
-          <li><a href="espace_admin/admin_vendeurs.php">Vendeurs actifs</a></li>
-          <!--Liste des vendeurs en attente-->
-          <li><a href="espace_admin/admin_vendeurs_attente.php">Vendeurs en attente</a></li>
-          <!--Liste des vendeurs signalés-->
-          <li><a href="espace_admin/admin_vendeurs_signale.php">Vendeurs signalés</a></li>
-          <!--Liste des objets en vente actifs-->
-          <li><a href="espace_admin/admin_items.php">Objets en vente</a></li>
+          <!--Liste des vendeurs-->
+          <li><a href="espace_admin/admin_vendeurs.php">Vendeurs</a></li>
+          <!--Liste des items-->
+          <li><a href="espace_admin/item.php">Item</a></li>
+          <!--FAQ admin-->
+          <li><a href="espace_admin/aide.php">Aide</a></li>
 
 
         <?php endif; ?>
@@ -82,5 +80,3 @@
 
   </div>
 </div>
-
->
