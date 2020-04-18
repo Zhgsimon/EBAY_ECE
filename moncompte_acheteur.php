@@ -28,10 +28,22 @@ $req_cb= $bdd->query("SELECT * FROM `infobancaire` WHERE `ID_user`='$id_user' AN
 
 
 <?php include('includes/header.php') ?>
+<nav class="navbar navbar-inverse">
+<?php include('includes/nav.php'); ?>
+</nav>
 <!-- jQuery Modal -->
 <head>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+<style>
+.btn-black{
+	background-color: #000 !important;
+	color: #fff;
+	margin-bottom: 5px ;
+	margin-right: 5px;
+	float: right;
+}
+</style>
 </head>
 
 
