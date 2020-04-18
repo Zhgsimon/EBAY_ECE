@@ -5,22 +5,17 @@ session_start();
 
 try
 {
-	// On se connecte à MySQL
-	//connectez-vous dans votre BDD
-	$db_handle = mysqli_connect('localhost', 'root', '');
-	$db_found = mysqli_select_db($db_handle, "EBAY_ECE");
-
+	$bdd = new PDO('mysql:host=localhost;dbname=ece_ebay;charset=utf8', 'root', '',
+				array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
 }
-catch(Exception $e)
+catch (Exception $e)
 {
-	// En cas d'erreur, on affiche un message et on arrête tout
-        die('Erreur : '.$e->getMessage());
+		die('Erreur : ' . $e->getMessage());
 }
-
-$req = "SELECT name, First_name, login, password, pseudo, photo, Num_tel, Birthdate FROM user WHERE ID_User = '1' ";
-$result=mysqli_query($db_handle,$req);
-$info=mysqli_fetch_assoc($result);
-
+/*
+$req = bdd->query('SELECT name, First_name, login, password, pseudo, photo, Num_tel, Birthdate FROM user WHERE ID_User = '1' ');
+$info=$req->fetch();
+*/
 
 
 
@@ -41,13 +36,13 @@ $info=mysqli_fetch_assoc($result);
        <img src="pic.jpg" class="img-circle" height="65" width="65" alt="Photo">
        <h4>
          <?php
-          echo $info['pseudo'];
+          echo $_SESSION['Pseudo'];
         ?>
       </h4>
        <p>
          <?php
-          echo $info['First_name'] ;
-          echo $info['name'];
+          echo $_SESSION['First_name'] ;
+          echo $_SESSION['Name'];
         ?>
 
 
@@ -57,17 +52,17 @@ $info=mysqli_fetch_assoc($result);
        <h4>Vos informations : </h4>
       <p> <span class ="glyphicon glyphicon-envelope"></span>
         <?php
-         echo $info['login'];
+         echo $_SESSION['login'];
          ?>
        </p>
        <p> <span class ="glyphicon glyphicon-earphone"></span>
          <?php
-          echo $info['Num_tel'];
+          echo $_SESSION['Num_tel'];
           ?>
         </p>
        <p><span class ="glyphicon glyphicon-gift"></span>
          <?php
-          echo $info['Birthdate'];
+          echo $_SESSION['Birthdate'];
           ?>
         </p>
      </div>
@@ -87,13 +82,18 @@ $info=mysqli_fetch_assoc($result);
            <a href="#" class="btn btn-black" style="float: right;" role="button"><span class="glyphicon glyphicon-pencil"></span> Modifier</a>
            <h3><span class ="glyphicon glyphicon-plane"></span> Vos informations de livraison </h3>
             <p>
-              <strong>Nom</strong><br>X<br>
-              <strong>Prenom</strong><br>Y<br>
-              <strong>Adresse ligne 1</strong><br>adresse_l1 <br>
-              <strong>Adresse Ligne 2</strong> <br>adresse_l2 <br>
-              <strong>Ville</strong> <br> Paris<br>
-              <strong>Code Postal</strong> <br>75015 <br>
-              <strong>Pays</strong> <br> France
+							<?php
+							$id_user=$_SESSION['ID_user'];
+							$req_adresse = $bdd->query("SELECT * FROM `adresse_livraison` WHERE `ID_user`='$id_user' AND `adresse_principale` = 1");
+							$adresse=$req_adresse->fetch();
+							 ?>
+              <strong>Nom</strong><br><?php echo $adresse['Nom']?><br>
+              <strong>Prenom</strong><br><?php echo $adresse['Prenom']?><br>
+              <strong>Numero de téléphone</strong><br>0<?php echo $adresse['Num_tel']?> <br>
+              <strong>Adresse</strong><br> <?php echo $adresse['Num_rue']?>  <?php echo $adresse['Nom_rue']?> <br>
+              <strong>Ville</strong> <br><?php echo $adresse['Ville']?><br>
+              <strong>Code Postal</strong> <br><?php echo $adresse['Code_postal']?> <br>
+              <strong>Pays</strong> <br> <?php echo $adresse['Pays']?>
             </p>
          </div>
        </div>
