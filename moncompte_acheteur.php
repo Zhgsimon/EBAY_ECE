@@ -1,4 +1,5 @@
 <?php
+ob_start();
 
 session_start();
 
@@ -84,7 +85,7 @@ $adresse=$req_adresse->fetch();
      <div class="row">
 
        <div class="col-sm-12 well">
-					 <div class= "col-sm-10">
+					 <div class= "col-sm-7">
            <h3><span class ="glyphicon glyphicon-plane"></span> Vos informations de livraison </h3>
             <p>
 
@@ -97,9 +98,9 @@ $adresse=$req_adresse->fetch();
               <strong>Pays</strong> <br> <?php echo $adresse['Pays']?>
             </p>
 					</div>
-					<div class="col-sm-2">
-						<a href="#" class="btn btn-black" style="float: right;" role="button"><span class="glyphicon glyphicon-pencil"></span> Modifier</a>
+					<div class="col-sm-5">
 						<a href="#deleteModal" class ="btn btn-black" style="float: right;" rel="modal:open" role="button" name="sup" value="<?php $adresse['ID_adresse_livraison']?>"><span class="glyphicon glyphicon-trash">Supprimer</span></a>
+						<a href="#" class="btn btn-black" style="float: right;" role="button"><span class="glyphicon glyphicon-pencil"></span> Modifier</a>
 					</div>
        </div>
 
@@ -140,8 +141,26 @@ $adresse=$req_adresse->fetch();
 		<center>Cette adresse est enregistrée comme votre adresse principale. Si vous la supprimer, elle ne vous sera plus suggérée lors de vos prochains achats.</center>
 	</div>
 	<div class="modal-footer">
-		<input type="submit" class="btn btn-black" name="valider" value="Valider"></input> </input>
+		<form class="" role ="form" method="post">
+		<div>
+			 <input type="hidden" name="keytodelete" value="<?php echo $adresse['ID_adresse_livraison']; ?>" required>
+			<input type="submit" class="btn btn-black" name="supprimer" value="Valider"></input> </div>
 		<input type="submit" class="btn btn-black" name="annuler" value="Annuler"></input>
+	</form>
+
+	<?php
+	if(isset($_POST['supprimer'])) {
+		$id_a_supprimer=$_POST['keytodelete'];
+		$query = $bdd->prepare('UPDATE adresse_livraison SET Nom_rue =:Nom_rue WHERE ID_adresse_livraison=:ID_adresse_livraison');
+		$success = $query->execute(array(
+			':ID_adresse_livraison' => $id_a_supprimer,
+			':Nom_rue' => 'test'
+		));
+		header('Location:moncompte_acheteur.php');
+
+	}
+	ob_end_flush();
+	?>
 	</div>
 </div>
 
