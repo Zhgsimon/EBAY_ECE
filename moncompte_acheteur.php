@@ -96,7 +96,7 @@ $req_adresse = $bdd->query("SELECT * FROM `adresse_livraison` WHERE `ID_user`='$
               <strong>Adresse</strong><br> <?php echo $adresse['Num_rue']?>  <?php echo $adresse['Nom_rue']?> <br>
               <strong>Ville</strong> <br><?php echo $adresse['Ville']?><br>
               <strong>Code Postal</strong> <br><?php echo $adresse['Code_postal']?> <br>
-              <strong>Pays</strong> <br> <?php echo $adresse['Pays']?>
+              <strong>Pays</strong> <br> <?php echo $adresse['Pays']?> 
             </p>
 
 					</div>
