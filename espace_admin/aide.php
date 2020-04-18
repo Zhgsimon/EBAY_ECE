@@ -63,7 +63,7 @@
           <li class="active"><a href="aide.php">Aide</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="../index.html"><span class="glyphicon glyphicon-log-out"></span> Quitter mon espace admin</a></li>
+          <li><a href="../index.php"><span class="glyphicon glyphicon-log-out"></span> Quitter mon espace admin</a></li>
         </ul>
       </div>
     </div>
