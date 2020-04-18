@@ -303,14 +303,14 @@ $req_cb= $bdd->query("SELECT * FROM `infobancaire` WHERE `ID_user`='$id_user' AN
 		              <label for="CVV"><span class="glyphicon glyphicon-credit-card"></span> CVV</label>
 		              <input type="number" class="form-control" required name="cvv" placeholder="357">
 		            </div>
-								
+
 
 		         	</div>
 
 	<div class="modal-footer">
 		<div>
-			 <input type="hidden" name="keytomodif" value="<?php echo $adresse['ID_adresse_livraison']; ?>" required>
-			<button type="submit" class="btn btn-black pull-right" name="Modifier" value="Valider"> <span class="glyphicon glyphicon-ok"></span> Valider</button> </div>
+			 <input type="hidden" name="keytomodifCB" value="<?php echo $cb['ID_infobancaire']; ?>" required>
+			<button type="submit" class="btn btn-black pull-right" name="ModifierCB" value="Valider"> <span class="glyphicon glyphicon-ok"></span> Valider</button> </div>
 			<button type="submit" class="btn btn-black pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Annuler</button>
 
 
