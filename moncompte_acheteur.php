@@ -223,35 +223,12 @@ $req_adresse = $bdd->query("SELECT * FROM `adresse_livraison` WHERE `ID_user`='$
 	<div class="modal-footer">
 		<div>
 			 <input type="hidden" name="keytomodif" value="<?php echo $adresse['ID_adresse_livraison']; ?>" required>
-			<input type="submit" class="btn btn-black" name="Modifier" value="Valider"></input> </div>
-		<a href="moncompte_acheteur.php" id="alink"target="blank"><button type="button" id='cancel' class="btn btn-black" name="annuler" value="Annuler">Annuler</input>
+			<button type="submit" class="btn btn-black pull-right" name="Modifier" value="Valider"> <span class="glyphicon glyphicon-ok"></span> Valider</button> </div>
+			<button type="submit" class="btn btn-black pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Annuler</button>
 
 
 	</form>
-	<?php/*
-	if(isset($_POST['Modifier'])) {
-		echo "je suis la";
-		$id_a_modif=$_POST['keytomodif'];
-		$query = $bdd->prepare('UPDATE adressse_livraison SET Nom =:nom, Prenom =:prenom, Num_tel=:num_tel, Num_rue=:num_rue,Nom_rue=:nom_rue, Code_postal=:code_postal,Ville=:ville,Pays=:pays WHERE ID_adresse_livraison =:ID_adresse_livraison');
 
-		$success = $query->execute(array(
-			':ID_item' => $id_a_modif,
-			':nom' => $_POST['name'],
-			':prenom' => $_POST['First_name'],
-			':num_tel' => $_POST['tel'],
-			':num_rue' => $_POST['num_rue'],
-			':nom_rue' => $_POST['rue'],
-			':code_postal' => $_POST['postal_code'],
-			':ville' => $_POST['ville'],
-			':pays' => $_POST['pays']
-
-		));
-
-
-
-	}
-*/
-	?>
 
 	</div>
 </div>
