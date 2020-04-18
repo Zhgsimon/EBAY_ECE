@@ -96,13 +96,13 @@ $req_adresse = $bdd->query("SELECT * FROM `adresse_livraison` WHERE `ID_user`='$
               <strong>Adresse</strong><br> <?php echo $adresse['Num_rue']?>  <?php echo $adresse['Nom_rue']?> <br>
               <strong>Ville</strong> <br><?php echo $adresse['Ville']?><br>
               <strong>Code Postal</strong> <br><?php echo $adresse['Code_postal']?> <br>
-              <strong>Pays</strong> <br> <?php echo $adresse['Pays']?> 
+              <strong>Pays</strong> <br> <?php echo $adresse['Pays']?>
             </p>
 
 					</div>
 					<div class="col-sm-5">
-						<a href="#deleteModal" class ="btn btn-black" style="float: right;" rel="modal:open" role="button" name="sup" value="<?php $adresse['ID_adresse_livraison']?>"><span class="glyphicon glyphicon-trash">Supprimer</span></a>
-						<a href="#" class="btn btn-black" style="float: right;" role="button"><span class="glyphicon glyphicon-pencil"></span> Modifier</a>
+						<a href="#deleteModal" class ="btn btn-black" style="float: right;" rel="modal:open" role="button" name="sup" value="<?php $adresse['ID_adresse_livraison']?>"><span class="glyphicon glyphicon-trash"></span>Supprimer</a>
+						<a href="#modifModal" class="btn btn-black" style="float: right;" rel="modal:open" role="button" name="modif" value="<?php $adresse['ID_adresse_livraison']?>"><span class="glyphicon glyphicon-pencil"></span> Modifier</a>
 					</div>
 
        </div>
@@ -137,6 +137,9 @@ $req_adresse = $bdd->query("SELECT * FROM `adresse_livraison` WHERE `ID_user`='$
  </div>
 </div>
 
+
+<!-- Modal suppression adresse de livraison-->
+
 <div id="deleteModal" class="modal">
 	<div class="modal-header">
 		<h4 class="modal-title"><strong><center>Êtes-vous sur de vouloir supprimer cette adresse?</center></strong></h5>
@@ -144,6 +147,7 @@ $req_adresse = $bdd->query("SELECT * FROM `adresse_livraison` WHERE `ID_user`='$
 	<div class="modal-body">
 		<center>Cette adresse est enregistrée comme votre adresse principale. Si vous la supprimer, elle ne vous sera plus suggérée lors de vos prochains achats.</center>
 	</div>
+
 	<div class="modal-footer">
 		<form class="" role ="form" method="post">
 		<div>
@@ -165,12 +169,67 @@ $req_adresse = $bdd->query("SELECT * FROM `adresse_livraison` WHERE `ID_user`='$
 		header('Location:moncompte_acheteur.php');
 
 	}
-	ob_end_flush();
+
 	?>
 	</div>
 </div>
 
-<?php include('includes/footer.php') ?>
+
+
+<!-- Modal modification adresse de livraison-->
+
+<div id="modifModal" class="modal">
+	<div class="modal-header">
+		<h4 class="modal-title"><strong><center>Êtes-vous sur de vouloir supprimer cette adresse?</center></strong></h5>
+	</div>
+	<div class="modal-body">
+		<center>Cette adresse est enregistrée comme votre adresse principale. Si vous la supprimer, elle ne vous sera plus suggérée lors de vos prochains achats.</center>
+	</div>
+
+	<div class="modal-footer">
+		<form class="" role ="form" method="post">
+		<div>
+			 <input type="hidden" name="keytodelete" value="<?php echo $adresse['ID_adresse_livraison']; ?>" required>
+			<input type="submit" class="btn btn-black" name="supprimer" value="Valider"></input> </div>
+		<input type="submit" class="btn btn-black" name="annuler" value="Annuler"></input>
+	</form>
+
+	<?php
+	if(isset($_POST['supprimer'])) {
+		$id_a_supprimer=$_POST['keytodelete'];
+		$query = $bdd->prepare('DELETE FROM adresse_livraison WHERE ID_adresse_livraison = :ID_adresse_livraison AND adresse_principale = :adresse_principale');
+		$success = $query->execute(array(
+			':ID_adresse_livraison' => $id_a_supprimer,
+			':adresse_principale' => 1
+				));
+
+
+		header('Location:moncompte_acheteur.php');
+
+	}
+
+	?>
+	</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<?php
+ob_end_flush();
+include('includes/footer.php') ?>
 
 
 
