@@ -108,12 +108,9 @@ $req_cb= $bdd->query("SELECT * FROM `infobancaire` WHERE `ID_user`='$id_user' AN
        </div>
 		 <?php } ?>
 <?php if ($cb=$req_cb->fetch()){ ?>
-       <div class="col-sm-12">
-         <div class="well">
-           <div id="options_paiement">
-             <a href="#" class="btn btn-black" style="float: right;" role="button"><span class="glyphicon glyphicon-trash"></span> Supprimer</a>
-             <a href="#" class="btn btn-black" style="float: right;" role="button"><span class="glyphicon glyphicon-pencil"></span> Modifier</a>
-          </div>
+       <div class="col-sm-12 well">
+         <div class="col-sm-7">
+
             <h3><span class ="glyphicon glyphicon-credit-card"></span> Vos informations de paiement </h3>
             <p>
 							<strong>Type de carte</strong><br><?php echo $cb['type_carte'] ?><br>
@@ -122,6 +119,10 @@ $req_cb= $bdd->query("SELECT * FROM `infobancaire` WHERE `ID_user`='$id_user' AN
               <strong>Date d'expiration</strong> <br><?php echo $cb['date_expir'] ?><br>
             </p>
          </div>
+				 <div class="col-sm-5">
+					 <a href="#" class="btn btn-black" style="float: right;" role="button"><span class="glyphicon glyphicon-trash"></span> Supprimer</a>
+					 <a href="#" class="btn btn-black" style="float: right;" role="button"><span class="glyphicon glyphicon-pencil"></span> Modifier</a>
+				</div>
        </div>
 
 		 <?php } ?>
