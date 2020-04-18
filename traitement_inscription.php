@@ -84,7 +84,7 @@ if ($test==true) {
   'Birthdate' => $_POST['Birthdate'],
   'User_privilege'=> '1'
   ));
-  header('Location: login.html');
+  header('Location: login.php');
 }
 
 ?>

@@ -83,7 +83,7 @@ color: #fff;
 
                   <button type="submit" id='submit'class="btn btn-black">Login</button>
 
-                  <a href="register.html" id="alink"target="blank"><button type="button" id='register'class="btn btn-secondary">Register</button></a>
+                  <a href="register.php" id="alink"target="blank"><button type="button" id='register'class="btn btn-secondary">Register</button></a>
 
 
                </form>

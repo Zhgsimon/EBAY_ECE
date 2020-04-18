@@ -119,7 +119,7 @@ opacity: 1;
           <img  src="img_items/lingotdor.jpg" alt="Image">
           <div class="carousel-caption">
             <h3>Mini lingo d'or</h3>
-            <div class="centered"><li><a href="Détailitem.html" class="aI"><h3>Détails item</h3></a></li></div>
+            <div class="centered"><li><a href="Détailitem.php" class="aI"><h3>Détails item</h3></a></li></div>
 
           </div>
         </div>
@@ -128,7 +128,7 @@ opacity: 1;
           <img  src="img_items/trainargenté.jpg" alt="Image">
           <div class="carousel-caption">
             <h3>Train en argent</h3>
-            <div class="centered"><li><a href="Détailitem.html" class="aI"><h3>Détails item</h3></a></li></div>
+            <div class="centered"><li><a href="Détailitem.php" class="aI"><h3>Détails item</h3></a></li></div>
 
           </div>
         </div>
@@ -140,7 +140,7 @@ opacity: 1;
           <img src="img_items/tableau_lion.jpg" alt="Image">
           <div class="carousel-caption">
             <h3>Tableau lion</h3>
-            <div class="centered"><li><a href="Détailitem.html" class="aI"><h3>Détails item</h3></a></li></div>
+            <div class="centered"><li><a href="Détailitem.php" class="aI"><h3>Détails item</h3></a></li></div>
 
 
           </div>
@@ -191,13 +191,13 @@ opacity: 1;
     <div class="col-sm-3">
        <img src="https://true-id.com/wp-content/uploads/2018/09/VIP-membership-different-angle-1890x1680.jpg" class="img-responsive" style="width:100%" alt="Image">
        <p>Carte Vip : accès toilette illimité</p>
-       <div class="centered"><li><a href="Détailitem.html" class="aI"><h3>Détails item</h3></a></li></div>
+       <div class="centered"><li><a href="Détailitem.php" class="aI"><h3>Détails item</h3></a></li></div>
   </div>
 
   <div class="col-sm-3">
     <img src="https://i.pinimg.com/736x/67/e7/16/67e7168e67762d603dca115e7974996b.jpg" class="img-responsive" style="width:100%" alt="Image">
     <p>Tigrou des bois</p>
-    <div class="centered"><li><a href="Détailitem.html" class="aI"><h3>Détails item</h3></a></li></div>
+    <div class="centered"><li><a href="Détailitem.php" class="aI"><h3>Détails item</h3></a></li></div>
   </div>
 
     <div class="col-sm-6">
@@ -228,7 +228,7 @@ opacity: 1;
     <div class="col-sm-2">
       <img src="img_items/papier_toilette.jpg" class="img-responsive" style="width:100%" alt="Image">
       <p>papier toilette insolite</p>
-      <div class="centered"><li><a href="Détailitem.html" class="aI"><h3>Détails item</h3></a></li></div>
+      <div class="centered"><li><a href="Détailitem.php" class="aI"><h3>Détails item</h3></a></li></div>
 
 
     </div>
@@ -236,7 +236,7 @@ opacity: 1;
     <div class="col-sm-2">
       <img src="img_items/ferraille.jpg" class="img-responsive" style="width:100%" alt="Image">
       <p>8kg de ferraille</p>
-      <div class="centered"><li><a href="Détailitem.html" class="aI"><h3>Détails item</h3></a></li></div>
+      <div class="centered"><li><a href="Détailitem.php" class="aI"><h3>Détails item</h3></a></li></div>
 
 
     </div>
@@ -245,14 +245,14 @@ opacity: 1;
     <div class="col-sm-2">
       <img src="img_items/tableau-singe-poker-sylvain-binet.jpg" class="img-responsive" style="width:100%" alt="Image">
       <p>Tableau : YOU</p>
-      <div class="centered"><li><a href="Détailitem.html" class="aI"><h3>Détails item</h3></a></li></div>
+      <div class="centered"><li><a href="Détailitem.php" class="aI"><h3>Détails item</h3></a></li></div>
 
     </div>
 
     <div class="col-sm-2">
       <img src="img_items/cocaine.jpg" class="img-responsive" style="width:100%" alt="Image">
       <p>Fake cocain, to shine in nightclub</p>
-        <div class="centered"><li><a href="Détailitem.html" class="aI"><h3>Détails item</h3></a></li></div>
+        <div class="centered"><li><a href="Détailitem.php" class="aI"><h3>Détails item</h3></a></li></div>
     </div>
 
 
@@ -262,7 +262,7 @@ opacity: 1;
     <div class="col-sm-2">
       <img src="img_items/briquet_beurette.jpg" class="img-responsive" style="width:100%" alt="Image">
       <p>Briquet Beurette</p>
-      <div class="centered"><li><a href="Détailitem.html" class="aI"><h3>Détails item</h3></a></li></div>
+      <div class="centered"><li><a href="Détailitem.php" class="aI"><h3>Détails item</h3></a></li></div>
     </div>
 
 
@@ -270,7 +270,7 @@ opacity: 1;
     <div class="col-sm-2">
       <img src="img_items/lv.jpg" class="img-responsive" style="width:100%" alt="Image">
       <p>Tableau : Luki/Vist</p>
-      <div class="centered"><li><a href="Détailitem.html" class="aI"><h3>Détails item</h3></a></li></div>
+      <div class="centered"><li><a href="Détailitem.php" class="aI"><h3>Détails item</h3></a></li></div>
     </div>
 
 
