@@ -51,7 +51,7 @@ $req_cb= $bdd->query("SELECT * FROM `infobancaire` WHERE `ID_user`='$id_user' AN
  <div class="row ">
    <div class="col-sm-4 well" style="margin-right:10px !important;" >
      <div class="well text-center">
-       <img src="pic.jpg" class="img-circle" height="65" width="65" alt="Photo">
+       <img src="img_projet/pic.jpg" class="img-circle" height="65" width="65" alt="Photo">
        <h4>
          <?php
           echo $_SESSION['Pseudo'];
