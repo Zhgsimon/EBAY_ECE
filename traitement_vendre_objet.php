@@ -74,7 +74,6 @@ if (isset($_POST['submit'])) {
     $req = $bdd->prepare('INSERT INTO item(name_item, pic1, video, description, Categorie, etat_vente, prix_nego_init,prix_immediat,prix_enchere_2,ID_vendeur)
     VALUES (:name_item, :pic1, :video, :description, :Categorie, :etat_vente, :prix_nego_init, :prix_immediat, :prix_enchere_2, :ID_vendeur)'); // préparation de la requête
 
-      $req->execute();
       if ($req->execute(array(
       'name_item' => $name_item,
       'pic1' => $pic1,
