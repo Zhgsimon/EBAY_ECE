@@ -183,64 +183,76 @@ $req_adresse = $bdd->query("SELECT * FROM `adresse_livraison` WHERE `ID_user`='$
 		<h4 class="modal-title"><strong><center>Modification de votre adresse principale</center></strong></h5>
 	</div>
 	<div class="modal-body">
+		<form action="traitement_moncompte.php" method="post">
+
 		            <div class="form-group">
 		              <label for="name"><span class="glyphicon glyphicon-user"></span> Nom</label>
-		              <input type="text" class="form-control" id="name" placeholder="Némar">
+		              <input type="text" class="form-control" required name="name" placeholder="Némar">
 		            </div>
 								<div class="form-group">
 		              <label for="First_name"><span class="glyphicon glyphicon-user"></span> Prénom</label>
-		              <input type="text" class="form-control" id="First_name" placeholder="Jean">
+		              <input type="text" class="form-control" required name="First_name" placeholder="Jean">
 		            </div>
 								<div class="form-group">
 		              <label for="num"><span class="glyphicon glyphicon-phone"></span> Numéro de téléphone</label>
-		              <input type="number" class="form-control" id="tel" placeholder="0600000000">
+		              <input type="number" class="form-control" required name="tel" placeholder="0600000000">
 		            </div>
 								<div class="form-group">
 		              <label for="num_rue"><span class="glyphicon glyphicon-envelope"></span> N° de rue</label>
-		              <input type="number" class="form-control" id="num_rue" placeholder="20">
+		              <input type="number" class="form-control" required name="num_rue" placeholder="20">
 		            </div>
 								<div class="form-group">
 		              <label for="rue"><span class="glyphicon glyphicon-envelope"></span> Nom de la rue</label>
-		              <input type="text" class="form-control" id="rue" placeholder="rue de la piscine">
+		              <input type="text" class="form-control" required name="rue" placeholder="rue de la piscine">
 		            </div>
 								<div class="form-group">
 		              <label for="postal_code"><span class="glyphicon glyphicon-envelope"></span> Code postal</label>
-		              <input type="number" class="form-control" id="postal_code" placeholder="75015">
+		              <input type="number" class="form-control" required name="postal_code" placeholder="75015">
 		            </div>
 								<div class="form-group">
 		              <label for="ville"><span class="glyphicon glyphicon-envelope"></span> Ville</label>
-		              <input type="text" class="form-control" id="ville" placeholder="Paris">
+		              <input type="text" class="form-control" required name="ville" placeholder="Paris">
 		            </div>
 								<div class="form-group">
 		              <label for="pays"><span class="glyphicon glyphicon-globe"></span> Pays</label>
-		              <input type="text" class="form-control" id="pays" placeholder="France">
+		              <input type="text" class="form-control" required name="pays" placeholder="France">
 		            </div>
 
 		         	</div>
 
 	<div class="modal-footer">
-		<form class="" role ="form" method="post">
 		<div>
 			 <input type="hidden" name="keytomodif" value="<?php echo $adresse['ID_adresse_livraison']; ?>" required>
-			<input type="submit" class="btn btn-black" name="supprimer" value="Valider"></input> </div>
-		<input type="submit" class="btn btn-black" name="annuler" value="Annuler"></input>
+			<input type="submit" class="btn btn-black" name="Modifier" value="Valider"></input> </div>
+		<a href="moncompte_acheteur.php" id="alink"target="blank"><button type="button" id='cancel' class="btn btn-black" name="annuler" value="Annuler">Annuler</input>
+
+
 	</form>
+	<?php/*
+	if(isset($_POST['Modifier'])) {
+		echo "je suis la";
+		$id_a_modif=$_POST['keytomodif'];
+		$query = $bdd->prepare('UPDATE adressse_livraison SET Nom =:nom, Prenom =:prenom, Num_tel=:num_tel, Num_rue=:num_rue,Nom_rue=:nom_rue, Code_postal=:code_postal,Ville=:ville,Pays=:pays WHERE ID_adresse_livraison =:ID_adresse_livraison');
 
-	<?php
-	if(isset($_POST['supprimer'])) {
-		$id_a_supprimer=$_POST['keytodelete'];
-		$query = $bdd->prepare('DELETE FROM adresse_livraison WHERE ID_adresse_livraison = :ID_adresse_livraison AND adresse_principale = :adresse_principale');
 		$success = $query->execute(array(
-			':ID_adresse_livraison' => $id_a_supprimer,
-			':adresse_principale' => 1
-				));
+			':ID_item' => $id_a_modif,
+			':nom' => $_POST['name'],
+			':prenom' => $_POST['First_name'],
+			':num_tel' => $_POST['tel'],
+			':num_rue' => $_POST['num_rue'],
+			':nom_rue' => $_POST['rue'],
+			':code_postal' => $_POST['postal_code'],
+			':ville' => $_POST['ville'],
+			':pays' => $_POST['pays']
+
+		));
 
 
-		header('Location:moncompte_acheteur.php');
 
 	}
-
+*/
 	?>
+
 	</div>
 </div>
 
