@@ -1,4 +1,29 @@
+<?php
+  session_start();
+?>
+
 <?php include('includes/header.php'); ?>
+<style>
+
+
+.login-form{
+    margin-top: 5%;
+}
+
+.btn-black{
+background-color: #000 !important;
+color: #fff;
+}
+
+</style>
+
+</head>
+<body>
+
+  <nav class="navbar navbar-inverse">
+  <?php include('includes/nav.php'); ?>
+  </nav>
+
 <!--login-->
 <div class="container">
 
@@ -81,7 +106,8 @@
     <div class="containerblanc">
 
 
-      <h1>AEZFAZEFAZ</h1>
+      <h1>Je suis OK</h1>
+      <h1>J'aime les bananes</h1>
 
      </div>
 

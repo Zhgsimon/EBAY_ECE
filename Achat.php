@@ -1,4 +1,18 @@
-<?php include('includes/header.php') ?>
+<?php
+  session_start();
+?>
+
+<?php include('includes/header.php'); ?>
+<style>
+
+</style>
+</head>
+<body>
+
+  <nav class="navbar navbar-inverse">
+  <?php include('includes/nav.php'); ?>
+  </nav>
+
   <div class="container">
     <h2> Historique d'achat </h2>
 
@@ -35,4 +49,4 @@
 
 
 
-<?php include('includes/footer.php') ?>
+<?php include('includes/footer.php'); ?>

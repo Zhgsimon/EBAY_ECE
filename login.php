@@ -1,4 +1,57 @@
-<?php include('includes/header.php') ?>
+<?php
+  session_start();
+?>
+
+<?php include('includes/header.php'); ?>
+<style>
+#alink{
+color: black;
+}
+
+
+
+
+.main {
+padding: 0px 10px;
+}
+
+
+@media screen and (max-width: 450px) {
+  .login-form{
+  margin-top: 10%;
+  }
+}
+
+@media screen and (min-width: 768px){
+  .main{margin-left: 40%;}
+  .login-form{margin-top: 10%;}
+}
+
+
+.login-main-text{
+margin-top: 20%;
+padding: 60px;
+color: #fff;
+}
+
+.login-main-text h2{
+font-weight: 300;
+}
+
+.btn-black{
+background-color: #000 !important;
+color: #fff;
+}
+
+
+</style>
+</head>
+
+<body>
+
+  <nav class="navbar navbar-inverse">
+  <?php include('includes/nav.php'); ?>
+  </nav>
 
 <!--login-->
 <div class="container">
@@ -45,6 +98,7 @@
       <h1>AEZFAZEFAZ</h1>
       <h1>AEZFAZEFAZ</h1>
       <h2>AEZFAZEFAZ</h2>
+      <h2>AEZFAZEFAZ</h2>
       <h4>AEZFAZEFAZ</h4>
 
 
@@ -55,4 +109,4 @@
 </div>
 
 
-<?php include('includes/footer.php') ?>
+<?php include('includes/footer.php'); ?>

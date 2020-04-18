@@ -10,34 +10,36 @@
   <style>
     /* Add a gray background color and some padding to the footer */
 
+  footer {
+    background-color: #E5E4EA ;
+  }
+
+  body {
+    font-family: "Lato", sans-serif;
+  }
 
 
-
-footer {
-  background-color: #E5E4EA ;
-  color: #E5E4EA
-  
-}
-
-
-body {
-  font-family: "Lato", sans-serif;
-}
-
-
-.containerblanc{
-  color: white;
-}
+  .containerblanc{
+    color: white;
+  }
 
 </style>
 
-
-</head>
-<body>
-
+<script>
+    $(document).ready(function(){
 
 
+      $("#1").click(function(){
 
-  <nav class="navbar navbar-inverse">
-  <?php include('includes/nav.php') ?>
-  </nav>
+          $("#2").css("display", "block");
+          $("#3").css("display", "none");
+      });
+
+      $("#4").click(function(){
+
+          $("#2").css("display", "none");
+          $("#3").css("display", "block");
+
+      });
+    });
+</script>

@@ -1,17 +1,101 @@
-<head>
-  <style>
+<?php
+  session_start();
+?>
 
-    .aCat{
+<?php include('includes/header.php'); ?>
+<style>
 
-      color: black;
+.aCat{
+  color: black;
+}
 
-    }
+.carousel-inner img {
+ width: 800px !important;
+ height: 400px !important;
+}
+
+/* Hide the carousel text when the screen is less than 600 pixels wide */
+@media (max-width: 600px) {
+ .carousel-caption {
+   display: none;
+ }
+
+}
+.img-responsive {
+     opacity: 1;
+     display: block;
+     width: 100%;
+   height: auto;
+     transition: .5s ease;
+     backface-visibility: hidden;
+
+}
+
+.col-sm-2:hover .img-responsive{
+ filter: brightness(35%);
+}
+
+.centered {
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+opacity: 0;
+transition: .5s ease;
+}
+
+.col-sm-2:hover .centered{
+ opacity: 1;
+}
+
+li {
+ display: inline;
+}
+.aI:link, .aI:visited, .aI:focus {
+  background: rgba(255, 0, 0, 0.);
+  width: 100%
+}
+
+.aI:hover {
+  background: rgba(255, 0, 0, 0.);
+  color: #E6E6E6
+}
+
+.aI:active {
+  background: rgba(255, 0, 0, 0.);
+  color: #E6E6E6 ;
+}
+
+.aI {
+  outline: none;
+  text-decoration: none;
+  display: inline-block;
+  width: 19.5%;
+  margin-right: 0.625%;
+  text-align: center;
+  line-height: 3;
+  color: white;
+}
 
 
-  </style>
-<head>
+.col-sm-3:hover .img-responsive{
+filter: brightness(35%);
+}
 
-<?php include('includes/header.php') ?>
+.col-sm-3:hover .centered{
+opacity: 1;
+}
+
+
+</style>
+</head>
+
+
+<body>
+
+  <nav class="navbar navbar-inverse">
+  <?php include('includes/nav.php'); ?>
+  </nav>
 
 <div class="container">
 <div class="row">
@@ -35,6 +119,7 @@
           <img  src="img_items/lingotdor.jpg" alt="Image">
           <div class="carousel-caption">
             <h3>Mini lingo d'or</h3>
+            <div class="centered"><li><a href="Détailitem.html" class="aI"><h3>Détails item</h3></a></li></div>
 
           </div>
         </div>
@@ -43,6 +128,7 @@
           <img  src="img_items/trainargenté.jpg" alt="Image">
           <div class="carousel-caption">
             <h3>Train en argent</h3>
+            <div class="centered"><li><a href="Détailitem.html" class="aI"><h3>Détails item</h3></a></li></div>
 
           </div>
         </div>
@@ -54,7 +140,7 @@
           <img src="img_items/tableau_lion.jpg" alt="Image">
           <div class="carousel-caption">
             <h3>Tableau lion</h3>
-
+            <div class="centered"><li><a href="Détailitem.html" class="aI"><h3>Détails item</h3></a></li></div>
 
 
           </div>

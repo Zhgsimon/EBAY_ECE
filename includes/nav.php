@@ -30,11 +30,11 @@
       <?php endif; ?>
 
       <?php if( isset($_SESSION['ID_user'])) :?>
-        <?php if ($_SESSION['User_privilege']==1): ?>
+        <?php if ($_SESSION['User_privilege']==2): ?>
           <!--affichage pour les vendeurs-->
 
           <!--Mettre en vente un objet-->
-          <li><a href="vendre_objet.php">Vendre un objet</a></li>
+          <li><a href="vendre_objets.php">Vendre un objet</a></li>
           <!--Liste de vos items en vente-->
           <li><a href="objet_en_vente.php">Vos objets en vente</a></li>
           <!--Onglet Négociation-->
