@@ -28,7 +28,11 @@ $adresse=$req_adresse->fetch();
 
 
 <?php include('includes/header.php') ?>
-
+<!-- jQuery Modal -->
+<head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+</head>
 
 
 <div class="container">
@@ -126,6 +130,19 @@ $adresse=$req_adresse->fetch();
 
 
  </div>
+</div>
+
+<div id="deleteModal" class="modal">
+	<div class="modal-header">
+		<h4 class="modal-title"><strong><center>Êtes-vous sur de vouloir supprimer cette adresse?</center></strong></h5>
+	</div>
+	<div class="modal-body">
+		<center>Cette adresse est enregistrée comme votre adresse principale. Si vous la supprimer, elle ne vous sera plus suggérée lors de vos prochains achats.</center>
+	</div>
+	<div class="modal-footer">
+		<input type="submit" class="btn btn-black" name="valider" value="Valider"></input> </input>
+		<input type="submit" class="btn btn-black" name="annuler" value="Annuler"></input>
+	</div>
 </div>
 
 <?php include('includes/footer.php') ?>
