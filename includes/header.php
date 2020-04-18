@@ -138,9 +138,6 @@ input {
 }
 
 
-
-
-
 </style>
 
 <script>
@@ -150,13 +147,13 @@ input {
       $("#1").click(function(){
 
           $("#2").css("display", "block");
-          $("#3").css("display", "block");
+          $("#3").css("display", "none");
       });
 
       $("#4").click(function(){
 
           $("#2").css("display", "none");
-          $("#3").css("display", "none");
+          $("#3").css("display", "block");
 
       });
     });
@@ -170,5 +167,5 @@ input {
 
 
   <nav class="navbar navbar-inverse">
-  <?php include('includes/nav.php') ?>
+  <?php include('includes/nav.php'); ?>
   </nav>

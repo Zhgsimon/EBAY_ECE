@@ -54,7 +54,7 @@ $password=$_POST['password'];
 	}
 
   $rep->closeCursor();
-	<
+	
 
 
 ?>

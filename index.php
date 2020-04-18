@@ -1,14 +1,5 @@
 <?php
-session_start();
-if (isset($_SESSION['ID_user'])) {
-  if ($_SESSION['User_privilege']=='1') {
-    $my_profile = 'profile.php';
-  }
-  else {
-    $my_profile = 'profile_t.php';
-  }
-}
-
+  session_start();
 ?>
 <?php include('includes/header.php') ?>
 
