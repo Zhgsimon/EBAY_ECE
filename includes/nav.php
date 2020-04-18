@@ -24,7 +24,7 @@
           <!--Panier-->
           <li><a href="Panier.php">Panier</a></li>
           <!--Espace compte acheteur-->
-          <li><a href="espacemoncompte_acheteur/moncompte_acheteur.php">Votre compte</a></li>
+          <li><a href="moncompte_acheteur.php">Votre compte</a></li>
 
         <?php endif; ?>
       <?php endif; ?>
