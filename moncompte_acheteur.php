@@ -180,16 +180,48 @@ $req_adresse = $bdd->query("SELECT * FROM `adresse_livraison` WHERE `ID_user`='$
 
 <div id="modifModal" class="modal">
 	<div class="modal-header">
-		<h4 class="modal-title"><strong><center>Êtes-vous sur de vouloir supprimer cette adresse?</center></strong></h5>
+		<h4 class="modal-title"><strong><center>Modification de votre adresse principale</center></strong></h5>
 	</div>
 	<div class="modal-body">
-		<center>Cette adresse est enregistrée comme votre adresse principale. Si vous la supprimer, elle ne vous sera plus suggérée lors de vos prochains achats.</center>
-	</div>
+		            <div class="form-group">
+		              <label for="name"><span class="glyphicon glyphicon-user"></span> Nom</label>
+		              <input type="text" class="form-control" id="name" placeholder="Némar">
+		            </div>
+								<div class="form-group">
+		              <label for="First_name"><span class="glyphicon glyphicon-user"></span> Prénom</label>
+		              <input type="text" class="form-control" id="First_name" placeholder="Jean">
+		            </div>
+								<div class="form-group">
+		              <label for="num"><span class="glyphicon glyphicon-phone"></span> Numéro de téléphone</label>
+		              <input type="number" class="form-control" id="tel" placeholder="0600000000">
+		            </div>
+								<div class="form-group">
+		              <label for="num_rue"><span class="glyphicon glyphicon-envelope"></span> N° de rue</label>
+		              <input type="number" class="form-control" id="num_rue" placeholder="20">
+		            </div>
+								<div class="form-group">
+		              <label for="rue"><span class="glyphicon glyphicon-envelope"></span> Nom de la rue</label>
+		              <input type="text" class="form-control" id="rue" placeholder="rue de la piscine">
+		            </div>
+								<div class="form-group">
+		              <label for="postal_code"><span class="glyphicon glyphicon-envelope"></span> Code postal</label>
+		              <input type="number" class="form-control" id="postal_code" placeholder="75015">
+		            </div>
+								<div class="form-group">
+		              <label for="ville"><span class="glyphicon glyphicon-envelope"></span> Ville</label>
+		              <input type="text" class="form-control" id="ville" placeholder="Paris">
+		            </div>
+								<div class="form-group">
+		              <label for="pays"><span class="glyphicon glyphicon-globe"></span> Pays</label>
+		              <input type="text" class="form-control" id="pays" placeholder="France">
+		            </div>
+
+		         	</div>
 
 	<div class="modal-footer">
 		<form class="" role ="form" method="post">
 		<div>
-			 <input type="hidden" name="keytodelete" value="<?php echo $adresse['ID_adresse_livraison']; ?>" required>
+			 <input type="hidden" name="keytomodif" value="<?php echo $adresse['ID_adresse_livraison']; ?>" required>
 			<input type="submit" class="btn btn-black" name="supprimer" value="Valider"></input> </div>
 		<input type="submit" class="btn btn-black" name="annuler" value="Annuler"></input>
 	</form>
