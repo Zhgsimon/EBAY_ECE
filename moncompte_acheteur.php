@@ -16,7 +16,9 @@ catch (Exception $e)
 $req = bdd->query('SELECT name, First_name, login, password, pseudo, photo, Num_tel, Birthdate FROM user WHERE ID_User = '1' ');
 $info=$req->fetch();
 */
-
+$id_user=$_SESSION['ID_user'];
+$req_adresse = $bdd->query("SELECT * FROM `adresse_livraison` WHERE `ID_user`='$id_user' AND `adresse_principale` = 1");
+$adresse=$req_adresse->fetch();
 
 
 ?>
@@ -77,16 +79,11 @@ $info=$req->fetch();
    <div class="col-sm-7">
      <div class="row">
 
-       <div class="col-sm-12">
-         <div class="well">
-           <a href="#" class="btn btn-black" style="float: right;" role="button"><span class="glyphicon glyphicon-pencil"></span> Modifier</a>
+       <div class="col-sm-12 well">
+					 <div class= "col-sm-10">
            <h3><span class ="glyphicon glyphicon-plane"></span> Vos informations de livraison </h3>
             <p>
-							<?php
-							$id_user=$_SESSION['ID_user'];
-							$req_adresse = $bdd->query("SELECT * FROM `adresse_livraison` WHERE `ID_user`='$id_user' AND `adresse_principale` = 1");
-							$adresse=$req_adresse->fetch();
-							 ?>
+
               <strong>Nom</strong><br><?php echo $adresse['Nom']?><br>
               <strong>Prenom</strong><br><?php echo $adresse['Prenom']?><br>
               <strong>Numero de téléphone</strong><br>0<?php echo $adresse['Num_tel']?> <br>
@@ -95,7 +92,11 @@ $info=$req->fetch();
               <strong>Code Postal</strong> <br><?php echo $adresse['Code_postal']?> <br>
               <strong>Pays</strong> <br> <?php echo $adresse['Pays']?>
             </p>
-         </div>
+					</div>
+					<div class="col-sm-2">
+						<a href="#" class="btn btn-black" style="float: right;" role="button"><span class="glyphicon glyphicon-pencil"></span> Modifier</a>
+						<a href="#deleteModal" class ="btn btn-black" style="float: right;" rel="modal:open" role="button" name="sup" value="<?php $adresse['ID_adresse_livraison']?>"><span class="glyphicon glyphicon-trash">Supprimer</span></a>
+					</div>
        </div>
 
        <div class="col-sm-12">
