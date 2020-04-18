@@ -151,11 +151,13 @@ $adresse=$req_adresse->fetch();
 	<?php
 	if(isset($_POST['supprimer'])) {
 		$id_a_supprimer=$_POST['keytodelete'];
-		$query = $bdd->prepare('UPDATE adresse_livraison SET Nom_rue =:Nom_rue WHERE ID_adresse_livraison=:ID_adresse_livraison');
+		$query = $bdd->prepare('DELETE FROM adresse_livraison WHERE ID_adresse_livraison = :ID_adresse_livraison AND adresse_principale = :adresse_principale');
 		$success = $query->execute(array(
 			':ID_adresse_livraison' => $id_a_supprimer,
-			':Nom_rue' => 'test'
-		));
+			':adresse_principale' => 1
+				));
+
+			
 		header('Location:moncompte_acheteur.php');
 
 	}
