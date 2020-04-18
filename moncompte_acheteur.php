@@ -30,52 +30,8 @@ $info=mysqli_fetch_assoc($result);
 
 
 
+<?php include('includes/header.php') ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <title>Mon compte</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="moncompte_acheteur.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-</head>
-
-
-<body>
-
-<!-- //barre de navigation du haut -->
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#">Logo</a>
-    </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav" id="menu">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Catégories</a></li>
-        <li><a href="#">Achat</a></li>
-        <li><a href="#">Vendre</a></li>
-        <li class="active"><a href="#">Votre compte</a></li>
-        <li><a href="#">Panier</a></li>
-        <li><a href="#">Admin</a></li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
 
 
 <div class="container">
@@ -171,31 +127,8 @@ $info=mysqli_fetch_assoc($result);
  </div>
 </div>
 
-<footer class="container-fluid text-center">
+<?php include('includes/footer.php') ?>
 
-  <div class="container">
- <div class="row">
- <div class="col-lg-8 col-md-8 col-sm-12">
- <h6><b>Information additionnelle</b></h6>
- <p>
-Adolf Hitler [ˈadɔlf ˈhɪtlɐ]3 Écouter est un idéologue et homme d'État allemand, né le 20 avril 1889 à Braunau am Inn en Autriche-Hongrie (aujourd'hui en Autriche et toujours ville-frontière avec l’Allemagne) et mort par suicide le 30 avril 1945 à Berlin. Fondateur et figure centrale du nazisme, il prend le pouvoir en Allemagne en 1933 et instaure une dictature totalitaire, impérialiste, antisémite et raciste désignée sous le nom de Troisième Reich.
-</p>
- <p>
- L’antisémitisme est le nom donné de nos jours à la discrimination et à l'hostilité manifestées à l'encontre des Juifs
- </p>
- </div>
- <div class="col-lg-4 col-md-4 col-sm-12">
- <h6><b>Contact</b></h6>
- <p>
- 37, quai de Grenelle, 75015 Paris, France <br>
- info@webDynamique.ece.fr <br>
- +33 01 02 03 04 05 <br>
- +33 01 03 02 05 04
- </p>
- </div>
- </div>
- <div class="footer-copyright text-center">&copy; 2019 Copyright | Droit d'auteur: webDynamique.ece.fr</div>
-</footer>
 
 
 </body>
