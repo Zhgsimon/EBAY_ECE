@@ -121,7 +121,7 @@ $req_cb= $bdd->query("SELECT * FROM `infobancaire` WHERE `ID_user`='$id_user' AN
          </div>
 				 <div class="col-sm-5">
 					 <a href="#deleteCBModal" class="btn btn-black" style="float: right;" rel="modal:open" role="button" name="supCB" value="<?php $cb['ID_infobancaire']?>"><span class="glyphicon glyphicon-trash"></span> Supprimer</a>
-					 <a href="#" class="btn btn-black" style="float: right;" rel=role="button"><span class="glyphicon glyphicon-pencil"></span> Modifier</a>
+					 <a href="#modifCBModal" class="btn btn-black" style="float: right;" rel="modal:open" role="button" name="modifCB"  value="<?php $cb['ID_infobancaire']?>"><span class="glyphicon glyphicon-pencil"></span> Modifier</a>
 				</div>
        </div>
 
@@ -274,7 +274,51 @@ $req_cb= $bdd->query("SELECT * FROM `infobancaire` WHERE `ID_user`='$id_user' AN
 	</div>
 </div>
 
+<!-- Modal modification adresse de livraison-->
 
+<div id="modifCBModal" class="modal">
+	<div class="modal-header">
+		<h4 class="modal-title"><strong><center>Modification de votre carte principale</center></strong></h5>
+	</div>
+	<div class="modal-body">
+		<form action="traitement_moncompte.php" method="post">
+
+		            <div class="form-group">
+		              <label for="name"><span class="glyphicon glyphicon-user"></span> Nom sur la carte</label>
+		              <input type="text" class="form-control" required name="name" placeholder="Jean Némar">
+		            </div>
+								<div class="form-group">
+		              <label for="type"><span class="glyphicon glyphicon-credit-card"></span> Type</label>
+		              <input type="text" class="form-control" required name="type" placeholder="Visa">
+		            </div>
+								<div class="form-group">
+		              <label for="num"><span class="glyphicon glyphicon-credit-card"></span> Numéro de carte</label>
+		              <input type="text" class="form-control" required name="num" placeholder="1111 2222 3333 4444">
+		            </div>
+								<div class="form-group">
+		              <label for="date_exp"><span class="glyphicon glyphicon-calendar"></span> Date d'expiration</label>
+		              <input type="text" class="form-control" required name="date_exp" placeholder="05/20">
+		            </div>
+								<div class="form-group">
+		              <label for="CVV"><span class="glyphicon glyphicon-credit-card"></span> CVV</label>
+		              <input type="number" class="form-control" required name="cvv" placeholder="357">
+		            </div>
+								
+
+		         	</div>
+
+	<div class="modal-footer">
+		<div>
+			 <input type="hidden" name="keytomodif" value="<?php echo $adresse['ID_adresse_livraison']; ?>" required>
+			<button type="submit" class="btn btn-black pull-right" name="Modifier" value="Valider"> <span class="glyphicon glyphicon-ok"></span> Valider</button> </div>
+			<button type="submit" class="btn btn-black pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Annuler</button>
+
+
+	</form>
+
+
+	</div>
+</div>
 
 
 
