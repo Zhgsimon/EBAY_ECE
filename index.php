@@ -1,15 +1,16 @@
-<?php
-session_start();
-if (isset($_SESSION['ID_user'])) {
-  if ($_SESSION['User_privilege']=='1') {
-    $my_profile = 'profile.php';
-  }
-  else {
-    $my_profile = 'profile_t.php';
-  }
-}
+<head>
+  <style>
 
-?>
+    .aCat{
+
+      color: black;
+
+    }
+
+
+  </style>
+<head>
+
 <?php include('includes/header.php') ?>
 
 <div class="container">
@@ -78,14 +79,14 @@ if (isset($_SESSION['ID_user'])) {
     <center><h2>Catégories</h2></center>
 
     <div class="well" style="position: relative; top: 30px">
-      <li ><a href="Catégories Ferraille" >Ferraille ou Trésor</a></li>
+      <li ><a href="Catégories Ferraille" class="aCat">Ferraille ou Trésor</a></li>
 
     </div>
     <div class="well" style="position: relative; top: 50px">
-       <li><a href="Catégories Musée">Bon pour le Musée</a></li>
+       <li><a href="Catégories Musée" class="aCat">Bon pour le Musée</a></li>
     </div>
     <div class="well" style="position: relative; top: 70px">
-      <li><a href="Catégories VIP"> Accessoire VIP</a></li>
+      <li><a href="Catégories VIP"class="aCat"> Accessoire VIP</a></li>
     </div>
   </div>
 
@@ -102,15 +103,16 @@ if (isset($_SESSION['ID_user'])) {
 
 
     <div class="col-sm-3">
-      <img src="img_items/cartevip.jpg" class="img-responsive" style="width:100%" alt="Image">
-      <div class="caption"><p>Carte Vip : accès toilette illimité</p></div>
+       <img src="https://true-id.com/wp-content/uploads/2018/09/VIP-membership-different-angle-1890x1680.jpg" class="img-responsive" style="width:100%" alt="Image">
+       <p>Carte Vip : accès toilette illimité</p>
+       <div class="centered"><li><a href="Détailitem.html" class="aI"><h3>Détails item</h3></a></li></div>
+  </div>
 
-    </div>
-
-    <div class="col-sm-3">
-      <img src="img_items/lion_sculpture_bois.jpg" class="img-responsive" style="width:100%" alt="Image">
-      <p>Tigrou des bois</p>
-    </div>
+  <div class="col-sm-3">
+    <img src="https://i.pinimg.com/736x/67/e7/16/67e7168e67762d603dca115e7974996b.jpg" class="img-responsive" style="width:100%" alt="Image">
+    <p>Tigrou des bois</p>
+    <div class="centered"><li><a href="Détailitem.html" class="aI"><h3>Détails item</h3></a></li></div>
+  </div>
 
     <div class="col-sm-6">
       <div class="well">
@@ -133,42 +135,59 @@ if (isset($_SESSION['ID_user'])) {
 </div>
 
 <div class="container text-center">
-  <h3>Nos meilleures ventes</h3>
+  <h3>Notre sélection du moment</h3>
   <br>
   <div class="row">
 
     <div class="col-sm-2">
       <img src="img_items/papier_toilette.jpg" class="img-responsive" style="width:100%" alt="Image">
       <p>papier toilette insolite</p>
+      <div class="centered"><li><a href="Détailitem.html" class="aI"><h3>Détails item</h3></a></li></div>
+
+
     </div>
 
     <div class="col-sm-2">
       <img src="img_items/ferraille.jpg" class="img-responsive" style="width:100%" alt="Image">
       <p>8kg de ferraille</p>
+      <div class="centered"><li><a href="Détailitem.html" class="aI"><h3>Détails item</h3></a></li></div>
+
+
     </div>
 
 
     <div class="col-sm-2">
       <img src="img_items/tableau-singe-poker-sylvain-binet.jpg" class="img-responsive" style="width:100%" alt="Image">
       <p>Tableau : YOU</p>
+      <div class="centered"><li><a href="Détailitem.html" class="aI"><h3>Détails item</h3></a></li></div>
+
     </div>
 
     <div class="col-sm-2">
       <img src="img_items/cocaine.jpg" class="img-responsive" style="width:100%" alt="Image">
       <p>Fake cocain, to shine in nightclub</p>
+        <div class="centered"><li><a href="Détailitem.html" class="aI"><h3>Détails item</h3></a></li></div>
     </div>
+
+
 
 
 
     <div class="col-sm-2">
       <img src="img_items/briquet_beurette.jpg" class="img-responsive" style="width:100%" alt="Image">
       <p>Briquet Beurette</p>
+      <div class="centered"><li><a href="Détailitem.html" class="aI"><h3>Détails item</h3></a></li></div>
     </div>
+
+
 
     <div class="col-sm-2">
       <img src="img_items/lv.jpg" class="img-responsive" style="width:100%" alt="Image">
       <p>Tableau : Luki/Vist</p>
+      <div class="centered"><li><a href="Détailitem.html" class="aI"><h3>Détails item</h3></a></li></div>
     </div>
+
+
 
 
   </div>

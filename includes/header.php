@@ -10,90 +10,20 @@
   <style>
     /* Add a gray background color and some padding to the footer */
 
-a{
-  color: black;
-}
 
-nav{
-  background-color: #070239 ;
-}
 
 
 footer {
   background-color: #E5E4EA ;
   color: #E5E4EA
-  padding: 60px 0 30px;
-  footer {position: absolute; bottom: 0;}
+  
 }
 
-.carousel-inner img {
-  width: 800px;
-  height: 400px;
-}
-
-/* Hide the carousel text when the screen is less than 600 pixels wide */
-@media (max-width: 600px){
-  .carousel-caption {
-  display: none;
-  }
-}
-
-
-#alink{
-  color: black;
-}
 
 body {
   font-family: "Lato", sans-serif;
 }
 
-.main-head{
-  height: 150px;
-  background: #FFF;
-}
-
-.sidenav {
-height: 100%;
-background-color: #070239;
-overflow-x: hidden;
-padding-top: 20px;
-}
-
-.main {
-  padding: 0px 10px;
-}
-
-@media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
-}
-
-@media screen and (max-width: 450px) {
-  .login-form{margin-top: 5%;}
-  .register-form{margin-top: 5%;}
-}
-
-@media screen and (min-width: 768px){
-  .main{margin-left: 0%;}
-
-.login-form{margin-top: 5%;}
-
-.register-form{margin-top: 5%;}
-}
-
-.login-main-text{
-  margin-top: 10%;
-  padding: 60px;
-  color: #fff;
-}
-
-.login-main-text h2{
-  font-weight: 300;
-}
-
-.btn-black{
-  background-color: #000 !important;
-  color: #fff;
-}
 
 .containerblanc{
   color: white;
