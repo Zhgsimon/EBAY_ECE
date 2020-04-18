@@ -19,7 +19,6 @@ $info=$req->fetch();
 */
 $id_user=$_SESSION['ID_user'];
 $req_adresse = $bdd->query("SELECT * FROM `adresse_livraison` WHERE `ID_user`='$id_user' AND `adresse_principale` = 1");
-$adresse=$req_adresse->fetch();
 
 
 ?>
@@ -83,12 +82,14 @@ $adresse=$req_adresse->fetch();
 
    <div class="col-sm-7">
      <div class="row">
+			 <?php if ($adresse=$req_adresse->fetch()){ ?>
 
        <div class="col-sm-12 well">
+
 					 <div class= "col-sm-7">
+
            <h3><span class ="glyphicon glyphicon-plane"></span> Vos informations de livraison </h3>
             <p>
-
               <strong>Nom</strong><br><?php echo $adresse['Nom']?><br>
               <strong>Prenom</strong><br><?php echo $adresse['Prenom']?><br>
               <strong>Numero de téléphone</strong><br>0<?php echo $adresse['Num_tel']?> <br>
@@ -97,12 +98,15 @@ $adresse=$req_adresse->fetch();
               <strong>Code Postal</strong> <br><?php echo $adresse['Code_postal']?> <br>
               <strong>Pays</strong> <br> <?php echo $adresse['Pays']?>
             </p>
+
 					</div>
 					<div class="col-sm-5">
 						<a href="#deleteModal" class ="btn btn-black" style="float: right;" rel="modal:open" role="button" name="sup" value="<?php $adresse['ID_adresse_livraison']?>"><span class="glyphicon glyphicon-trash">Supprimer</span></a>
 						<a href="#" class="btn btn-black" style="float: right;" role="button"><span class="glyphicon glyphicon-pencil"></span> Modifier</a>
 					</div>
+
        </div>
+		 <?php } ?>
 
        <div class="col-sm-12">
          <div class="well">
@@ -157,7 +161,7 @@ $adresse=$req_adresse->fetch();
 			':adresse_principale' => 1
 				));
 
-			
+
 		header('Location:moncompte_acheteur.php');
 
 	}
