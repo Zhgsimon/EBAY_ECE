@@ -56,11 +56,11 @@
           <!--affichage pour les admins-->
 
           <!--Liste des vendeurs-->
-          <li><a href="espace_admin/admin_vendeurs.php">Vendeurs</a></li>
+          <li><a href="admin_vendeurs.php">Vendeurs</a></li>
           <!--Liste des items-->
-          <li><a href="espace_admin/item.php">Item</a></li>
+          <li><a href="admin_item.php">Item</a></li>
           <!--FAQ admin-->
-          <li><a href="espace_admin/aide.php">Aide</a></li>
+          <li><a href="aide_admin.php">Aide</a></li>
 
 
         <?php endif; ?>

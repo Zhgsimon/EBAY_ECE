@@ -25,95 +25,30 @@ $req_vendeur_signale = $bdd->query('SELECT ID_user, name, First_name, login, pse
 
 
 
-
-
-<!DOCTYPE html>
-<html lang="en">
+<?php include('includes/header.php') ?>
+<nav class="navbar navbar-inverse">
+<?php include('includes/nav.php'); ?>
+</nav>
+<!-- jQuery Modal -->
 <head>
-  <title>Mon compte</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <!-- Remember to include jQuery :) -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
-    <!-- jQuery Modal -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
-  <style>
-    nav{
-     background-color: _#070239 ;
-    }
-
-    body {
-      font-family: "Lato", sans-serif;
-    }
-
-    a{
-      color: black;
-    }
-
-    .alink{
-      color: black;
-    }
-
-
-
-    .btn-black{
-      background-color: #000 !important;
-      color: #fff;
-      margin-bottom: 5px ;
-      margin-right: 5px;
-      float: right;
-    }
-
-    footer{
-      background-color: #E5E4EA ;
-      color: #E5E4EA
-      padding: 60px 0 30px;
-    }
-  </style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+<style>
+.btn-black{
+	background-color: #000 !important;
+	color: #fff;
+	margin-bottom: 5px ;
+	margin-right: 5px;
+	float: right;
+}
+</style>
 </head>
-
-
-
-<!-- //barre de navigation du haut -->
-<body>
-  <nav class="navbar navbar-inverse">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="#">Votre espace admin</a>
-      </div>
-      <div class="collapse navbar-collapse" id="myNavbar">
-        <ul class="nav navbar-nav" id="menu">
-          <li class= active><a href="admin_vendeurs.php">Vendeurs</a></li>
-          <li><a href="admin_item.php">Item</a></li>
-          <li><a href="aide.php">Aide</a></li>
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-          <li><a href="../index.php"><span class="glyphicon glyphicon-log-out"></span> Quitter mon espace admin</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-
-
-
-
-
-
 
 
 <div class = "container">
   <div class="row">
 
-    <div class = "col-sm-6 well">
+    <div class = "col-sm-5 well" style="margin-right:10px !important;">
       <div class = "well">
         <h3><center><strong> Liste des vendeurs actuels</strong></center> </h3>
       </div><!-- well ligne 73 encadré du titre-->
@@ -127,10 +62,10 @@ $req_vendeur_signale = $bdd->query('SELECT ID_user, name, First_name, login, pse
           <?php
            $photo=$donnee['Photo'];
            if(!$photo) {
-             echo '<img src = "../pic.jpg " class="img-circle" height="80" width="80" alt="Photo"/>';
+             echo '<img src = "img_projet/pic.jpg " class="img-circle" height="80" width="80" alt="Photo"/>';
            }
            else{
-           echo '<img src = "../img_user/'.$photo.' " class="img-circle" height="80" width="80" alt="Photo"/>';
+           echo '<img src = "img_user/'.$photo.' " class="img-circle" height="80" width="80" alt="Photo"/>';
          }
           ?>
         </div><!-- col-sm-3 ligne 84-->
@@ -207,10 +142,10 @@ $req_vendeur_signale = $bdd->query('SELECT ID_user, name, First_name, login, pse
               <?php
                $photo=$donnee['Photo'];
                if(!$photo) {
-                 echo '<img src = "../pic.jpg " class="img-circle" height="80" width="80" alt="Photo"/>';
+                 echo '<img src = "img_projet/pic.jpg " class="img-circle" height="80" width="80" alt="Photo"/>';
                }
                else{
-               echo '<img src = "../img_user/'.$photo.' " class="img-circle" height="80" width="80" alt="Photo"/>';
+               echo '<img src = "/img_user/'.$photo.' " class="img-circle" height="80" width="80" alt="Photo"/>';
              }
               ?>
             </div><!-- col-sm-3 ligne 84-->
@@ -318,10 +253,10 @@ $req_vendeur_signale = $bdd->query('SELECT ID_user, name, First_name, login, pse
               <?php
                $photo=$donnee['Photo'];
                if(!$photo) {
-                 echo '<img src = "../pic.jpg " class="img-circle" height="80" width="80" alt="Photo"/>';
+                 echo '<img src = "img_projet/pic.jpg" class="img-circle" height="80" width="80" alt="Photo"/>';
                }
                else{
-               echo '<img src = "../img_user/'.$photo.' " class="img-circle" height="80" width="80" alt="Photo"/>';
+               echo '<img src = "img_user/'.$photo.' " class="img-circle" height="80" width="80" alt="Photo"/>';
              }
               ?>
             </div><!-- col-sm-3 ligne 84-->
@@ -494,7 +429,7 @@ $req_vendeur_signale = $bdd->query('SELECT ID_user, name, First_name, login, pse
 
 
 
-<?php include('../includes/footer.php') ?>
+<?php include('includes/footer.php') ?>
 
 
 </body>
