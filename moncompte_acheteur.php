@@ -111,7 +111,7 @@ $req_cb= $bdd->query("SELECT * FROM `infobancaire` WHERE `ID_user`='$id_user' AN
        <div class="col-sm-12 well">
          <div class="col-sm-7">
 
-            <h3><span class ="glyphicon glyphicon-credit-card"></span> Vos informations de paiement </h3>
+            <h3><span class ="glyphicon glyphicon-credit-card"></span>Vos informations de paiement</h3>
             <p>
 							<strong>Type de carte</strong><br><?php echo $cb['type_carte'] ?><br>
 							<strong>Nom présent sur la carte</strong><br><?php echo $cb['nom_carte'] ?><br>
@@ -120,8 +120,8 @@ $req_cb= $bdd->query("SELECT * FROM `infobancaire` WHERE `ID_user`='$id_user' AN
             </p>
          </div>
 				 <div class="col-sm-5">
-					 <a href="#" class="btn btn-black" style="float: right;" role="button"><span class="glyphicon glyphicon-trash"></span> Supprimer</a>
-					 <a href="#" class="btn btn-black" style="float: right;" role="button"><span class="glyphicon glyphicon-pencil"></span> Modifier</a>
+					 <a href="#deleteCBModal" class="btn btn-black" style="float: right;" rel="modal:open" role="button" name="supCB" value="<?php $cb['ID_infobancaire']?>"><span class="glyphicon glyphicon-trash"></span> Supprimer</a>
+					 <a href="#" class="btn btn-black" style="float: right;" rel=role="button"><span class="glyphicon glyphicon-pencil"></span> Modifier</a>
 				</div>
        </div>
 
@@ -149,7 +149,7 @@ $req_cb= $bdd->query("SELECT * FROM `infobancaire` WHERE `ID_user`='$id_user' AN
 		<h4 class="modal-title"><strong><center>Êtes-vous sur de vouloir supprimer cette adresse?</center></strong></h5>
 	</div>
 	<div class="modal-body">
-		<center>Cette adresse est enregistrée comme votre adresse principale. Si vous la supprimer, elle ne vous sera plus suggérée lors de vos prochains achats.</center>
+		<center>Cette adresse est enregistrée comme votre adresse principale. Si vous la supprimez, elle ne vous sera plus suggérée lors de vos prochains achats.</center>
 	</div>
 
 	<div class="modal-footer">
@@ -238,7 +238,41 @@ $req_cb= $bdd->query("SELECT * FROM `infobancaire` WHERE `ID_user`='$id_user' AN
 </div>
 
 
+<!-- Modal suppression CB-->
 
+<div id="deleteCBModal" class="modal">
+	<div class="modal-header">
+		<h4 class="modal-title"><strong><center>Êtes-vous sur de vouloir supprimer cette carte?</center></strong></h5>
+	</div>
+	<div class="modal-body">
+		<center>Cette carte est enregistrée comme votre carte principale. Si vous la supprimez, elle ne vous sera plus suggérée lors de vos prochains achats.</center>
+	</div>
+
+	<div class="modal-footer">
+		<form class="" role ="form" method="post">
+		<div>
+			 <input type="hidden" name="keytodelete" value="<?php echo $cb['ID_infobancaire']; ?>" required>
+			<input type="submit" class="btn btn-black" name="supprimer" value="Valider"></input> </div>
+		<input type="submit" class="btn btn-black" name="annuler" value="Annuler"></input>
+	</form>
+
+	<?php
+	if(isset($_POST['supprimer'])) {
+		$id_a_supprimer=$_POST['keytodelete'];
+		$query = $bdd->prepare('DELETE FROM infobancaire WHERE ID_infobancaire = :ID_infobancaire AND infobancaire_principale = :infobancaire_principale');
+		$success = $query->execute(array(
+			':ID_infobancaire' => $id_a_supprimer,
+			':infobancaire_principale' => 1
+				));
+
+
+		header('Location:moncompte_acheteur.php');
+
+	}
+
+	?>
+	</div>
+</div>
 
 
 
