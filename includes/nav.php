@@ -15,6 +15,10 @@
       <li class="active"><a href="index.php">Home</a></li>
       <li><a href="Catégorie.php">Catégories</a></li>
 
+      <?php if(!isset($_SESSION['ID_user'])) :?>
+        <li><a href="inscription.php">Inscription</a></li>
+      <?php endif; ?>
+
       <?php if( isset($_SESSION['ID_user'])) :?>
         <?php if ($_SESSION['User_privilege']==1): ?>
           <!--affichage pour les acheteurs-->
