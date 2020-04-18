@@ -19,7 +19,7 @@ $info=$req->fetch();
 */
 $id_user=$_SESSION['ID_user'];
 $req_adresse = $bdd->query("SELECT * FROM `adresse_livraison` WHERE `ID_user`='$id_user' AND `adresse_principale` = 1");
-
+$req_cb= $bdd->query("SELECT * FROM `infobancaire` WHERE `ID_user`='$id_user' AND `infobancaire_principale` = 1");
 
 ?>
 
@@ -107,7 +107,7 @@ $req_adresse = $bdd->query("SELECT * FROM `adresse_livraison` WHERE `ID_user`='$
 
        </div>
 		 <?php } ?>
-
+<?php if ($cb=$req_cb->fetch()){ ?>
        <div class="col-sm-12">
          <div class="well">
            <div id="options_paiement">
@@ -116,12 +116,15 @@ $req_adresse = $bdd->query("SELECT * FROM `adresse_livraison` WHERE `ID_user`='$
           </div>
             <h3><span class ="glyphicon glyphicon-credit-card"></span> Vos informations de paiement </h3>
             <p>
-              <strong>Nom présent sur la carte</strong><br>X Y<br>
-              <strong>N° Carte </strong><br>XXXX XXXX XXXX XX12 <br>
-              <strong>Date d'expiration</strong> <br>04/20<br>
+							<strong>Type de carte</strong><br><?php echo $cb['type_carte'] ?><br>
+							<strong>Nom présent sur la carte</strong><br><?php echo $cb['nom_carte'] ?><br>
+              <strong>N° Carte </strong><br><?php echo $cb['num_carte'] ?> <br>
+              <strong>Date d'expiration</strong> <br><?php echo $cb['date_expir'] ?><br>
             </p>
          </div>
        </div>
+
+		 <?php } ?>
 
 
 
