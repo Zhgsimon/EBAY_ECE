@@ -37,6 +37,15 @@
 
 .centered {
 position: absolute;
+top: 35%;
+left: 43%;
+transform: translate(-50%, -50%);
+opacity: 0;
+transition: .5s ease;
+}
+
+.centered1 {
+position: absolute;
 top: 50%;
 left: 50%;
 transform: translate(-50%, -50%);
@@ -189,30 +198,30 @@ opacity: 1;
 
 
     <div class="col-sm-3">
-       <img src="https://true-id.com/wp-content/uploads/2018/09/VIP-membership-different-angle-1890x1680.jpg" class="img-responsive" style="width:100%" alt="Image">
+       <img src="https://true-id.com/wp-content/uploads/2018/09/VIP-membership-different-angle-1890x1680.jpg" class="img-responsive" style="width:100%;margin-top:24%;" alt="Image">
        <p>Carte Vip : accès toilette illimité</p>
-       <div class="centered"><li><a href="Détailitem.php" class="aI"><h3>Détails item</h3></a></li></div>
+       <div class="centered1"><li><a href="Détailitem.php" class="aI"><h3>Détails item</h3></a></li></div>
   </div>
 
   <div class="col-sm-3">
-    <img src="https://i.pinimg.com/736x/67/e7/16/67e7168e67762d603dca115e7974996b.jpg" class="img-responsive" style="width:100%" alt="Image">
+    <img src="https://i.pinimg.com/736x/67/e7/16/67e7168e67762d603dca115e7974996b.jpg" class="img-responsive" style="width:100%;height: 310px ;margin-top:10%;" alt="Image">
     <p>Tigrou des bois</p>
-    <div class="centered"><li><a href="Détailitem.php" class="aI"><h3>Détails item</h3></a></li></div>
+    <div class="centered1"><li><a href="Détailitem.php" class="aI"><h3>Détails item</h3></a></li></div>
   </div>
 
     <div class="col-sm-6">
       <div class="well">
-       <p>Nous proposons<b> 3 méthodes</b> afin de pouvoir acquerir l'objet de votre désir</p>
+       <p>Nous proposons<b> 3 méthodes</b> afin de pouvoir acquérir l'objet de votre désir</p>
       </div>
       <div class="well">
-       <p><b>Les enchères</b>, Vous enchérissez pour un item et le plus offrant remporte la mise, peut etre vous ?</p>
+       <p><b>Les enchères</b>, Vous enchérissez pour un item et le plus offrant remporte la mise, peut être vous ?</p>
       </div>
 
       <div class="well">
-       <p><b>Acheté-le</b>, Maintenant, Just do it</p>
+       <p><b>Achetez-le</b>, Maintenant, Just do it</p>
       </div>
       <div class="well">
-       <p><b>Meilleure Offre</b>, négociez avec le vendeur, offre et contre-offre soyer rusée.  </p>
+       <p><b>Meilleure Offre</b>, négociez avec le vendeur, offre et contre-offre soyez rusés.  </p>
       </div>
 
     </div>
@@ -226,7 +235,7 @@ opacity: 1;
   <div class="row">
 
     <div class="col-sm-2">
-      <img src="img_items/papier_toilette.jpg" class="img-responsive" style="width:100%" alt="Image">
+      <img src="img_items/papier_toilette.jpg" class="img-responsive" style="width:140px;height: 140px;" alt="Image">
       <p>papier toilette insolite</p>
       <div class="centered"><li><a href="Détailitem.php" class="aI"><h3>Détails item</h3></a></li></div>
 
@@ -234,7 +243,7 @@ opacity: 1;
     </div>
 
     <div class="col-sm-2">
-      <img src="img_items/ferraille.jpg" class="img-responsive" style="width:100%" alt="Image">
+      <img src="img_items/ferraille.jpg" class="img-responsive" style="width:140px;height: 140px;" alt="Image">
       <p>8kg de ferraille</p>
       <div class="centered"><li><a href="Détailitem.php" class="aI"><h3>Détails item</h3></a></li></div>
 
@@ -243,24 +252,21 @@ opacity: 1;
 
 
     <div class="col-sm-2">
-      <img src="img_items/tableau-singe-poker-sylvain-binet.jpg" class="img-responsive" style="width:100%" alt="Image">
+      <img src="img_items/tableau-singe-poker-sylvain-binet.jpg" class="img-responsive" style="width:140px;height: 140px;" alt="Image">
       <p>Tableau : YOU</p>
       <div class="centered"><li><a href="Détailitem.php" class="aI"><h3>Détails item</h3></a></li></div>
 
     </div>
 
     <div class="col-sm-2">
-      <img src="img_items/cocaine.jpg" class="img-responsive" style="width:100%" alt="Image">
+      <img src="img_items/cocaine.jpg" class="img-responsive" style="width:140px;height: 140px;" alt="Image">
       <p>Fake cocain, to shine in nightclub</p>
         <div class="centered"><li><a href="Détailitem.php" class="aI"><h3>Détails item</h3></a></li></div>
     </div>
 
 
-
-
-
     <div class="col-sm-2">
-      <img src="img_items/briquet_beurette.jpg" class="img-responsive" style="width:100%" alt="Image">
+      <img src="img_items/briquet_beurette.jpg" class="img-responsive" style="width:140px;height: 140px;" alt="Image">
       <p>Briquet Beurette</p>
       <div class="centered"><li><a href="Détailitem.php" class="aI"><h3>Détails item</h3></a></li></div>
     </div>
@@ -268,7 +274,7 @@ opacity: 1;
 
 
     <div class="col-sm-2">
-      <img src="img_items/lv.jpg" class="img-responsive" style="width:100%" alt="Image">
+      <img src="img_items/lv.jpg" class="img-responsive" style="width:140px; height:140px" alt="Image">
       <p>Tableau : Luki/Vist</p>
       <div class="centered"><li><a href="Détailitem.php" class="aI"><h3>Détails item</h3></a></li></div>
     </div>

@@ -70,12 +70,12 @@ color: #fff;
                <form action="traitement_login.php" method="POST">
 
                   <div class="form-group">
-                     <label>Email</label>
+                     <label>Email  <span class="glyphicon glyphicon-envelope"></label>
                      <input type="text" class="form-control" placeholder="Email" required name="login">
                   </div>
 
                   <div class="form-group">
-                     <label>Mot de passe</label>
+                     <label>Mot de passe  <span class="glyphicon glyphicon-eye-close"></label>
                      <input type="password" class="form-control" placeholder="Mot de passe" required name="password">
                   </div>
 

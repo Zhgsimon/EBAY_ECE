@@ -66,10 +66,10 @@
 
           <div class="col-sm-6">
             <div class="form">
-              <p style="margin-top: 95px"><b>Choissisez une image pour votre item</b></p>
+              <p style="margin-top: 95px"><b>Choissisez une image pour votre item  </b><span class="glyphicon glyphicon-camera"></p>
               <input type="hidden" name="MAX_FILE_SIZE" value="100000">
               <input type="file" name="pic1" accept="image/png, image/jpeg, image/jpg" required style="margin-bottom: 30px; margin-top: 5px">
-              <p><b>Choissisez une vidéo pour votre item (obtionnel)</b></p>
+              <p><b>Choissisez une vidéo pour votre item (obtionnel)  </b><span class="glyphicon glyphicon-facetime-video"></p>
               <input type="file" name="video" >
             </div>
           </div>
@@ -95,12 +95,12 @@
             </div>
 
             <div class="form-group">
-              <label>Prix de vente Immédiat(en €)</label>
+              <label>Prix de vente Immédiat (en €)</label>
               <input type="number" class="form-control" required name="prix_immediat">
             </div>
 
             <div class="form-group">
-              <input  type="radio" name="type_vente" id="1"><label style="margin-right: 35px" >Proposer aux enchères(en €)</label>
+              <input  type="radio" name="type_vente" id="1"><label style="margin-right: 35px" >Proposer aux enchères (en €)</label>
               <input type="radio" name="type_vente" id="4"><label>Proposer de négocier</label>
             </div>
 
@@ -121,7 +121,7 @@
 
       <div class="container">
 
-        <div class="row"><div class="col-sm-12"><h2>Les<b> Témoignages </b> de nos vendeurs</h2></div>
+        <div class="row"><div class="col-sm-12"><h2>Les<b> Témoignages </b> de nos vendeurs <span class="glyphicon glyphicon-heart" style="color: #FF0000;"></h2></div>
 
 
         </div>
