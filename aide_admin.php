@@ -1,5 +1,8 @@
 
-<?php include('includes/header.php') ?>
+<?php
+ob_start();
+session_start();
+include('includes/header.php') ?>
 <nav class="navbar navbar-inverse">
 <?php include('includes/nav.php'); ?>
 </nav>
@@ -93,7 +96,9 @@
 
 
 
-<?php include('includes/footer.php') ?>
+<?php include('includes/footer.php');
+ob_end_flush();
+ ?>
 
 
 
