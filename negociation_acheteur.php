@@ -96,23 +96,24 @@ session_start();
           <div class="row"><div class="col-sm-12"><h2>Vous négociez pour <b> L'item : </b></h2></div></div>
 
           <div class="row" style="margin-bottom: 50px">
-              <div class="col-sm-4">
+              <div class="col-sm-2">
                 <?php
-                $id_item=$donnee['ID_item'];
+                $ID_item=$donnee['ID_item'];
                 $req_item=$bdd->query("SELECT *  FROM item WHERE ID_item = '$ID_item' " );
+
                 $item=$req_item->fetch();
 
-                $photo=$donnee['pic1'];
+                $photo=$item['pic1'];
                   if(!$photo) {
-                    echo '<img src = "img_projet/vente.jpg" class="img-circle" height="80" width="80" alt="Photo"/>';
+                    echo '<img src = "img_projet/vente.jpg"  height="150" width="150" alt="Photo"/>';
                   }
                   else{
-                  echo '<img src = "img_items/'.$photo.' " class="img-circle" height="80" width="80" alt="Photo"/>';
+                  echo '<img src = "img_items/'.$photo.' "  height="150" width="150" alt="Photo"/>';
                 }
                 ?>
               </div>
 
-              <div class="col-sm-8" style="background-color: #E2E2E2 ">
+              <div class="col-sm-10" style="background-color: #E2E2E2 ">
 
               <u><h3 class="text-left">
               <?php echo $item['name_item'];?>
@@ -120,13 +121,13 @@ session_start();
               <h4 class="text-center">   <?php echo $item['description'];?></h4>
                <h4 class="text-center">   <?php echo $item['Categorie'];?></h4>
                 <h4 class="text-center">   <?php
-                $id_vendeur=$item['id_vendeur'];
+                $ID_vendeur=$item['ID_vendeur'];
                 $req_vendeur=$bdd->query("SELECT name,First_name  FROM user WHERE ID_user = '$ID_vendeur' " );
                 $vendeur=$req_vendeur->fetch();
                 echo "Negociation avec";
                 echo $vendeur['First_name'];
                 echo " ";
-                echo $vendeur['Name'];?></h4>
+                echo $vendeur['name'];?></h4>
               </div>
 
           </div>
