@@ -12,6 +12,7 @@
 
         $("#2").css("display", "none");
         $("#3").css("display", "block");
+        $("#duree_vente_enchere").css("display", "block");
       });
 
       $("#4").click(function(){
@@ -69,8 +70,21 @@
               <p style="margin-top: 95px"><b>Choissisez une image pour votre item</b></p>
               <input type="hidden" name="MAX_FILE_SIZE" value="100000">
               <input type="file" name="pic1" accept="image/png, image/jpeg, image/jpg" required style="margin-bottom: 30px; margin-top: 5px">
-              <p><b>Choissisez une vidéo pour votre item (obtionnel)</b></p>
+              <p><b>Choissisez une vidéo pour votre item (optionnel)</b></p>
               <input type="file" name="video" >
+            </div>
+            <div class="form" id="duree_vente_enchere" style="display: none;">
+              <p><b>Choissisez le durée de la mise en vente aux enchères</b></p>
+              <select name="duree_vente" required>
+                <option value="">Choissisez une option</option>
+                <option value="2">2h</option>
+                <option value="4">4h</option>
+                <option value="10">10h</option>
+                <option value="24">1j</option>
+                <option value="72">3j</option>
+                <option value="120">5j</option>
+                <option value="168">7j</option>
+              </select>
             </div>
           </div>
 
@@ -96,7 +110,7 @@
 
             <div class="form-group">
               <label>Prix de vente Immédiat(en €)</label>
-              <input type="number" class="form-control" required name="prix_immediat">
+              <input type="number" class="form-control"  name="prix_immediat">
             </div>
 
             <div class="form-group">
@@ -106,8 +120,8 @@
 
             <div class="form-group">
               <label id="1" style="display: none;">Prix initial</label>
-              <input type="number" class="form-control" placeholder="Prix de négociation initial"  required name="prix_nego_init" style="display: none;" id="2">
-              <input type="number" class="form-control" placeholder="Prix du début d'enchères" required name="prix_enchere_2" style="display: none;" id="3">
+              <input type="number" class="form-control" placeholder="Prix de négociation initial"   name="prix_nego_init" style="display: none;" id="2">
+              <input type="number" class="form-control" placeholder="Prix du début d'enchères"  name="prix_enchere_2" style="display: none;" id="3">
             </div>
 
             <button type="submit"  name="submit" class="btn btn-black">Mettre en vente</button>
