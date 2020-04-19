@@ -14,7 +14,7 @@ session_start();
   }
 
   $ID_user=$_SESSION['ID_user']; //ID_user good
-  $req_nego=$bdd->query("SELECT *  FROM nego WHERE ID_acheteur = '$ID_user' AND prix_payé ='NULL'" );
+  $req_nego=$bdd->query("SELECT *  FROM nego WHERE ID_acheteur = '$ID_user' AND prix_final ='NULL'" );
 
  ?>
 
@@ -81,17 +81,17 @@ session_start();
            <div class="row"><div class="col-sm-12"><h2>Bienvenue dans l'espace<b> Négociation </b></h2></div></div>
 
           <div class="row" style="margin-bottom: 35px">
-                 <div class="col-sm-3" style="background-color: #D4D4D4"><h4><b>Vous négociez avec le vendeur.</b> Vous fixez le prix et attendez.</h4></div>
+                 <div class="col-sm-3" style="background-color: #D4D4D4"><h4><b>Vous négociez avec les acheteurs.</b> Vous fixez le prix et attendez.</h4></div>
 
-                <div class="col-sm-3" style="background-color: #E2E2E2"><h4>Le vendeur <b>accepte votre offre ou propose une contre-offre</b>. Si le vendeur accepte votre offre, le processus se termine.</h4></div>
+                <div class="col-sm-3" style="background-color: #E2E2E2"><h4>L'acheteur <b>accepte votre offre ou propose une contre-offre</b>. Si l'acheteur accepte votre offre, le processus se termine.</h4></div>
 
                 <div class="col-sm-3" style="background-color: #D4D4D4"><h4><b>Le processus se répète 5 fois</b>, jusqu'à ce qu'il soit conclu de façon satisfaisante ou qu'il se décompose.</h4></div>
 
-                <div class="col-sm-3" style="background-color: #E2E2E2"><h4>Notez bien que si vous faites une offre sur un article,<b> vous êtes sous contrat légal pour l'acheter</b> si le vendeur accepte l'offre</h4></div>
+                <div class="col-sm-3" style="background-color: #E2E2E2"><h4>Notez bien que si vous acceptez une offre sur un article,<b> l'acheteur est sous contrat légal pour l'acheter</b></h4></div>
 
           </div>
           <?php
-          while ($donnee = $req_nego_achat->fetch()):
+          while ($donnee = $req_nego->fetch()):
           ?>
           <div class="row"><div class="col-sm-12"><h2>Vous négociez pour <b> L'item : </b></h2></div></div>
 
@@ -120,20 +120,20 @@ session_start();
               <h4 class="text-center">   <?php echo $item['description'];?></h4>
                <h4 class="text-center">   <?php echo $item['Categorie'];?></h4>
                 <h4 class="text-center">   <?php
-                $id_vendeur=$item['id_acheteur'];
-                $req_vendeur=$bdd->query("SELECT name,First_name  FROM user WHERE ID_user = '$ID_vendeur' " );
-                $vendeur=$req_vendeur->fetch();
+                $id_acheteur=$item['ID_acheteur'];
+                $req_acheteur=$bdd->query("SELECT name,First_name  FROM user WHERE ID_user = '$ID_acheteur' " );
+                $acheteur=$req_acheteur->fetch();
                 echo "Negociation avec";
-                echo $vendeur['First_name'];
+                echo $acheteur['First_name'];
                 echo " ";
-                echo $vendeur['Name'];?></h4>
+                echo $acheteur['Name'];?></h4>
               </div>
 
           </div>
 
           <div class="row"><div class="col-sm-12">
-            <h3 style="float: left;">Voici l'offre du vendeur :
-              <?php echo $donnee['prix_vendeur']; ?>
+            <h3 style="float: left;">Voici l'offre de l'acheteur :
+              <?php echo $donnee['prix_acheteur']; ?>
             </h3><h3 class="text-right"> Nombre de tentatives restante : <?php echo $donnee['Nb_propositions_restantes']; ?></h3>
               <div class="form-group">
               <input  type="radio" name="accepte" id="1"><label style="margin-right: 35px" >Accepter l'offre</label>
