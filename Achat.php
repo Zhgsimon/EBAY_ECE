@@ -19,7 +19,7 @@
     $ID_user=$_SESSION['ID_user']; //ID_user good
 
   //selectionner l'historique d'achat d'un acheteur
-  $req_historique_achat = $bdd->query('SELECT *  FROM item  ' );
+  $req_historique_achat = $bdd->query("SELECT *  FROM item WHERE ID_acheteur = '$ID_user' AND etat_vente ='vendu'" );
   $nbr=$req_historique_achat->rowCount();
   echo $nbr;
 ?>
@@ -69,9 +69,9 @@
          <td><strong> <?php echo $donnee['name_item'];?></strong> </td>
          <td> <?php echo $donnee['Categorie'];?> </td>
          <td> <?php echo $donnee['description'];?> </td>
-         <td> <?php echo $donnee['name_item'];//faire Prix?> </td>
-         <td> <?php echo $donnee['name_item'];//faire date?> </td>
-         <td> <?php echo $donnee['ID_vendeur'];//faire vendeur?> </td>
+         <td> <?php echo $donnee['name_item'];?> </td> //faire Prix
+         <td> <?php echo $donnee['name_item'];?> </td> //faire date
+         <td> <?php echo $donnee['ID_vendeur'];?> </td>
        </tr>
       <?php endwhile;?>
 
