@@ -147,11 +147,11 @@ session_start();
 
             <div class="row"><div class="col-sm-4"><div class="form-group">
               <label style="display: none;">Contre offre</label>
-              <input type="number" class="form-control" placeholder="Prix proposé"  required name="nv_offre" style="display: none;" id="3">
+              <input type="number" class="form-control" placeholder="prix_propose"  required name="nv_offre" style="display: none;" id="3">
             </div></div></div>
 
             <input type="hidden" name="keytomodif" value="<?php echo $donnee['ID_nego']; ?>" required>
-      			<button type="submit" class="btn btn-black pull-right" name="Modifier" value="Valider"> <span class="glyphicon glyphicon-ok"></span> Valider</button> </div>
+      			<button type="submit" class="btn btn-black pull-right" name="ModifierA" value="Valider"> <span class="glyphicon glyphicon-ok"></span> Valider</button> </div>
 
           </form>
 
