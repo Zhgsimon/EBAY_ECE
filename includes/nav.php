@@ -27,6 +27,8 @@
           <li><a href="Achat.php">Achat</a></li>
           <!--Panier-->
           <li><a href="Panier.php">Panier</a></li>
+          <!--Mes négociations en cours-->
+          <li><a href="negociation_acheteur.php">Négocier</a></li>
           <!--Espace compte acheteur-->
           <li><a href="moncompte_acheteur.php">Votre compte</a></li>
 
@@ -42,7 +44,7 @@
           <!--Liste de vos items en vente-->
           <li><a href="objet_en_vente.php">Vos objets en vente</a></li>
           <!--Onglet Négociation-->
-          <li><a href="negociation.php">Négocier</a></li>
+          <li><a href="negociation_vendeur.php">Négocier</a></li>
 
         <?php endif; ?>
       <?php endif; ?>
