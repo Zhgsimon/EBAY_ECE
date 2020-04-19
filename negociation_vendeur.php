@@ -14,7 +14,7 @@ session_start();
   }
 
   $ID_user=$_SESSION['ID_user']; //ID_user good
-  $req_nego=$bdd->query("SELECT *  FROM nego WHERE ID_acheteur = '$ID_user' AND prix_final ='NULL'" );
+  $req_nego=$bdd->query("SELECT *  FROM nego WHERE ID_vendeur = '$ID_user' AND prix_final is NULL" );
 
  ?>
 
