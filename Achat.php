@@ -69,8 +69,8 @@
          <td><strong> <?php echo $donnee['name_item'];?></strong> </td>
          <td> <?php echo $donnee['Categorie'];?> </td>
          <td> <?php echo $donnee['description'];?> </td>
-         <td> <?php echo $donnee['name_item'];?> </td> //faire Prix
-         <td> <?php echo $donnee['name_item'];?> </td> //faire date
+         <td> <?php echo $donnee['name_item'];//faire Prix?> </td>
+         <td> <?php echo $donnee['name_item'];//faire date?> </td>
          <td> <?php echo $donnee['ID_vendeur'];?> </td>
        </tr>
       <?php endwhile;?>
