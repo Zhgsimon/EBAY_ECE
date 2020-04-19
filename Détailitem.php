@@ -1,5 +1,35 @@
 <?php
   session_start();
+  if(isset($_GET["pic1"]))
+  {
+      $pic1 = $_GET["pic1"];
+  }
+
+  // connexion à la base de donnée
+  try
+ {
+  	$bdd = new PDO('mysql:host=localhost;dbname=ece_ebay;charset=utf8', 'root', '',
+  				array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+ }
+ catch (Exception $e)
+ {
+  	die('Erreur : ' . $e->getMessage());
+ }
+
+
+$stmt = $bdd->prepare("SELECT * FROM item WHERE pic1=? LIMIT 1");
+$stmt->execute(array($pic1));
+$row = $stmt->fetch();
+
+$img="img_items/".$row['pic1'];
+
+
+
+
+//$date_enchere_debut=$row['date_enchere_debut'];
+//$date_enchere_fin=$row['date_enchere_fin'];
+
+
 ?>
 <?php include('includes/header.php'); ?>
   <style>
@@ -11,7 +41,7 @@
 
 
 
-  input {
+  button {
   display:block;
   width:150px;
   line-height:39px;
@@ -46,40 +76,72 @@
             <div class="row">
               <div class="col-sm-4">
 
-                <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
+                <img src=<?php echo $img; ?> class="img-responsive" style="width:100%" alt="Image">
 
 
               </div>
 
               <div class="col-sm-8">
 
-              <u><h3 class="text-left"> titre</h3></u>
-              <h4> Un type d'infomation précis 1</h4>
-               <h4> Un type d'infomation précis 2</h4>
-                <h4> Un type d'infomation précis 3</h4>
+              <u><h3 class="text-left"> <?php echo $row['name_item']; ?></h3></u>
+              <h4> <?php echo $row['description']; ?></h4>
 
-                <div class="text-center">
-                  <form>
-               <input  type="button" name="Ajouteraupanier" value="Ajouter au panier">
-             </form>
+              <?php if (isset($row['prix_immediat'])): ?>
+                <h4> Prix d'achat immédiat: <?php echo $row['prix_immediat'] ; ?></h4>
+              <?php endif; ?>
 
-              <form>
-               <input type="button" name="Acheter immédiatement" value="buy now">
-             </form>
+              <?php if (isset($row['prix_nego_init'])): ?>
+                <h4> Négociation possible à partir de: <?php echo $row['prix_nego_init']; ?></h4>
+              <?php endif; ?>
 
-              <form>
-               <input  type="button" name="?????" value="Autre méthode">
-             </form>
+              <?php if(isset($row['prix_enchere_2'])): //si il est aux enchères?>
+                <?php $date_enchere_fin = new DateTime($row['date_enchere_fin']); ?>
+                <?php if (!isset($row['prix_enchere_1'])): //Si personne n'a encore enchéri =>enchere2 est le prix actuel le plus haut ?>
+                  <h4> Prix aux enchères actuellement: <?php echo $row['prix_enchere_2'] ?></h4>
+                  <h4> Date de fin des enchères /countdown :<?php echo $date_enchere_fin->format('Y-m-d H:i:s');?></h4>
+                <?php else: //on a déjà enchéri sur l'item => le prix le plus haut est prix_enchere_1?>
+                  <h4> Prix aux enchères actuellement: <?php echo $row['prix_enchere_1'] ?></h4>
+                  <h4> Date de fin des enchères /countdown :<?php echo $date_enchere_fin->format('Y-m-d H:i:s');?> </h4>
+                <?php endif; ?>
+              <?php endif; ?>
 
-                </div>
+
+              <div class="text-center">
+                <form action="traitement_ajout_panier.php" method="POST">
+                  <button type="submit" name="submit_action" value=<?php echo $pic1; ?>>Ajouter au panier</button>
+                  <!--<input  type="submit" name="submit_action" value= placeholder="Ajouter au panier">-->
+                </form>
+
+                <?php if (isset($row['prix_immediat'])): ?>
+                  <form action="paiement.php" method="get">
+                    <button type="submit" name="submit_action" value=<?php echo $pic1; ?>>Achat Immédiat</button>
+                   <!--<input type="submit" name="submit_action" value= placeholder="Achat Immédiat">-->
+                 </form>
+                <?php endif; ?>
+
+                <?php if (isset($row['prix_nego_init'])): ?>
+                  <form action="negocier.php" method="get">
+                    <button type="submit" name="submit_action" value=<?php echo $pic1; ?>>Négocier avec le vendeur</button>
+                   <!--<input type="submit" name="submit_action" value= placeholder="Négocier avec le vendeur">-->
+                 </form>
+                <?php endif; ?>
+
+                <?php if (isset($row['prix_enchere_2'])): ?>
+                  <form action="traitement_enchere.php" method="get">
+                    <button type="submit" name="submit_action" value=<?php echo $pic1; ?>>Enchérir</button>
+                   <!--<input type="submit" name="submit_action" value= placeholder="Enchérir">-->
+                 </form>
+                <?php endif; ?>
 
               </div>
 
             </div>
 
-            <div class="containerblanc">
-             <h2>AEZFAZEFAZ</h2>
-             <h2>AEZFAZEFAZ</h2>
+          </div>
+
+        <div class="containerblanc">
+          <h2>AEZFAZEFAZ</h2>
+          <h2>AEZFAZEFAZ</h2>
 
 <h2>AEZFAZEFAZ</h2>
 

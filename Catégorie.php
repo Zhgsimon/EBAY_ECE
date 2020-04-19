@@ -35,6 +35,8 @@ $nombre_item_par_page=10;
 //nombre entier supérieur
 $nombre_de_page=ceil($count/$nombre_item_par_page);
 
+
+
 if(isset($_GET['page'])) // Si la variable $_GET['page'] existe...
 {
      $pageActuelle=intval($_GET['page']);
@@ -43,6 +45,7 @@ if(isset($_GET['page'])) // Si la variable $_GET['page'] existe...
      {
           $pageActuelle=$nombre_de_page;
      }
+
 }
 else // Sinon
 {
@@ -52,7 +55,8 @@ else // Sinon
 $premiereEntree=($pageActuelle-1)*$nombre_item_par_page; // On calcul la première entrée à lire
 
 // La requête sql pour récupérer les items de la page actuelle.
-$item_page_actuelle=$bdd->query('SELECT * FROM item ORDER BY ID_item DESC LIMIT '.$premiereEntree.', '.$nombre_item_par_page.'');
+$item_page_actuelle=$bdd->query('SELECT * FROM item WHERE etat_vente="en_vente" ORDER BY ID_item DESC LIMIT '.$premiereEntree.', '.$nombre_item_par_page.'');
+
 
 
 ?>
@@ -225,7 +229,6 @@ background-color: #E9E9E9;
 
             <!--Affichage de 10 items par page-->
             <div class="container text-center">
-
               <?php while ($donnees = $item_page_actuelle->fetch()): ?>
                 <div class="row">
                        <div class="col-sm-4">
@@ -234,27 +237,41 @@ background-color: #E9E9E9;
 
                        <div class="col-sm-8">
                          <u><p class="text-left"> <?php echo $donnees['name_item']; ?></p></u>
-                         <h4> <?php echo $donnees['description']; ?></h4>
-                         <h4> <?php echo $donnees['Categorie']; ?></h4>
+                         <h4><?php echo $donnees['description']; ?></h4>
+                         <h4> Catégorie:  <?php echo $donnees['Categorie']; ?></h4>
 
-                         <?php if(!isset($donnees['prix_nego_init'])): ?>
-                         <h4> Prix de Négociation initial: <?php echo $donnees['prix_nego_init']; ?>€</h4>
-                        <?php endif; ?>
 
-                         <?php if(!isset($donnees['prix_immediat'])): ?>
-                         <h4> Prix d'achat immédiat: <?php echo $donnees['prix_immediat']; ?>€</h4>
-                       <?php endif; ?>
+                         <?php if(isset($donnees['prix_immediat'])): //Si il a un prix immédiat?>
+                           <h4> Prix d'achat immédiat: <?php echo $donnees['prix_immediat'] ; ?>€</h4>
+                         <?php endif; ?>
 
-                         <?php if(!isset($donnees['prix_enchere_2'])): ?>
-                         <h4> Début des enchères à partir de: <?php echo $donnees['prix_enchere_2']; ?>€</h4>
-                       <?php endif; ?>
+                         <?php if (isset($donnees['prix_nego_init'])): //Si il ya un prix de nego initial ?>
+                           <h4> Négociation possible à partir de: <?php echo $donnees['prix_nego_init']; ?>€</h4>
+                         <?php endif; ?>
 
-                         <h4> Un type d'infomation précis 3</h4>
-                         <li class="text-left"><a href="Détailitem.php" class="aI">Plus de détails</a></li>
+                         <?php if(isset($donnees['prix_enchere_2'])): //si il est aux enchères?>
+                           <?php $date_enchere_fin = new DateTime($donnees['date_enchere_fin']); ?>
+                           <?php if (!isset($donnees['prix_enchere_1'])): //Si personne n'a encore enchéri =>enchere2 est le prix actuel le plus haut ?>
+                             <h4> Prix aux enchères actuellement: <?php echo $donnees['prix_enchere_2'] ?></h4>
+                             <h4> Date de fin des enchères /countdown :<?php echo $date_enchere_fin->format('Y-m-d H:i:s');?></h4>
+                           <?php else: //on a déjà enchéri sur l'item => le prix le plus haut est prix_enchere_1?>
+                             <h4> Prix aux enchères actuellement: <?php echo $donnees['prix_enchere_1'] ?></h4>
+                             <h4> Date de fin des enchères /countdown :<?php echo $date_enchere_fin->format('Y-m-d H:i:s');?> </h4>
+                           <?php endif; ?>
+                         <?php endif; ?>
+
+                         <?php $url="./Détailitem.php?pic1=".$donnees['pic1']; ?>
+                         <li class="text-left"><a href=<?php echo $url; ?> class="aI">Plus de détails</a></li>
+
 
                        </div>
                     </div>
                 <?php endwhile; ?>
+
+
+
+
+
 
 
 
