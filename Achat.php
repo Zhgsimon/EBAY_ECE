@@ -45,7 +45,7 @@
      <th>Item</th>
      <th>Catégorie</th>
      <th>Description</th>
-     <th><!--Prix--></th>
+     <th>Prix</th>
      <th><!--Date--></th>
      <th>Vendeur</th>
      </tr>
@@ -68,7 +68,7 @@
          <td><strong> <?php echo $donnee['name_item'];?></strong> </td>
          <td> <?php echo $donnee['Categorie'];?> </td>
          <td> <?php echo $donnee['description'];?> </td>
-         <td> <?php// echo $donnee['name_item'];//faire Prix?> </td>
+         <td> <?php echo $donnee['prix_payé']; echo "€";?> </td>
          <td> <?php //echo $donnee['name_item'];//faire date?> </td>
          <td> <?php
          $ID_vendeur= $donnee['ID_vendeur'];
