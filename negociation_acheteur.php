@@ -14,7 +14,7 @@ session_start();
   }
 
   $ID_user=$_SESSION['ID_user']; //ID_user good
-  $req_nego=$bdd->query("SELECT *  FROM nego WHERE ID_acheteur = '$ID_user' AND prix_final IS NULL" );
+  $req_nego=$bdd->query("SELECT *  FROM nego WHERE ID_acheteur = '$ID_user' AND prix_final IS NULL AND tour=0" );
 
  ?>
 
@@ -132,20 +132,28 @@ session_start();
 
           </div>
 
+          <form action="traitement_nego.php" method="post">
           <div class="row"><div class="col-sm-12">
             <h3 style="float: left;">Voici l'offre du vendeur :
               <?php echo $donnee['prix_vendeur']; ?> €
             </h3><h3 class="text-right"> Nombre de tentatives restante : <?php echo $donnee['Nb_propositions_restantes']; ?></h3>
-              <div class="form-group" method="post">
+
+              <div class="form-group">
               <input  type="radio" name="accepte" id="1"><label style="margin-right: 35px" >Accepter l'offre</label>
               <input type="radio" name="refusé" id="2"><label>Refuser l'offre</label>
             </div>
+
             </div></div>
 
             <div class="row"><div class="col-sm-4"><div class="form-group">
               <label style="display: none;">Contre offre</label>
-              <input type="number" class="form-control" placeholder="Prix proposé"  required name="?" style="display: none;" id="3">
+              <input type="number" class="form-control" placeholder="Prix proposé"  required name="nv_offre" style="display: none;" id="3">
             </div></div></div>
+
+            <input type="hidden" name="keytomodif" value="<?php echo $donnee['ID_nego']; ?>" required>
+      			<button type="submit" class="btn btn-black pull-right" name="Modifier" value="Valider"> <span class="glyphicon glyphicon-ok"></span> Valider</button> </div>
+
+          </form>
 
 <?php
 endwhile;
