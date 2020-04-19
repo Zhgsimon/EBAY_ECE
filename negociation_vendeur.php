@@ -14,6 +14,7 @@ session_start();
   }
 
   $ID_user=$_SESSION['ID_user']; //ID_user good
+  $req_nego=$bdd->query("SELECT *  FROM nego WHERE ID_acheteur = '$ID_user' AND prix_payé ='NULL'" );
 
  ?>
 
@@ -89,28 +90,51 @@ session_start();
                 <div class="col-sm-3" style="background-color: #E2E2E2"><h4>Notez bien que si vous faites une offre sur un article,<b> vous êtes sous contrat légal pour l'acheter</b> si le vendeur accepte l'offre</h4></div>
 
           </div>
-
+          <?php
+          while ($donnee = $req_nego_achat->fetch()):
+          ?>
           <div class="row"><div class="col-sm-12"><h2>Vous négociez pour <b> L'item : </b></h2></div></div>
 
           <div class="row" style="margin-bottom: 50px">
               <div class="col-sm-4">
+                <?php
+                $id_item=$donnee['ID_item'];
+                $req_item=$bdd->query("SELECT *  FROM item WHERE ID_item = '$ID_item' " );
+                $item=$req_item->fetch();
 
-                <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
+                $photo=$donnee['pic1'];
+                  if(!$photo) {
+                    echo '<img src = "img_projet/vente.jpg" class="img-circle" height="80" width="80" alt="Photo"/>';
+                  }
+                  else{
+                  echo '<img src = "img_items/'.$photo.' " class="img-circle" height="80" width="80" alt="Photo"/>';
+                }
+                ?>
               </div>
 
               <div class="col-sm-8" style="background-color: #E2E2E2 ">
 
-              <u><h3 class="text-left"> titre</h3></u>
-              <h4 class="text-center"> Un type d'infomation précis 1</h4>
-               <h4 class="text-center"> Un type d'infomation précis 2</h4>
-                <h4 class="text-center"> Un type d'infomation précis 3</h4>
-
+              <u><h3 class="text-left">
+              <?php echo $item['name_item'];?>
+              </h3></u>
+              <h4 class="text-center">   <?php echo $item['description'];?></h4>
+               <h4 class="text-center">   <?php echo $item['Categorie'];?></h4>
+                <h4 class="text-center">   <?php
+                $id_vendeur=$item['id_acheteur'];
+                $req_vendeur=$bdd->query("SELECT name,First_name  FROM user WHERE ID_user = '$ID_vendeur' " );
+                $vendeur=$req_vendeur->fetch();
+                echo "Negociation avec";
+                echo $vendeur['First_name'];
+                echo " ";
+                echo $vendeur['Name'];?></h4>
               </div>
 
           </div>
 
           <div class="row"><div class="col-sm-12">
-            <h3 style="float: left;">Voici l'offre du vendeur : XXX</h3><h3 class="text-right"> Nombre de tentatives restante : XXX</h3>
+            <h3 style="float: left;">Voici l'offre du vendeur :
+              <?php echo $donnee['prix_vendeur']; ?>
+            </h3><h3 class="text-right"> Nombre de tentatives restante : <?php echo $donnee['Nb_propositions_restantes']; ?></h3>
               <div class="form-group">
               <input  type="radio" name="accepte" id="1"><label style="margin-right: 35px" >Accepter l'offre</label>
               <input type="radio" name="refusé" id="2"><label>Refuser l'offre</label>
@@ -122,7 +146,9 @@ session_start();
               <input type="number" class="form-control" placeholder="Prix proposé"  required name="?" style="display: none;" id="3">
             </div></div></div>
 
-
+<?php
+endwhile;
+?>
 </div>
 
 </div>
