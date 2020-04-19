@@ -131,20 +131,28 @@ session_start();
 
           </div>
 
+          <form action="traitement_nego.php" method="post">
           <div class="row"><div class="col-sm-12">
             <h3 style="float: left;">Voici l'offre de l'acheteur :
               <?php echo $donnee['prix_acheteur']; ?> €
             </h3><h3 class="text-right"> Nombre de tentatives restante : <?php echo $donnee['Nb_propositions_restantes']; ?></h3>
+
               <div class="form-group">
               <input  type="radio" name="accepte" id="1"><label style="margin-right: 35px" >Accepter l'offre</label>
-              <input type="radio" name="refusé" id="2"><label>Refuser l'offre</label>
+              <input type="radio" name="refuse" id="2"><label>Refuser l'offre</label>
             </div>
+
             </div></div>
 
             <div class="row"><div class="col-sm-4"><div class="form-group">
               <label style="display: none;">Contre offre</label>
-              <input type="number" class="form-control" placeholder="Prix proposé"  required name="?" style="display: none;" id="3">
+              <input type="number" class="form-control" placeholder="Prix proposé"  required name="nv_offre" style="display: none;" id="3">
             </div></div></div>
+
+            <input type="hidden" name="keytomodifV" value="<?php echo $donnee['ID_nego']; ?>" required>
+      			<button type="submit" class="btn btn-black pull-right" name="ModifierV" value="Valider"> <span class="glyphicon glyphicon-ok"></span> Valider</button> </div>
+
+          </form>
 
 <?php
 endwhile;

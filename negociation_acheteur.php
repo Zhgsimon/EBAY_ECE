@@ -140,17 +140,17 @@ session_start();
 
               <div class="form-group">
               <input  type="radio" name="accepte" id="1"><label style="margin-right: 35px" >Accepter l'offre</label>
-              <input type="radio" name="refusé" id="2"><label>Refuser l'offre</label>
+              <input type="radio" name="refuse" id="2"><label>Refuser l'offre</label>
             </div>
 
             </div></div>
 
             <div class="row"><div class="col-sm-4"><div class="form-group">
               <label style="display: none;">Contre offre</label>
-              <input type="number" class="form-control" placeholder="prix_propose"  required name="nv_offre" style="display: none;" id="3">
+              <input type="number" class="form-control" placeholder="Votre proposition"  required name="nv_offre" style="display: none;" id="3">
             </div></div></div>
 
-            <input type="hidden" name="keytomodif" value="<?php echo $donnee['ID_nego']; ?>" required>
+            <input type="hidden" name="keytomodifA" value="<?php echo $donnee['ID_nego']; ?>" required>
       			<button type="submit" class="btn btn-black pull-right" name="ModifierA" value="Valider"> <span class="glyphicon glyphicon-ok"></span> Valider</button> </div>
 
           </form>
