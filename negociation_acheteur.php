@@ -134,9 +134,9 @@ session_start();
 
           <div class="row"><div class="col-sm-12">
             <h3 style="float: left;">Voici l'offre du vendeur :
-              <?php echo $donnee['prix_vendeur']; ?>
+              <?php echo $donnee['prix_vendeur']; ?> €
             </h3><h3 class="text-right"> Nombre de tentatives restante : <?php echo $donnee['Nb_propositions_restantes']; ?></h3>
-              <div class="form-group">
+              <div class="form-group" method="post">
               <input  type="radio" name="accepte" id="1"><label style="margin-right: 35px" >Accepter l'offre</label>
               <input type="radio" name="refusé" id="2"><label>Refuser l'offre</label>
             </div>
