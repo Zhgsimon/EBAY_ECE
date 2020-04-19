@@ -20,8 +20,7 @@
 
   //selectionner l'historique d'achat d'un acheteur
   $req_historique_achat = $bdd->query("SELECT *  FROM item WHERE ID_acheteur = '$ID_user' AND etat_vente ='vendu'" );
-  $nbr=$req_historique_achat->rowCount();
-  echo $nbr;
+
 ?>
 
 <?php include('includes/header.php'); ?>
@@ -46,8 +45,8 @@
      <th>Item</th>
      <th>Catégorie</th>
      <th>Description</th>
-     <th>Prix</th>
-     <th>Date</th>
+     <th><!--Prix--></th>
+     <th><!--Date--></th>
      <th>Vendeur</th>
      </tr>
      </thead>
@@ -69,9 +68,16 @@
          <td><strong> <?php echo $donnee['name_item'];?></strong> </td>
          <td> <?php echo $donnee['Categorie'];?> </td>
          <td> <?php echo $donnee['description'];?> </td>
-         <td> <?php echo $donnee['name_item'];//faire Prix?> </td>
-         <td> <?php echo $donnee['name_item'];//faire date?> </td>
-         <td> <?php echo $donnee['ID_vendeur'];?> </td>
+         <td> <?php// echo $donnee['name_item'];//faire Prix?> </td>
+         <td> <?php //echo $donnee['name_item'];//faire date?> </td>
+         <td> <?php
+         $ID_vendeur= $donnee['ID_vendeur'];
+         $req_vendeur=$bdd->query("SELECT Name,First_name  FROM user WHERE ID_user = '$ID_vendeur'" );
+         $res=$req_vendeur->fetch();
+         echo $res ['First_name'];
+         echo " ";
+         echo $res ['Name'];
+         ?> </td>
        </tr>
       <?php endwhile;?>
 
