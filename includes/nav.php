@@ -42,7 +42,7 @@
           <!--Liste de vos items en vente-->
           <li><a href="objet_en_vente.php">Vos objets en vente</a></li>
           <!--Onglet Négociation-->
-          <li><a href="négociation.php">Négocier</a></li>
+          <li><a href="negociation.php">Négocier</a></li>
 
         <?php endif; ?>
       <?php endif; ?>
