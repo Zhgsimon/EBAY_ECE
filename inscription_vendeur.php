@@ -36,12 +36,12 @@ color: #fff;
   </div>
 
 
-
+  <div class="login-form">
     <div class="row">
       <div class="main">
 
-            <div class="login-form">
-              <form action="traitement_inscription.php" method="POST">
+
+              <form action="traitement_inscription_vendeur.php" method="POST">
 
               <div class="col-sm-6">
 
@@ -90,15 +90,14 @@ color: #fff;
                      <input type="password" class="form-control" placeholder="Mot de passe" required name="password2">
                   </div>
 
+                  <input type="submit" id='submit' name="submit" class="btn btn-black" Value="Register"></input>
 
 
-
-                  <button type="submit" id='submit' name="submit" class="btn btn-black">Register</button>
 
                  </div>
 
 
-               </form>
+
             </div>
          </div>
       </div>
@@ -108,11 +107,28 @@ color: #fff;
             <div class="panel panel-default">
               <div class="panel-heading">
                 <h3 class="panel-title">
-                  Détails paiement
+                  Information de paiement
                 </h3>
 
               </div>
+              <div class="paymentWrap" >
+                <div class="btn-group paymentBtnGroup btn-group-justified" data-toggle="buttons">
+                  <label class="btn paymentMethod active">
+                    <div class="method visa"></div>
+                    <input type="radio" name="type_carte" value="visa" checked>
+                  </label>
+                  <label class="btn paymentMethod">
+                    <div class="method master-card"></div>
+                    <input type="radio" name="type_carte" value="mastercard">
+                  </label>
+                  <label class="btn paymentMethod">
+                    <div class="method amex"></div>
+                    <input type="radio" name="type_carte" value="amex">
+                  </label>
+                </div>
+              </div>
               <div class="panel-body">
+
 
 
                   <div class="form-group">
@@ -152,10 +168,13 @@ color: #fff;
                                   <label for="Name">Nom carte</label>
                                     <input type="text" class="form-control" name="nom_carte" id="Name" placeholder="Nom carte" required />
                                 </div>
+
+
                         </div>
                        </div>
                       </div>
                   </div>
+                </form>
 
     <div class="containerblanc">
 
