@@ -1,6 +1,5 @@
 <?php
   session_start();
-
 ?>
 
 <?php include('includes/header.php'); ?>
@@ -88,13 +87,13 @@ color: #fff;
                     //  <input type="hidden" name="location" value="paiement.php%tigroudesbois.jpg%" />
                   ?>
 
-                    
+
                   </div>
 
 
-                  <button type="submit" id='submit'class="btn btn-black">Login</button>
+                  <input type="submit" id='submit' name="submit" class="btn btn-black" value="Login"></input>
 
-                  <a href="inscription.php" id="alink"target="blank"><button type="button" id='register'class="btn btn-secondary">Inscrivez-vous</button></a>
+                  <a href="inscription.php" id="alink" name="submit" target="blank"><button type="button" id='register'class="btn btn-secondary">Inscrivez-vous</button></a>
 
 
                </form>

@@ -121,7 +121,7 @@ $img="img_items/".$row['pic1'];
                 <?php endif; ?>
 
                 <?php if (isset($row['prix_nego_init'])): ?>
-                  <form action="negocier.php" method="get">
+                  <form action="negociation_acheteur.php" method="get">
                     <button type="submit" name="submit_action" value=<?php echo $pic1; ?>>Négocier avec le vendeur</button>
                    <!--<input type="submit" name="submit_action" value= placeholder="Négocier avec le vendeur">-->
                  </form>

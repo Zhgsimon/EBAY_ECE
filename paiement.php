@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 if(isset($_SESSION['ID_user']))
 {
   //Si l'acheteur est connecté on lui affiche les moyens de paiement

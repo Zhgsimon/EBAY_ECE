@@ -1,6 +1,15 @@
 <?php
 session_start();
 
+if(isset($_SESSION['ID_user']))
+{
+  //Si l'acheteur est connecté on lui affiche les moyens de paiement
+}
+else {
+  //Si il n'est pas connecté on le redirige vers la page de login
+  header("Location:login.php?location=" . urlencode($_SERVER['REQUEST_URI']));
+  // Note: $_SERVER['REQUEST_URI'] is your current page
+}
 $pic1=$_POST['submit_action'];
 
 //Si il a appuyé sur ajout dans le panier
