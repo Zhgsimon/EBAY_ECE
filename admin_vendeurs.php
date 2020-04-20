@@ -2,6 +2,16 @@
 ob_start();
 session_start();
 
+if(isset($_SESSION['ID_user'])&& $_SESSION['User_privilege']==3)
+{
+  //Si l'admin est conecté
+}
+else {
+  //Si il n'est pas connecté on le redirige vers la page de login
+  header("Location:login.php?location=" . urlencode($_SERVER['REQUEST_URI']));
+  // Note: $_SERVER['REQUEST_URI'] is your current page
+}
+
 
 // connexion à la base de donnée
   try

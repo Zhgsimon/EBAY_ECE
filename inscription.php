@@ -93,7 +93,7 @@ color: #fff;
 
 
 
-                  <button type="submit" id='submit'class="btn btn-black">Register</button>
+                  <button type="submit" id='submit' name="submit" class="btn btn-black">Register</button>
 
                  </div>
 

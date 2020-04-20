@@ -1,8 +1,17 @@
 <?php
-  session_start();
   //historique d'achats
-  //requete pour selectionner tous les items acheté par l'acheteur
-  //boucle fetch
+  session_start();
+
+  if(isset($_SESSION['ID_user'])&& $_SESSION['User_privilege']==1)
+  {
+    //Si l'acheteur est connecté
+  }
+  else {
+    //Si il n'est pas connecté on le redirige vers la page de login
+    header("Location:login.php?location=" . urlencode($_SERVER['REQUEST_URI']));
+    // Note: $_SERVER['REQUEST_URI'] is your current page
+  }
+
 
   // connexion à la base de donnée
     try
