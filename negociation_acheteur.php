@@ -17,6 +17,9 @@ session_start();
   $req_nego=$bdd->query("SELECT *  FROM nego WHERE ID_acheteur = '$ID_user' AND etat=1" );
   $req_nego_accept=$bdd->query("SELECT *  FROM nego WHERE ID_acheteur = '$ID_user' AND etat=3" );
   $req_nego_finies=$bdd->query("SELECT *  FROM nego WHERE ID_acheteur = '$ID_user' AND etat=4" );
+  //si l'item a été vendu lors d'une nego avec un autre client ou qu'il a été acheté en achat immédiat on supprime la nego de la table nego
+  $req_nego_out=$bdd
+  //si etat_vente item= 'en vente' ET que 'id_acheteur' différent de SESSIOn['ID_user']
 
 
  ?>
@@ -99,10 +102,14 @@ session_start();
                 <div class="col-sm-3" style="background-color: #E2E2E2"><h4>Notez bien que si vous faites une offre sur un article,<b> vous êtes sous contrat légal pour l'acheter</b> si le vendeur accepte l'offre</h4></div>
 
         </div>
+
+
         <!-- Nego en cours -->
           <?php
           while ($donnee = $req_nego->fetch()):
           ?>
+
+
           <div class="container" style="margin-bottom: 35px">
 
           <div class="row"><div class="col-sm-12"><h2>Vous négociez pour <b> L'item : </b></h2></div></div>
@@ -168,6 +175,8 @@ session_start();
       			<button type="submit" class="btn btn-black pull-right" name="ModifierA" value="Valider"> <span class="glyphicon glyphicon-ok"></span> Valider</button> </div>
 
           </form>
+
+
 
 <?php
 endwhile;
