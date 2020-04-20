@@ -142,7 +142,7 @@ $img="img_items/".$row['pic1'];
 
                 <?php if (isset($row['prix_nego_init'])):
                   ?>
-                  <a href="#negoModal" class="btn btn-black" rel="modal:open" role="button" name="modif" value="<?php $row['ID_item']?>"><span class="glyphicon glyphicon-plus"></span> Negocier</a>
+                <button><a href="#negoModal" style="color:black;" rel="modal:open" role="button" name="modif" value="<?php $row['ID_item']?>"> Negocier</a></button>
 
                 <?php endif; ?>
 
@@ -160,12 +160,12 @@ $img="img_items/".$row['pic1'];
           </div>
 
         <div class="containerblanc">
-          <h2>AEZFAZEFAZ</h2>
-          <h2>AEZFAZEFAZ</h2>
+          <h2>babaorum</h2>
+          <h2>on sait quil faut faire margin</h2>
 
-<h2>AEZFAZEFAZ</h2>
+<h2>soryyyy</h2>
 
-<h2>AEZFAZEFAZ</h2>
+<h2>easteregg</h2>
 
 
 
@@ -188,12 +188,13 @@ $img="img_items/".$row['pic1'];
 		         	</div>
 
 	<div class="modal-footer">
-		<div>
+
 			 <input type="hidden" name="itemnego" value="<?php echo $row['ID_item']; ?>" required>
        <input type="hidden" name="vendeurnego" value="<?php echo $row['ID_vendeur']; ?>" required>
-			<button type="submit" class="btn btn-black " name="Négocier" value="Valider"> <span class="glyphicon glyphicon-ok"></span> Valider</button> </div>
+         <div class="text-center" style="padding-right: 150px">
+			<button type="submit" class="btn btn-black " name="Négocier" value="Valider"> <span class="glyphicon glyphicon-ok"></span> Valider</button>
 			<button type="submit" class="btn btn-black " data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Annuler</button>
-
+    </div>
 
 	</form>
 
