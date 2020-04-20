@@ -1,6 +1,15 @@
 <?php
 // Starting session
 session_start();
+$url="Catégorie.php?";
+
+if (isset($_GET['Catégorie'])) {
+  $Categorie=$_GET['Catégorie'];
+}
+if (isset($_GET['Catégorie_vente'])) {
+  $Catégorie_vente=$_GET['Catégorie_vente'];
+}
+
 
  // connexion à la base de donnée
  try
@@ -13,8 +22,47 @@ catch (Exception $e)
  	die('Erreur : ' . $e->getMessage());
 }
 
-//On sélectionne tous les items qui sont en état de vente
-$rep = $bdd->query('SELECT ID_item FROM item WHERE etat_vente="en_vente"');
+
+if (isset($Categorie)&& !isset($Catégorie_vente)) {
+  //Si une catégorie a été appliquée mais de catégorie_vente
+  $rep = $bdd->query("SELECT ID_item FROM item WHERE etat_vente='en_vente'AND Categorie='$Categorie'");
+}
+elseif (isset($Categorie)&& isset($Catégorie_vente)) {
+  //Si une catégorie a été appliquée et de même une catégorie_vente
+  if ($Catégorie_vente=="Enchère") {
+
+    $rep = $bdd->query("SELECT ID_item FROM item WHERE etat_vente='en_vente'AND Categorie='$Categorie'AND prix_enchere_2 IS NOT NULL ");
+  }
+  if ($Catégorie_vente=="Achatimm") {
+
+    $rep = $bdd->query("SELECT ID_item FROM item WHERE etat_vente='en_vente'AND Categorie='$Categorie'AND prix_immediat IS NOT NULL ");
+  }
+  if ($Catégorie_vente=="MeilleurPrix") {
+    $rep = $bdd->query("SELECT ID_item FROM item WHERE etat_vente='en_vente'AND Categorie='$Categorie'AND prix_nego_init IS NOT NULL ");
+  }
+
+}
+elseif (!isset($Categorie)&& isset($Catégorie_vente)) {
+  // Si il y a seulement une catégorie de vente et pas de catégorie
+  if ($Catégorie_vente=="Enchère") {
+
+    $rep = $bdd->query("SELECT ID_item FROM item WHERE etat_vente='en_vente'AND  prix_enchere_2 IS NOT NULL ");
+  }
+  if ($Catégorie_vente=="Achatimm") {
+
+    $rep = $bdd->query("SELECT ID_item FROM item WHERE etat_vente='en_vente'AND  prix_immediat IS NOT NULL ");
+  }
+  if ($Catégorie_vente=="MeilleurPrix") {
+    $rep = $bdd->query("SELECT ID_item FROM item WHERE etat_vente='en_vente'AND prix_nego_init IS NOT NULL ");
+  }
+}
+else
+{
+  //si aucune catégorie n'a été sélectionné
+  //On sélectionne tous les items qui sont en état de vente
+  $rep = $bdd->query("SELECT ID_item FROM item WHERE etat_vente='en_vente'");
+}
+
 
 //on stocke dans des array les id des items
 $ID_item = array();
@@ -22,7 +70,6 @@ $ID_item = array();
 //je parcours ma table item
 while ($donnees = $rep->fetch())
 {
-
   //je remplis mon array d'informations
   $ID_item [] = $donnees ['ID_item'];
 }
@@ -30,6 +77,8 @@ while ($donnees = $rep->fetch())
 //pagination automatique
 //Compter le nombre de pages
 $count=count($ID_item);
+
+
 
 $nombre_item_par_page=10;
 //nombre entier supérieur
@@ -54,10 +103,49 @@ else // Sinon
 
 $premiereEntree=($pageActuelle-1)*$nombre_item_par_page; // On calcul la première entrée à lire
 
+
 // La requête sql pour récupérer les items de la page actuelle.
-$item_page_actuelle=$bdd->query('SELECT * FROM item WHERE etat_vente="en_vente" ORDER BY ID_item DESC LIMIT '.$premiereEntree.', '.$nombre_item_par_page.'');
+if (isset($Categorie)&& !isset($Catégorie_vente)) {
+  //Si une catégorie a été appliquée mais de catégorie_vente
+  $item_page_actuelle=$bdd->query("SELECT * FROM item WHERE etat_vente='en_vente' AND Categorie='$Categorie' ORDER BY ID_item DESC LIMIT ".$premiereEntree.", ".$nombre_item_par_page."");
+}
+elseif (isset($Categorie)&& isset($Catégorie_vente)) {
+  //Si une catégorie a été appliquée et de même une catégorie_vente
+  if ($Catégorie_vente=="Enchère") {
+
+    $item_page_actuelle = $bdd->query("SELECT * FROM item WHERE etat_vente='en_vente'AND Categorie='$Categorie'AND prix_enchere_2 IS NOT NULL ORDER BY ID_item DESC LIMIT ".$premiereEntree.", ".$nombre_item_par_page."");
+  }
+  if ($Catégorie_vente=="Achatimm") {
+
+    $item_page_actuelle = $bdd->query("SELECT * FROM item WHERE etat_vente='en_vente'AND Categorie='$Categorie'AND prix_immediat IS NOT NULL ORDER BY ID_item DESC LIMIT ".$premiereEntree.", ".$nombre_item_par_page." ");
+  }
+  if ($Catégorie_vente=="MeilleurPrix") {
+    $item_page_actuelle = $bdd->query("SELECT * FROM item WHERE etat_vente='en_vente'AND Categorie='$Categorie'AND prix_nego_init IS NOT NULL ORDER BY ID_item DESC LIMIT ".$premiereEntree.", ".$nombre_item_par_page."");
+  }
+
+}
+elseif (!isset($Categorie)&& isset($Catégorie_vente)) {
+  // Si il y a seulement une catégorie de vente et pas de catégorie
+  if ($Catégorie_vente=="Enchère") {
+
+    $item_page_actuelle = $bdd->query("SELECT * FROM item WHERE etat_vente='en_vente'AND  prix_enchere_2 IS NOT NULL ORDER BY ID_item DESC LIMIT ".$premiereEntree.", ".$nombre_item_par_page."");
+  }
+  if ($Catégorie_vente=="Achatimm") {
+
+    $item_page_actuelle = $bdd->query("SELECT * FROM item WHERE etat_vente='en_vente'AND  prix_immediat IS NOT NULL ORDER BY ID_item DESC LIMIT ".$premiereEntree.", ".$nombre_item_par_page."");
+  }
+  if ($Catégorie_vente=="MeilleurPrix") {
+    $item_page_actuelle = $bdd->query("SELECT * FROM item WHERE etat_vente='en_vente'AND prix_nego_init IS NOT NULL ORDER BY ID_item DESC LIMIT ".$premiereEntree.", ".$nombre_item_par_page."");
+  }
+}
 
 
+else
+{
+  //si aucune catégorie n'a été sélectionné
+  //On sélectionne tous les items qui sont en état de vente
+  $item_page_actuelle=$bdd->query('SELECT * FROM item WHERE etat_vente="en_vente" ORDER BY ID_item DESC LIMIT '.$premiereEntree.', '.$nombre_item_par_page.'');
+}
 
 ?>
 
@@ -176,20 +264,20 @@ background-color: #E9E9E9;
 
 
 
-            <form action="TraitementCatégorie.php">
+            <form action=<?php echo $url; ?> method="get">
 
               <div class="row" class="space">
 
                 <div class="col-sm-4">
-              <label class="container">Ferraille ou Trésor <input type="checkbox" name="Catégories1" value="ferraille"><span class="checkmark"></span> </label><br>
+              <label class="container">Ferraille ou Trésor <input type="radio" name="Catégorie" value="Feraille ou Trésor"><span class="checkmark"></span> </label><br>
                 </div>
 
                 <div class="col-sm-4">
-             <label class="container">Bon pour le Musée<input type="checkbox" name="Catégories2" value="musée"><span class="checkmark"></span> </label><br>
+             <label class="container">Bon pour le Musée<input type="radio" name="Catégorie" value="Bon pour le Musée"><span class="checkmark"></span> </label><br>
                 </div>
 
                 <div class="col-sm-4">
-              <label class="container">Accessoire VIP<input type="checkbox" name="Catégories3" value="vip"><span class="checkmark"></span></label><br><br>
+              <label class="container">Accessoire VIP<input type="radio" name="Catégorie" value="Accessoire VIP"><span class="checkmark"></span></label><br><br>
                 </div>
 
               </div>
@@ -197,15 +285,15 @@ background-color: #E9E9E9;
               <div class="row" class="space">
 
                 <div class="col-sm-4">
-              <label class="container">Acheté Maintenant <input type="checkbox" name="Catégories4" value="Achatimm"><span class="checkmark"></span> </label><br>
+              <label class="container">Achat immédiat <input type="radio" name="Catégorie_vente" value="Achatimm"><span class="checkmark"></span> </label><br>
                 </div>
 
                 <div class="col-sm-4">
-             <label class="container">Enchère<input type="checkbox" name="Catégories5" value="Enchère"><span class="checkmark"></span> </label><br>
+             <label class="container">Enchère<input type="radio" name="Catégorie_vente" value="Enchère"><span class="checkmark"></span> </label><br>
                 </div>
 
                 <div class="col-sm-4">
-              <label class="container">Meilleur Prix<input type="checkbox" name="Catégories6" value="MeilleurPrix"><span class="checkmark"></span></label><br><br>
+              <label class="container">Meilleur Prix<input type="radio" name="Catégorie_vente" value="MeilleurPrix"><span class="checkmark"></span></label><br><br>
                 </div>
 
               </div>
