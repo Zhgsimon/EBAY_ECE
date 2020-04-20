@@ -55,10 +55,10 @@
        <thead>
          <tr>
            <th>Item</th>
+           <th>Nom</th>
            <th>Catégorie</th>
            <th>Description</th>
-           <th>Prix de vente</th>
-           <th>Acheteur</th>
+           <th>Prix </th>
          </tr>
        </thead>
 
@@ -78,23 +78,19 @@
 
 
            </td>
+           <td><strong><?php echo $donnee['name_item'] ?></strong></td>
            <td><?php echo $donnee['Categorie'] ?></td>
            <td><?php echo $donnee['description'] ?></td>
            <td>
-             <?php echo $donnee['prix_payé'] ?>
-           </td>
-
-           <?php
-            $req_acheteur = $bdd->prepare("SELECT  name,First_name  FROM user WHERE ID_User=? ");
-            $req_acheteur->execute(array($donnee['ID_acheteur']));
-
-            $row_acheteur = $req_acheteur->fetch();
-           ?>
-           <td><?php
-           echo $row_acheteur['First_name'];
-           echo " ";
-           echo $row_acheteur['name']; ?></td>
-
+             <?php if(isset($donnee['prix_immediat'])): ?>
+               <p><strong>Achat immédiat:</strong></p><?php echo $donnee['prix_immediat'] ?>
+             <?php endif; ?>
+             <?php if(isset($donnee['prix_nego_init'])): ?>
+               <p><strong>Négociation:</strong></p><?php echo $donnee['prix_nego_init'] ?>
+             <?php endif; ?>
+             <?php if(isset($donnee['prix_enchere_2'])): ?>
+               <p><strong>Enchère:</strong></p><?php echo $donnee['prix_enchere_2'] ?>
+             <?php endif; ?>           </td>
 
 
          </tr>
@@ -116,6 +112,7 @@
        <thead>
          <tr>
            <th>Item</th>
+           <th>Nom</th>
            <th>Catégorie</th>
            <th>Description</th>
            <th>Prix de vente</th>
@@ -139,6 +136,7 @@
 
 
            </td>
+           <td><strong><?php echo $donnee['name_item'] ?></strong></td>
            <td><?php echo $donnee['Categorie'] ?></td>
            <td><?php echo $donnee['description'] ?></td>
            <td>
