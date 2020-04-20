@@ -2,9 +2,9 @@
   //historique d'achats
   session_start();
 
-  if(isset($_SESSION['ID_user'])&& $_SESSION['User_privilege']==1)
+  if(isset($_SESSION['ID_user'])&& $_SESSION['User_privilege']==2)
   {
-    //Si l'acheteur est connecté
+    //Si le vendeur est connecté
   }
   else {
     //Si il n'est pas connecté on le redirige vers la page de login
