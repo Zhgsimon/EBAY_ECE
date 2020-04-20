@@ -170,10 +170,10 @@ $img="img_items/".$row['pic1'];
 	</div>
 	<div class="modal-body">
 		<form action="traitement_nego.php" method="post">
-
+      <p>Le prix de négociation de base par le vendeur est <strong> <?php echo  $row['prix_nego_init']; ?> €</strong></p>
 		            <div class="form-group">
-		              <label for="prix_propose"><span class="glyphicon glyphicon-euro"></span> Prix</label>
-		              <input type="text" class="form-control" required name="prix_propose" placeholder="10">
+		              <label for="prix_propose"><span class="glyphicon glyphicon-euro"></span> Prix proposé</label>
+		              <input type="number" class="form-control" required name="prix_propose" placeholder="Votre proposition">
 		            </div>
 
 
@@ -181,9 +181,9 @@ $img="img_items/".$row['pic1'];
 
 	<div class="modal-footer">
 		<div>
-			 <input type="hidden" name="itemtnego" value="<?php echo $row['ID_ item']; ?>" required>
-			<button type="submit" class="btn btn-black pull-right" name="Négocier" value="Valider"> <span class="glyphicon glyphicon-ok"></span> Valider</button> </div>
-			<button type="submit" class="btn btn-black pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Annuler</button>
+			 <input type="hidden" name="itemtnego" value="<?php echo $row['ID_item']; ?>" required>
+			<button type="submit" class="btn btn-black " name="Négocier" value="Valider"> <span class="glyphicon glyphicon-ok"></span> Valider</button> </div>
+			<button type="submit" class="btn btn-black " data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Annuler</button>
 
 
 	</form>
