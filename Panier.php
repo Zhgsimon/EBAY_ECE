@@ -105,7 +105,7 @@
            <?php if(isset($donnee['prix_immediat'])): ?>
              <p>Achat immédiat:</p><?php echo $donnee['prix_immediat'] ?>
            <?php endif; ?>
-           <?php if(isset($donnee['prix_immediat'])): ?>
+           <?php if(isset($donnee['prix_nego_init'])): ?>
              <p>Négociation:</p><?php echo $donnee['prix_nego_init'] ?>
            <?php endif; ?>
            <?php if(isset($donnee['prix_enchere_2'])): ?>
