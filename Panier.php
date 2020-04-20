@@ -83,10 +83,12 @@
            <td><?php $photo="img_items/".$donnee['pic1']; ?>
 
              <?php if ($donnee['pic1']): ?>
-               <img src=<?php echo $photo; ?>>
+               <img src=<?php echo $photo; ?> style=" width: 200px !important;
+                height: 200px !important;">
              <?php else: ?>
                <p>Pas de photos trouvé</p>
              <?php endif; ?>
+
            </td>
            <td><?php echo $donnee['Categorie'] ?></td>
            <td><?php echo $donnee['description'] ?></td>
@@ -119,7 +121,7 @@
            <td><?php echo $row_vendeur['Pseudo'] ?></td>
 
            <td><?php $url="./Détailitem.php?pic1=".$donnee['pic1']; ?>
-           <li class="text-left"><a href=<?php echo $url; ?> class="aI">Plus de détails</a></li></td>
+           <li class="text-left" style="list-style-type: none;"><a href=<?php echo $url; ?> style="color : black; "><span class="glyphicon glyphicon-plus"></span></a></li></td>
 
          </tr>
 

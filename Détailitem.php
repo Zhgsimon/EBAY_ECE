@@ -39,7 +39,12 @@ $img="img_items/".$row['pic1'];
     background-color: #E9E9E9;
   }
 
-
+  .row {
+   display: -webkit-box;
+   display: -webkit-flex;
+   display: -ms-flexbox;
+   display: flex;
+  }
 
   button {
   display:block;
@@ -82,8 +87,7 @@ $img="img_items/".$row['pic1'];
               </div>
 
               <div class="col-sm-8">
-
-              <u><h3 class="text-left"> <?php echo $row['name_item']; ?></h3></u>
+              <u ><h3 class="text-left" style="margin-bottom:80px "> <?php echo $row['name_item']; ?></h3></u>
               <h4> <?php echo $row['description']; ?></h4>
 
               <?php if (isset($row['prix_immediat'])): ?>
@@ -121,7 +125,7 @@ $img="img_items/".$row['pic1'];
 
                 <?php if (isset($row['prix_nego_init'])): ?>
                   <form action="negocier.php" method="get">
-                    <button type="submit" name="submit_action" value=<?php echo $pic1; ?>>Négocier avec le vendeur</button>
+                    <button type="submit" name="submit_action" value=<?php echo $pic1; ?>>Négocier</button>
                    <!--<input type="submit" name="submit_action" value= placeholder="Négocier avec le vendeur">-->
                  </form>
                 <?php endif; ?>

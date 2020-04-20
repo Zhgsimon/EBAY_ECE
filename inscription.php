@@ -70,7 +70,7 @@ color: #fff;
 
 
                   <div class="form-group">
-                     <label>Pseudo  <span class="glyphicon glyphicon-user"</label>
+                     <label>Pseudo  <span class="glyphicon glyphicon-user"></label>
                      <input type="text" class="form-control" placeholder="Pseudo" required name="Pseudo">
                   </div>
 
