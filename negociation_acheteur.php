@@ -31,7 +31,6 @@ else {
   while($item_vendu = $req_item_vendu -> fetch()){
     $ID_acheteur_def=$item_vendu['ID_acheteur'];
     $ID_item_verif=$item_vendu['ID_item'];
-    echo $ID_acheteur_def;
     $req_suppress=$bdd->query("DELETE from nego WHERE ID_acheteur!='$ID_acheteur_def' AND ID_item='$ID_item_verif'");
   }
 
