@@ -19,7 +19,7 @@ if(isset($_POST['ModifierA'])){
   $req_NB_PR=$bdd->query("SELECT `Nb_propositions_restantes` FROM `nego` WHERE `ID_nego`='$id_a_modif'");
   $fetch_NB_PR=$req_NB_PR->fetch();
   $NB_PR=$fetch_NB_PR['Nb_propositions_restantes'] ;
-  if($NB_PR>0){ //si il reste des tentatives
+  if($NB_PR>=0){ //si il reste des tentatives
     if(isset($_POST['qst'])){
       if($_POST['qst']=='refuse'){ //l'offre est refusée
         $NB_PR=$NB_PR-1;
@@ -43,7 +43,7 @@ if(isset($_POST['ModifierA'])){
       }
     }
   }
-  if($NB_PR==0){ //si il ne reste plus de tentatives
+  if($NB_PR<0){ //si il ne reste plus de tentatives
     $query = $bdd->query("DELETE from nego WHERE ID_nego='$id_a_modif'");
   echo "je vais etre supp";
   }

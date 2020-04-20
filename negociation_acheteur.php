@@ -144,7 +144,8 @@ session_start();
             <h3 style="float: left;">Voici l'offre du vendeur :
               <?php echo $donnee['prix_vendeur']; ?> €
             </h3><h3 class="text-right"> Nombre de tentatives restante : <?php echo $donnee['Nb_propositions_restantes']; ?></h3>
-
+            <p> <?php if ($donnee['Nb_propositions_restantes']==0) {echo "Attention, ceci est votre dernière chance! Si vous refusez
+              cette offre, la négociation sera supprimée.";}?></p>
               <div class="form-group">
               <input  type="radio" name="qst" value="accepte" id="1"><label style="margin-right: 35px" >Accepter l'offre</label>
               <input type="radio" name="qst" value="refuse" id="2"><label>Refuser l'offre</label>
