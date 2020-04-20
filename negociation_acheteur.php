@@ -282,7 +282,7 @@ while ($donnee = $req_nego_finies->fetch()):
 <?php
 endwhile;
 ?>
-</div>
+  </div>
 
 
 </div>
