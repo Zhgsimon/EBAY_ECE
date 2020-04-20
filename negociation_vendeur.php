@@ -146,7 +146,7 @@ session_start();
 
             <div class="row"><div class="col-sm-4"><div class="form-group">
               <label style="display: none;">Contre offre</label>
-              <input type="number" class="form-control" placeholder="Prix proposé"  required name="nv_offre" style="display: none;" id="3">
+              <input type="number" class="form-control" placeholder="Prix proposé"   name="nv_offre" style="display: none;" id="3">
             </div></div></div>
 
             <input type="hidden" name="keytomodifV" value="<?php echo $donnee['ID_nego']; ?>" required>

@@ -11,6 +11,7 @@ catch (Exception $e)
 {
     die('Erreur : ' . $e->getMessage());
 }
+echo"je suis la";
 
 //L'acheteur a pris une decision
 if(isset($_POST['ModifierA'])){
@@ -50,12 +51,13 @@ if(isset($_POST['ModifierV'])){
     ));
   }
   else { //l'offre est acceptée par le vendeur
+    $prix_acheteur=$_POST['prix_acheteur'];
     $query = $bdd->prepare('UPDATE nego SET etat =:etat, prix_vendeur=:prix_vendeur,prix_final=:prix_final WHERE ID_nego =:ID_nego');
     $success=$query->execute(array(
       ':ID_nego'=> $id_a_modif,
       'etat'=>'3',
-      ':prix_vendeur'=>$_POST['nv_offre'],
-      ':prix_final'=>$_POST['nv_offre']
+      ':prix_vendeur'=>$prix_acheteur,
+      ':prix_final'=>$prix_acheteur
     ));
 
   }
@@ -64,6 +66,5 @@ if(isset($_POST['ModifierV'])){
 
 }
 
-echo"je suis la";
 
  ?>
