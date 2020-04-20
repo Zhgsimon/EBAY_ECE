@@ -210,20 +210,52 @@ $req_item_signale = $bdd->query('SELECT ID_item,name_item, pic1, description, ca
                           $id_a_ajouter=$_POST['keytoAdd'];
                           $req_item_existe=$bdd->query("SELECT * FROM item WHERE ID_item='$id_a_ajouter'");
 
+
                           $count = $req_item_existe->rowCount();
+
 
                           if ($count>0) {
 
-                          //si l'array est rempli d'au moins 1 on supprime de la liste des vendeurs autorisés
-                            $query = $bdd->prepare('UPDATE item SET etat_vente = :etat_vente WHERE ID_item = :ID_item');
+                          //si l'array est rempli d'au moins 1 on ajoute l'item
+                          while ($data=$req_item_existe->fetch()) {
+
+                            $date = new DateTime(date("Y-m-d H:i:s"));
+                            $date_actuelle=$date->format("Y-m-d H:i:s");
+
+
+                            if ($data['duree_vente']==24) {
+                              // +1
+                              $date->modify('+1 day');
+                              $date_enchere_fin = $date->format("Y-m-d H:i:s");
+                            }
+                            if ($data['duree_vente']==72) {
+                              // +3
+                              $date->modify('+3 day');
+                              $date_enchere_fin = $date->format("Y-m-d H:i:s");
+                            }
+                            if ($data['duree_vente']==120) {
+                              // +5
+                              $date->modify('+5 day');
+                              $date_enchere_fin = $date->format("Y-m-d H:i:s");
+                            }
+                            if ($data['duree_vente']==168) {
+                              // +7
+                              $date->modify('+7 day');
+                              $date_enchere_fin = $date->format("Y-m-d H:i:s");
+                            }
+                          }
+
+                            $query = $bdd->prepare('UPDATE item SET etat_vente =:etat_vente, date_enchere_debut =:date_enchere_debut, date_enchere_fin=:date_enchere_fin WHERE ID_item = :ID_item');
 
                             $success = $query->execute(array(
                               ':ID_item' => $id_a_ajouter,
-                              ':etat_vente' => 'en_vente'
+                              ':etat_vente' => 'en_vente',
+                              ':date_enchere_debut'=> $date_actuelle,
+                              ':date_enchere_fin'=> $date_enchere_fin
                             ));
 
                             echo '<div class="alert alert-success"> <p>La ligne a été supprimé</p> </div>';
-                            header('Location:admin_item.php');
+                            //header('Location:admin_item.php');
 
                           }
                           else {

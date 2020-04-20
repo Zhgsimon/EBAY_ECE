@@ -87,9 +87,6 @@
               <p><b>Choissisez le durée de la mise en vente aux enchères</b></p>
               <select name="duree_vente" required>
                 <option value="">Choissisez une option</option>
-                <option value="2">2h</option>
-                <option value="4">4h</option>
-                <option value="10">10h</option>
                 <option value="24">1j</option>
                 <option value="72">3j</option>
                 <option value="120">5j</option>

@@ -38,7 +38,7 @@
       $ID_panier=$row_panier['ID_panier'];
 
       //si son panier existe déjà
-      echo "Assigned";
+      //echo "Assigned";
 
       //On récupère dans contient les items qui sont stockés dans le panier de l'utilisateur
       $req_panier_contient = $bdd->query("SELECT *
@@ -105,7 +105,7 @@
            <?php if(isset($donnee['prix_immediat'])): ?>
              <p>Achat immédiat:</p><?php echo $donnee['prix_immediat'] ?>
            <?php endif; ?>
-           <?php if(isset($donnee['prix_immediat'])): ?>
+           <?php if(isset($donnee['prix_nego_init '])): ?>
              <p>Négociation:</p><?php echo $donnee['prix_nego_init'] ?>
            <?php endif; ?>
            <?php if(isset($donnee['prix_enchere_2'])): ?>
