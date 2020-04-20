@@ -29,6 +29,12 @@
     $liste_obj_vendus->execute(array($_SESSION['ID_user']));
     $liste_obj_en_vente = $bdd->prepare("SELECT * FROM item WHERE ID_vendeur=? AND etat_vente='en_vente'");
     $liste_obj_en_vente->execute(array($_SESSION['ID_user']));
+    $liste_obj_en_attente=$bdd->prepare("SELECT * FROM item WHERE ID_vendeur=? AND etat_vente='en_attente'");
+    $liste_obj_en_attente->execute(array($_SESSION['ID_user']));
+    $liste_obj_signale=$bdd->prepare("SELECT * FROM item WHERE ID_vendeur=? AND etat_vente='signalé'");
+    $liste_obj_signale->execute(array($_SESSION['ID_user']));
+    $liste_obj_banni=$bdd->prepare("SELECT * FROM item WHERE ID_vendeur=? AND etat_vente='banni'");
+    $liste_obj_banni->execute(array($_SESSION['ID_user']));
 
 
 
