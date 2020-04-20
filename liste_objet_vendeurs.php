@@ -27,6 +27,9 @@
     //On récupère tous les items vendus par le vendeur
     $liste_obj_vendus = $bdd->prepare("SELECT * FROM item WHERE ID_vendeur=? AND etat_vente='vendu'");
     $liste_obj_vendus->execute(array($_SESSION['ID_user']));
+    $liste_obj_en_vente = $bdd->prepare("SELECT * FROM item WHERE ID_vendeur=? AND etat_vente='en_vente'");
+    $liste_obj_en_vente->execute(array($_SESSION['ID_user']));
+
 
 
 
@@ -45,6 +48,66 @@
   </nav>
 
   <div class="container">
+    <h2> Objets en vente </h2>
+
+
+     <table class="table">
+       <thead>
+         <tr>
+           <th>Item</th>
+           <th>Catégorie</th>
+           <th>Description</th>
+           <th>Prix de vente</th>
+           <th>Acheteur</th>
+         </tr>
+       </thead>
+
+     <tbody>
+       <?php     while ($donnee = $liste_obj_en_vente->fetch()):?>
+         <tr>
+           <td><?php $photo="img_items/".$donnee['pic1']; ?>
+
+             <?php if ($donnee['pic1']): ?>
+               <img src=<?php echo $photo; ?> style=" width: 200px !important;
+                height: 200px !important;">
+             <?php else: ?>
+               <p><img src="img_projet/vendre.jpg" style=" width: 200px !important;
+                height: 200px !important;"></p>
+             <?php endif; ?>
+
+
+
+           </td>
+           <td><?php echo $donnee['Categorie'] ?></td>
+           <td><?php echo $donnee['description'] ?></td>
+           <td>
+             <?php echo $donnee['prix_payé'] ?>
+           </td>
+
+           <?php
+            $req_acheteur = $bdd->prepare("SELECT  name,First_name  FROM user WHERE ID_User=? ");
+            $req_acheteur->execute(array($donnee['ID_acheteur']));
+
+            $row_acheteur = $req_acheteur->fetch();
+           ?>
+           <td><?php
+           echo $row_acheteur['First_name'];
+           echo " ";
+           echo $row_acheteur['name']; ?></td>
+
+
+
+         </tr>
+
+
+
+
+
+
+       <?php endwhile; ?>
+     </tbody>
+
+    </table>
 
     <h2> Objets vendus </h2>
 
