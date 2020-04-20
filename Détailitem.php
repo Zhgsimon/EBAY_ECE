@@ -1,4 +1,5 @@
 <?php
+  ob_start();
   session_start();
   if(isset($_GET["pic1"]))
   {
@@ -32,7 +33,18 @@ $img="img_items/".$row['pic1'];
 
 ?>
 <?php include('includes/header.php'); ?>
-  <style>
+<head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+<style>
+.btn-black{
+	background-color: #000 !important;
+	color: #fff;
+	margin-bottom: 5px ;
+	margin-right: 5px;
+	float: right;
+}
+
 
   .col-sm-8{
 
@@ -120,11 +132,10 @@ $img="img_items/".$row['pic1'];
                  </form>
                 <?php endif; ?>
 
-                <?php if (isset($row['prix_nego_init'])): ?>
-                  <form action="negocier.php" method="get">
-                    <button type="submit" name="submit_action" value=<?php echo $pic1; ?>>Négocier avec le vendeur</button>
-                   <!--<input type="submit" name="submit_action" value= placeholder="Négocier avec le vendeur">-->
-                 </form>
+                <?php if (isset($row['prix_nego_init'])):
+                  ?>
+                  <a href="#negoModal" class="btn btn-black" rel="modal:open" role="button" name="modif" value="<?php $row['ID_item']?>"><span class="glyphicon glyphicon-plus"></span> Negocier</a>
+
                 <?php endif; ?>
 
                 <?php if (isset($row['prix_enchere_2'])): ?>
@@ -151,6 +162,63 @@ $img="img_items/".$row['pic1'];
 
 
 
+<!-- Modalnouvelle nego-->
+
+<div id="negoModal" class="modal">
+	<div class="modal-header">
+		<h4 class="modal-title"><strong><center>Negocier pour cet item</center></strong></h5>
+	</div>
+	<div class="modal-body">
+		<form action="traitement_nego.php" method="post">
+
+		            <div class="form-group">
+		              <label for="prix_propose"><span class="glyphicon glyphicon-euro"></span> Prix</label>
+		              <input type="text" class="form-control" required name="prix_propose" placeholder="10">
+		            </div>
+
+
+		         	</div>
+
+	<div class="modal-footer">
+		<div>
+			 <input type="hidden" name="itemtnego" value="<?php echo $row['ID_ item']; ?>" required>
+			<button type="submit" class="btn btn-black pull-right" name="Négocier" value="Valider"> <span class="glyphicon glyphicon-ok"></span> Valider</button> </div>
+			<button type="submit" class="btn btn-black pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Annuler</button>
+
+
+	</form>
+
+
+	</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
             </div>
@@ -162,4 +230,6 @@ $img="img_items/".$row['pic1'];
         </div>
 
 
-<?php include('includes/footer.php'); ?>
+<?php
+ob_end_flush();
+include('includes/footer.php'); ?>
