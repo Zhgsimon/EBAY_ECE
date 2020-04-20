@@ -152,18 +152,21 @@ else
 
 <?php include('includes/header.php'); ?>
 <style>
-.row{
-  overflow: hidden;
+
+/* Pensez à ajouter également les versions avec préfixes pour être compatibles avec le plus de navigateurs possibles */
+.row {
+ display: -webkit-box;
+ display: -webkit-flex;
+ display: -ms-flexbox;
+ display: flex;
 }
 
-[class*="col-"]{
-  margin-bottom: -99999px;
-  padding-bottom: 99999px;
-}
+
+
 
 .container {
 display: block;
-position: relative;
+
 padding-left: 35px;
 margin-bottom: 12px;
 cursor: pointer;
@@ -238,6 +241,12 @@ top: 20px;
 
 .col-sm-8{
 background-color: #E9E9E9;
+margin-bottom: 40px;
+}
+
+.col-sm-4{
+margin-bottom: 40px;
+
 }
 </style>
 </head>
@@ -320,7 +329,8 @@ background-color: #E9E9E9;
               <?php while ($donnees = $item_page_actuelle->fetch()): ?>
                 <div class="row">
                        <div class="col-sm-4">
-                         <img src="img_items/<?php echo $donnees['pic1']; ?>" class="img-responsive" style="width:100%" alt="Image">
+                         <img src="img_items/<?php echo $donnees['pic1']; ?>" class="img-responsive" style=" width: 200px !important;
+                          height: 200px !important;" alt="Image">
                        </div>
 
                        <div class="col-sm-8">
@@ -349,11 +359,13 @@ background-color: #E9E9E9;
                          <?php endif; ?>
 
                          <?php $url="./Détailitem.php?pic1=".$donnees['pic1']; ?>
-                         <li class="text-left"><a href=<?php echo $url; ?> class="aI">Plus de détails</a></li>
+                         <li class="text-left"  style="list-style-type: none;"><a href=<?php echo $url; ?> style="color : black;" class="aI"><span class="glyphicon glyphicon-plus" ></a></li>
 
 
                        </div>
+
                     </div>
+                     <hr size="4">
                 <?php endwhile; ?>
 
 
