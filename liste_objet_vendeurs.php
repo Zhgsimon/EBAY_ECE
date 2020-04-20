@@ -24,33 +24,9 @@
         die('Erreur : ' . $e->getMessage());
     }
 
-    //on cherche dans la BDD si l'utilisateur a déjà un panier
-    //On récupère les éléments du parnier qui appartient à l'utilisateur
-    $stmt_panier = $bdd->prepare("SELECT * FROM panier WHERE ID_User=? LIMIT 1");
-    $stmt_panier->execute(array($_SESSION['ID_user']));
-
-    $row_panier = $stmt_panier->fetch();
-
-
-
-    if ($row_panier)
-    {
-      $ID_panier=$row_panier['ID_panier'];
-
-      //si son panier existe déjà
-      echo "Assigned";
-
-      //On récupère dans contient les items qui sont stockés dans le panier de l'utilisateur
-      $req_panier_contient = $bdd->query("SELECT *
-      FROM item
-      INNER JOIN contient
-      WHERE item.ID_item = contient.ID_item
-      AND ID_panier = '$ID_panier' ");
-    }
-    else
-    {
-      echo "Panier vide";
-    }
+    //On récupère tous les items vendus par le vendeur
+    $liste_obj_vendus = $bdd->prepare("SELECT * FROM item WHERE ID_vendeur=? AND etat_vente='vendu'");
+    $liste_obj_vendus->execute(array($_SESSION['ID_user']));
 
 
 
@@ -70,7 +46,7 @@
 
   <div class="container">
 
-    <h2> Panier </h2>
+    <h2> Objets vendus </h2>
 
 
      <table class="table">
@@ -79,15 +55,13 @@
            <th>Item</th>
            <th>Catégorie</th>
            <th>Description</th>
-           <th>Prix</th>
-           <th>Date</th>
-           <th>Etat</th>
-           <th>Plus de détails</th>
+           <th>Prix de vente</th>
+           <th>Acheteur</th>
          </tr>
        </thead>
 
      <tbody>
-       <?php while($donnee = $req_panier_contient->fetch()): ?>
+       <?php     while ($donnee = $liste_obj_vendus->fetch()):?>
          <tr>
            <td><?php $photo="img_items/".$donnee['pic1']; ?>
 
@@ -95,42 +69,31 @@
                <img src=<?php echo $photo; ?> style=" width: 200px !important;
                 height: 200px !important;">
              <?php else: ?>
-               <p>Pas de photos trouvé</p>
+               <p><img src="img_projet/vendre.jpg" style=" width: 200px !important;
+                height: 200px !important;"></p>
              <?php endif; ?>
+
+
 
            </td>
            <td><?php echo $donnee['Categorie'] ?></td>
            <td><?php echo $donnee['description'] ?></td>
            <td>
-           <?php if(isset($donnee['prix_immediat'])): ?>
-             <p>Achat immédiat:</p><?php echo $donnee['prix_immediat'] ?>
-           <?php endif; ?>
-           <?php if(isset($donnee['prix_immediat'])): ?>
-             <p>Négociation:</p><?php echo $donnee['prix_nego_init'] ?>
-           <?php endif; ?>
-           <?php if(isset($donnee['prix_enchere_2'])): ?>
-             <p>Enchère:</p><?php echo $donnee['prix_enchere_2'] ?>
-           <?php endif; ?>
-           </td>
-
-           <td>
-           <?php if(isset($donnee['date_enchere_fin'])): ?>
-             <p>Fin de l'enchère:</p><?php echo $donnee['date_enchere_fin'] ?>
-            <?php else: ?>
-              <p>Pas disponible à l'enchère</p>
-           <?php endif; ?>
+             <?php echo $donnee['prix_payé'] ?>
            </td>
 
            <?php
-            $req_vendeur = $bdd->prepare("SELECT  Pseudo FROM user WHERE ID_User=? LIMIT 1");
-            $req_vendeur->execute(array($donnee['ID_vendeur']));
+            $req_acheteur = $bdd->prepare("SELECT  name,First_name  FROM user WHERE ID_User=? ");
+            $req_acheteur->execute(array($donnee['ID_acheteur']));
 
-            $row_vendeur = $req_vendeur->fetch();
+            $row_acheteur = $req_acheteur->fetch();
            ?>
-           <td><?php echo $row_vendeur['Pseudo'] ?></td>
+           <td><?php
+           echo $row_acheteur['First_name'];
+           echo " ";
+           echo $row_acheteur['name']; ?></td>
 
-           <td><?php $url="./Détailitem.php?pic1=".$donnee['pic1']; ?>
-           <li class="text-left" style="list-style-type: none;"><a href=<?php echo $url; ?> style="color : black; "><span class="glyphicon glyphicon-plus"></span></a></li></td>
+
 
          </tr>
 
