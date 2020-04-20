@@ -13,8 +13,27 @@ catch (Exception $e)
 }
 echo"je suis la";
 
-if(isset($_POST['itemnego'])){
-  
+if(isset($_POST['itemnego'])&& isset($_POST['vendeurnego'])){
+  $prix_acheteur=$_POST['prix_propose'];
+  $ID_vendeur=$_POST['vendeurnego'];
+  $ID_item=$_POST['itemnego'];
+  $ID_acheteur=$_SESSION['ID_user'];
+  $new_nego =$bdd->prepare('INSERT INTO nego (ID_nego, Nb_propositions_restantes, prix_vendeur, prix_acheteur, prix_final, ID_vendeur, ID_acheteur, ID_item,etat)
+                          VALUES ( :ID_nego, :Nb_propositions_restantes, :prix_vendeur, :prix_acheteur, :prix_final, :ID_vendeur, :ID_acheteur, :ID_item,:etat)');
+
+  $new_nego->execute(array(
+    'ID_nego'=> NULL,
+    'Nb_propositions_restantes'=> 5,
+    'prix_vendeur'=> NULL,
+    'prix_acheteur'=> $prix_acheteur,
+    'prix_final'=> NULL,
+    'ID_vendeur'=> $ID_vendeur,
+    'ID_acheteur'=> $ID_acheteur,
+    'ID_item'=> $ID_item,
+    'etat'=> 2
+  ));
+  header('Location:negociation_acheteur.php');
+
 }
 
 //L'acheteur a pris une decision
