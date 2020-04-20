@@ -54,7 +54,7 @@
   </nav>
 
   <div class="container">
-    <?php if($liste_obj_en_attente->rowCount() >0): ?>
+    <?php if($liste_obj_en_vente->rowCount() >0): ?>
     <h2> Objets en vente </h2>
 
 
