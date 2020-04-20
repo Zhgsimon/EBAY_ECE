@@ -39,12 +39,7 @@ else {
 
 
  <?php include('includes/header.php'); ?>
-   <nav class="navbar navbar-inverse">
-   <?php include('includes/nav.php'); ?>
-   </nav>
 
-<!DOCTYPE html>
-<head>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
@@ -95,9 +90,10 @@ else {
 
 </head>
   <body>
-
-
-
+    
+    <nav class="navbar navbar-inverse">
+    <?php include('includes/nav.php'); ?>
+    </nav>
 
   	<div class="container" style="margin-bottom: 35px">
 
