@@ -137,7 +137,7 @@
                <img src=<?php echo $photo; ?> style=" width: 200px !important;
                 height: 200px !important;">
              <?php else: ?>
-               <p><img src="img_projet/vendre.jpg" style=" width: 200px !important;
+               <p><img src="img_projet/vente.jpg" style=" width: 200px !important;
                 height: 200px !important;"></p>
              <?php endif; ?>
 
@@ -201,7 +201,7 @@
                <img src=<?php echo $photo; ?> style=" width: 200px !important;
                 height: 200px !important;">
              <?php else: ?>
-               <p><img src="img_projet/vendre.jpg" style=" width: 200px !important;
+               <p><img src="img_projet/vente.jpg" style=" width: 200px !important;
                 height: 200px !important;"></p>
              <?php endif; ?>
 
@@ -259,7 +259,7 @@
                <img src=<?php echo $photo; ?> style=" width: 200px !important;
                 height: 200px !important;">
              <?php else: ?>
-               <p><img src="img_projet/vendre.jpg" style=" width: 200px !important;
+               <p><img src="img_projet/vente.jpg" style=" width: 200px !important;
                 height: 200px !important;"></p>
              <?php endif; ?>
 
@@ -319,7 +319,7 @@
                <img src=<?php echo $photo; ?> style=" width: 200px !important;
                 height: 200px !important;">
              <?php else: ?>
-               <p><img src="img_projet/vendre.jpg" style=" width: 200px !important;
+               <p><img src="img_projet/vente.jpg" style=" width: 200px !important;
                 height: 200px !important;"></p>
              <?php endif; ?>
 
