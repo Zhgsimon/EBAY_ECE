@@ -118,6 +118,7 @@ $img="img_items/".$row['pic1'];
 
                 <?php if (isset($row['prix_immediat'])): ?>
                   <form action="paiement.php" method="get">
+                    <input type="hidden" name="type_achat" value="achat_immediat">
                     <button type="submit" name="submit_action" value=<?php echo $pic1; ?>>Achat Immédiat</button>
                    <!--<input type="submit" name="submit_action" value= placeholder="Achat Immédiat">-->
                  </form>

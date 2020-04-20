@@ -1,5 +1,6 @@
 <?php
   session_start();
+
 ?>
 
 <?php include('includes/header.php'); ?>
@@ -77,6 +78,17 @@ color: #fff;
                   <div class="form-group">
                      <label>Mot de passe  <span class="glyphicon glyphicon-eye-close"></label>
                      <input type="password" class="form-control" placeholder="Mot de passe" required name="password">
+                  </div>
+                  <div><?php
+                    echo '<input type="hidden" name="location" value="';
+                    if(isset($_GET['location'])) {
+                        echo htmlspecialchars($_GET['location']);
+                    }
+                    echo '" />';
+                    //  <input type="hidden" name="location" value="paiement.php%tigroudesbois.jpg%" />
+                  ?>
+
+                    
                   </div>
 
 
