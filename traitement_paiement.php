@@ -101,10 +101,15 @@ if ($type_achat=='achat_immediat'||$type_achat=='achat_enchère'||$type_achat=='
 	'ID_panier' =>  $panier,
   'ID_infobancaire_acheteur' => $row_infobancaire_acheteur['ID_infobancaire'],
   'prix_paiement' =>$somme_totale,
-  'ID_infobancaire_vendeur' => $row_infobancaire_vendeur['ID_infobancaire']
+  'ID_infobancaire_vendeur' => NULL
   ));
 
+	//et on update l'état de l'item
+	$stmt_update_item = $bdd->prepare("UPDATE item SET etat_vente=?  WHERE pic1=?");
+  $stmt_update_item->execute(array('vendu',$pic1));
 
-  header('Location: login.php');
+
+
+  header('Location: Achat.php');
 
 ?>

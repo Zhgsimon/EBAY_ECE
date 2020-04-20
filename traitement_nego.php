@@ -11,7 +11,7 @@ catch (Exception $e)
 {
     die('Erreur : ' . $e->getMessage());
 }
-echo"je suis la";
+
 
 if(isset($_POST['itemnego'])&& isset($_POST['vendeurnego'])){
   $prix_acheteur=$_POST['prix_propose'];

@@ -255,7 +255,7 @@ $req_item_signale = $bdd->query('SELECT ID_item,name_item, pic1, description, ca
                             ));
 
                             echo '<div class="alert alert-success"> <p>La ligne a été supprimé</p> </div>';
-                            //header('Location:admin_item.php');
+                            header('Location:admin_item.php');
 
                           }
                           else {
