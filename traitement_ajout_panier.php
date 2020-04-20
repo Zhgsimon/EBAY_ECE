@@ -10,7 +10,7 @@ else {
   header("Location:login.php?location=" . urlencode($_SERVER['REQUEST_URI']));
   // Note: $_SERVER['REQUEST_URI'] is your current page
 }
-$pic1=$_POST['submit_action'];
+$pic1=$_GET['submit_action'];
 
 //Si il a appuyé sur ajout dans le panier
   try
@@ -37,7 +37,7 @@ $pic1=$_POST['submit_action'];
   if ($row_panier)
   {
     //si son panier existe déjà on rajoute dans contient les item_id lié au panier ID
-    echo "Assigned";
+    //echo "Assigned";
 
     $req = $bdd->prepare('INSERT INTO contient(ID_panier, ID_item)
     VALUES (:ID_panier, :ID_item)'); // préparation de la requête
@@ -49,7 +49,7 @@ $pic1=$_POST['submit_action'];
   else
   {
     //sinon on créer son panier et déjà on rajoute dans contient les item_id
-    echo "Available";
+    //echo "Available";
 
     //Création du nouveau panier
     $new_panier = $bdd->prepare('INSERT INTO panier(ID_User)
@@ -70,4 +70,5 @@ $pic1=$_POST['submit_action'];
     $req->execute(array(':ID_panier'=> $row_panier_new['ID_panier'],
                         ':ID_item'=> $row_item['ID_item']));
   }
+  header('Location: Panier.php');
 ?>

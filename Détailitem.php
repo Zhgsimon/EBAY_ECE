@@ -24,7 +24,7 @@ $row = $stmt->fetch();
 
 $img="img_items/".$row['pic1'];
 
-
+$url_panier="traitement_ajout_panier.php?pic1=".$pic1;
 
 
 //$date_enchere_debut=$row['date_enchere_debut'];
@@ -119,7 +119,8 @@ $img="img_items/".$row['pic1'];
 
 
               <div class="text-center">
-                <form action="traitement_ajout_panier.php" method="POST">
+                <form action=<?php echo $url_panier; ?> method="get">
+                  <!--<input type="hidden" name="ajoutpanier" value="<//?php echo $pic1; ?>">-->
                   <button type="submit" name="submit_action" value=<?php echo $pic1; ?>>Ajouter au panier</button>
                   <!--<input  type="submit" name="submit_action" value= placeholder="Ajouter au panier">-->
                 </form>

@@ -155,7 +155,7 @@ opacity: 1;
               <img src="img_items/tableau_lion.jpg" alt="Image">
               <div class="carousel-caption">
                 <h3>Tableau lion</h3>
-                <div class="centered"><li><a href="./Détailitem.php?pic1=tableau_lion     .jpg" class="aI"><h3>Détails item</h3></a></li></div>
+                <div class="centered"><li><a href="./Détailitem.php?pic1=tableau_lion.jpg" class="aI"><h3>Détails item</h3></a></li></div>
 
 
               </div>
