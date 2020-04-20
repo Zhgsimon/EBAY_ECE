@@ -1,8 +1,6 @@
 <?php
   session_start();
-  //historique d'achats
-  //requete pour selectionner tous les items acheté par l'acheteur
-  //boucle fetch
+
 
   // connexion à la base de donnée
     try
