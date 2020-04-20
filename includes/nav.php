@@ -18,6 +18,7 @@
 
       <?php if(!isset($_SESSION['ID_user'])) :?>
         <li><a href="inscription.php">Inscription</a></li>
+        <li><a href="inscription_vendeur.php">Inscription Vendeur</a></li>
       <?php endif; ?>
 
       <?php if( isset($_SESSION['ID_user'])) :?>
