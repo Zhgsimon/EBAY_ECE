@@ -54,6 +54,7 @@
   </nav>
 
   <div class="container">
+    <?php if($liste_obj_en_attente->rowCount() >0): ?>
     <h2> Objets en vente </h2>
 
 
@@ -110,7 +111,8 @@
      </tbody>
 
     </table>
-
+  <?php endif;?>
+    <?php if($liste_obj_vendus->rowCount() >0): ?>
     <h2> Objets vendus </h2>
 
 
@@ -173,6 +175,184 @@
      </tbody>
 
     </table>
+  <?php endif;?>
+    <?php if($liste_obj_en_attente->rowCount() >0): ?>
+
+    <h2> Objets en attente de validation par l'admin </h2>
+
+
+     <table class="table">
+       <thead>
+         <tr>
+           <th>Item</th>
+           <th>Nom</th>
+           <th>Catégorie</th>
+           <th>Description</th>
+           <th>Prix </th>
+         </tr>
+       </thead>
+
+     <tbody>
+       <?php     while ($donnee = $liste_obj_en_attente->fetch()):?>
+         <tr>
+           <td><?php $photo="img_items/".$donnee['pic1']; ?>
+
+             <?php if ($donnee['pic1']): ?>
+               <img src=<?php echo $photo; ?> style=" width: 200px !important;
+                height: 200px !important;">
+             <?php else: ?>
+               <p><img src="img_projet/vendre.jpg" style=" width: 200px !important;
+                height: 200px !important;"></p>
+             <?php endif; ?>
+
+
+
+           </td>
+           <td><strong><?php echo $donnee['name_item'] ?></strong></td>
+           <td><?php echo $donnee['Categorie'] ?></td>
+           <td><?php echo $donnee['description'] ?></td>
+           <td>
+             <?php if(isset($donnee['prix_immediat'])): ?>
+               <p><strong>Achat immédiat:</strong></p><?php echo $donnee['prix_immediat'] ?>
+             <?php endif; ?>
+             <?php if(isset($donnee['prix_nego_init'])): ?>
+               <p><strong>Négociation:</strong></p><?php echo $donnee['prix_nego_init'] ?>
+             <?php endif; ?>
+             <?php if(isset($donnee['prix_enchere_2'])): ?>
+               <p><strong>Enchère:</strong></p><?php echo $donnee['prix_enchere_2'] ?>
+             <?php endif; ?>           </td>
+
+
+         </tr>
+
+
+
+
+
+
+       <?php endwhile; ?>
+     </tbody>
+
+    </table>
+  <?php endif;?>
+
+    <?php if($liste_obj_signale->rowCount() >0): ?>
+    <h2> Objets signalés </h2>
+     <table class="table">
+       <thead>
+         <tr>
+           <th>Item</th>
+           <th>Nom</th>
+           <th>Catégorie</th>
+           <th>Description</th>
+           <th>Prix </th>
+         </tr>
+
+       </thead>
+
+     <tbody>
+       <?php     while ($donnee = $liste_obj_signale->fetch()):?>
+         <tr>
+           <td><?php $photo="img_items/".$donnee['pic1']; ?>
+
+             <?php if ($donnee['pic1']): ?>
+               <img src=<?php echo $photo; ?> style=" width: 200px !important;
+                height: 200px !important;">
+             <?php else: ?>
+               <p><img src="img_projet/vendre.jpg" style=" width: 200px !important;
+                height: 200px !important;"></p>
+             <?php endif; ?>
+
+
+
+           </td>
+           <td><strong><?php echo $donnee['name_item'] ?></strong></td>
+           <td><?php echo $donnee['Categorie'] ?></td>
+           <td><?php echo $donnee['description'] ?></td>
+           <td>
+             <?php if(isset($donnee['prix_immediat'])): ?>
+               <p><strong>Achat immédiat:</strong></p><?php echo $donnee['prix_immediat'] ?>
+             <?php endif; ?>
+             <?php if(isset($donnee['prix_nego_init'])): ?>
+               <p><strong>Négociation:</strong></p><?php echo $donnee['prix_nego_init'] ?>
+             <?php endif; ?>
+             <?php if(isset($donnee['prix_enchere_2'])): ?>
+               <p><strong>Enchère:</strong></p><?php echo $donnee['prix_enchere_2'] ?>
+             <?php endif; ?>           </td>
+
+
+         </tr>
+
+
+
+
+
+
+       <?php endwhile; ?>
+     </tbody>
+
+    </table>
+<?php endif;?>
+
+<?php if($liste_obj_banni->rowCount() >0): ?>
+    <h2> Objets bannis </h2>
+
+
+     <table class="table">
+       <thead>
+         <tr>
+           <th>Item</th>
+           <th>Nom</th>
+           <th>Catégorie</th>
+           <th>Description</th>
+           <th>Prix </th>
+         </tr>
+
+       </thead>
+
+     <tbody>
+       <?php     while ($donnee = $liste_obj_banni->fetch()):?>
+         <tr>
+           <td><?php $photo="img_items/".$donnee['pic1']; ?>
+
+             <?php if ($donnee['pic1']): ?>
+               <img src=<?php echo $photo; ?> style=" width: 200px !important;
+                height: 200px !important;">
+             <?php else: ?>
+               <p><img src="img_projet/vendre.jpg" style=" width: 200px !important;
+                height: 200px !important;"></p>
+             <?php endif; ?>
+
+
+
+           </td>
+           <td><strong><?php echo $donnee['name_item'] ?></strong></td>
+           <td><?php echo $donnee['Categorie'] ?></td>
+           <td><?php echo $donnee['description'] ?></td>
+           <td>
+             <?php if(isset($donnee['prix_immediat'])): ?>
+               <p><strong>Achat immédiat:</strong></p><?php echo $donnee['prix_immediat'] ?>
+             <?php endif; ?>
+             <?php if(isset($donnee['prix_nego_init'])): ?>
+               <p><strong>Négociation:</strong></p><?php echo $donnee['prix_nego_init'] ?>
+             <?php endif; ?>
+             <?php if(isset($donnee['prix_enchere_2'])): ?>
+               <p><strong>Enchère:</strong></p><?php echo $donnee['prix_enchere_2'] ?>
+             <?php endif; ?>           </td>
+
+
+         </tr>
+
+
+
+
+
+
+       <?php endwhile; ?>
+     </tbody>
+
+    </table>
+  <?php endif; ?>
   </div>
 
 <?php include('includes/footer.php'); ?>
