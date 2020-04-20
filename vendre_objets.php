@@ -156,7 +156,7 @@
 
            <center>  <img src="img_projet/Capture1.png" class="roundedImage" style="margin-bottom: 15px">
             </center>
-            <p class="text-center" style="margin-bottom: 15px"><b> Jeau michel</b>, vendeur depuis 2 minutes</p>
+            <p class="text-center" style="margin-bottom: 15px"><b> Jean-michel</b>, vendeur depuis 2 minutes</p>
 
             <p class="text-center">J'avoue que j'ai essayé pas mal de sites de vente en ligne. E-bay ECE a vraiment réussi à me convaincre. La mise en vente est simple et rapide. Je peux même vendre depuis mon smartphone.</p>
 
@@ -180,7 +180,7 @@
             <p class="text-center" style="margin-bottom: 15px"><b> Fabrist</b>, vendeur depuis le commencement</p>
 
 
-            <p class="text-center">E6bay ECE est un bon site très bien, il y a un très large choix de produits, les vendeurs et acheteur sont très sérieux, la livraison est très rapide, pour les achats la qualité est au rendez-vous.</p>
+            <p class="text-center">E6bay ECE est un bon site très bien, il y a un très large choix de produits, les vendeurs et acheteurs sont très sérieux, la livraison est très rapide, pour les achats la qualité est au rendez-vous.</p>
 
 
           </div>
