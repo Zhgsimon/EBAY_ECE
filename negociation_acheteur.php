@@ -26,9 +26,14 @@ else {
   $req_nego=$bdd->query("SELECT *  FROM nego WHERE ID_acheteur = '$ID_user' AND etat=1" );
   $req_nego_accept=$bdd->query("SELECT *  FROM nego WHERE ID_acheteur = '$ID_user' AND etat=3" );
   $req_nego_finies=$bdd->query("SELECT *  FROM nego WHERE ID_acheteur = '$ID_user' AND etat=4" );
-  //si l'item a été vendu lors d'une nego avec un autre client ou qu'il a été acheté en achat immédiat on supprime la nego de la table nego
-  $req_nego_out=$bdd
-  //si etat_vente item= 'en vente' ET que 'id_acheteur' différent de SESSIOn['ID_user']
+  //supprimer toutes les négos avec des objets déjà vendues ailleurs
+  $req_item_vendu=$bdd->query("SELECT ID_item, ID_acheteur FROM item WHERE etat_vente='vendu'");
+  while($item_vendu = $req_item_vendu -> fetch()){
+    $ID_acheteur_def=$item_vendu['ID_acheteur'];
+    $ID_item_verif=$item_vendu['ID_item'];
+    echo $ID_acheteur_def;
+    $req_suppress=$bdd->query("DELETE from nego WHERE ID_acheteur!='$ID_acheteur_def' AND ID_item='$ID_item_verif'");
+  }
 
 
  ?>
