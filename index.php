@@ -220,14 +220,14 @@ opacity: 1;
            <p>Nous proposons<b> 3 méthodes</b> afin de pouvoir acquerir l'objet de votre désir</p>
           </div>
           <div class="well">
-           <p><b>Les enchères</b>, Vous enchérissez pour un item et le plus offrant remporte la mise, peut etre vous ?</p>
+           <p><b>Les enchères</b>, Vous enchérissez pour un item et le plus offrant remporte la mise, peut être vous ?</p>
           </div>
 
           <div class="well">
-           <p><b>Acheté-le</b>, Maintenant, Just do it</p>
+           <p><b>Achetez-le</b>, Maintenant, Just do it</p>
           </div>
           <div class="well">
-           <p><b>Meilleure Offre</b>, négociez avec le vendeur, offre et contre-offre soyer rusée.  </p>
+           <p><b>Meilleure Offre</b>, négociez avec le vendeur, offre et contre-offre soyez rusée.  </p>
           </div>
 
         </div>
