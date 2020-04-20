@@ -97,9 +97,12 @@ session_start();
                 <div class="col-sm-3" style="background-color: #E2E2E2"><h4>Notez bien que si vous faites une offre sur un article,<b> vous êtes sous contrat légal pour l'acheter</b> si le vendeur accepte l'offre</h4></div>
 
           </div>
+        </div>
           <?php
           while ($donnee = $req_nego->fetch()):
           ?>
+          <div class="container" style="margin-bottom: 35px">
+
           <div class="row"><div class="col-sm-12"><h2>Vous négociez pour <b> L'item : </b></h2></div></div>
 
           <div class="row" style="margin-bottom: 50px">
@@ -172,6 +175,8 @@ endwhile;
 <?php
 while ($donnee = $req_nego_accept->fetch()):
 ?>
+<div class="container" style="margin-bottom: 35px">
+
 <div class="row"><div class="col-sm-12"><h2>Vous avez gagné les négociations pour <b> l'item : </b></h2></div></div>
 
 <div class="row" style="margin-bottom: 50px">
@@ -220,7 +225,7 @@ while ($donnee = $req_nego_accept->fetch()):
 endwhile;
 ?>
 </div>
-
+</div>
 </div>
 
 <?php include('includes/footer.php'); ?>
