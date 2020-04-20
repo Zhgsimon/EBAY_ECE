@@ -181,7 +181,7 @@ $img="img_items/".$row['pic1'];
 
 	<div class="modal-footer">
 		<div>
-			 <input type="hidden" name="itemtnego" value="<?php echo $row['ID_item']; ?>" required>
+			 <input type="hidden" name="itemnego" value="<?php echo $row['ID_item']; ?>" required>
 			<button type="submit" class="btn btn-black " name="Négocier" value="Valider"> <span class="glyphicon glyphicon-ok"></span> Valider</button> </div>
 			<button type="submit" class="btn btn-black " data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Annuler</button>
 

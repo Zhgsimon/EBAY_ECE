@@ -13,6 +13,10 @@ catch (Exception $e)
 }
 echo"je suis la";
 
+if(isset($_POST['itemnego'])){
+  
+}
+
 //L'acheteur a pris une decision
 if(isset($_POST['ModifierA'])){
   $id_a_modif=$_POST['keytomodifA'];
