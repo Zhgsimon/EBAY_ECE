@@ -18,6 +18,7 @@
 
       <?php if(!isset($_SESSION['ID_user'])) :?>
         <li><a href="inscription.php">Inscription</a></li>
+        <li><a href="inscription_vendeur.php">Inscription Vendeur</a></li>
       <?php endif; ?>
 
       <?php if( isset($_SESSION['ID_user'])) :?>
@@ -43,7 +44,7 @@
           <!--Mettre en vente un objet-->
           <li><a href="vendre_objets.php">Vendre un objet</a></li>
           <!--Liste de vos items en vente-->
-          <li><a href="objet_en_vente.php">Vos objets en vente</a></li>
+          <li><a href="liste_objet_vendeurs.php">Vos objets en vente</a></li>
           <!--Onglet Négociation-->
           <li><a href="negociation_vendeur.php">Négocier</a></li>
 
