@@ -21,7 +21,7 @@ include('includes/header.php') ?>
 </style>
 </head>
 
-  <div class="container">
+  <div class="container" style="margin-bottom : 150px">
     <div class="row">
       <div class="col-sm-12 well">
         <h1><center><span class="glyphicon glyphicon-question-sign"></span> F.A.Q</center></h1>

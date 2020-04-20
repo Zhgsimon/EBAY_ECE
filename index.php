@@ -41,8 +41,8 @@
 
 .centered {
 position: absolute;
-top: 35%;
-left: 43%;
+top: 50%;
+left: 50%;
 transform: translate(-50%, -50%);
 opacity: 0;
 transition: .5s ease;
@@ -204,13 +204,13 @@ opacity: 1;
 
 
         <div class="col-sm-3">
-           <img src="img_items/cartevip.jpg" class="img-responsive" style="width:100%" alt="Image">
+           <img src="img_items/cartevip.jpg" class="img-responsive" style="width:100%; margin-top: 24% " alt="Image">
            <p>Carte Vip : accès toilette illimité</p>
            <div class="centered"><li><a href="./Détailitem.php?pic1=cartevip.jpg" class="aI"><h3>Détails item</h3></a></li></div>
       </div>
 
       <div class="col-sm-3">
-        <img src="img_items/lion_sculpture_bois.jpg" class="img-responsive" style="width:100%" alt="Image">
+        <img src="img_items/lion_sculpture_bois.jpg" class="img-responsive" style="width:100%; height: 310px ; margin-top: 10%" alt="Image">
         <p>Tigrou des bois</p>
         <div class="centered"><li><a href="./Détailitem.php?pic1=lion_sculpture_bois.jpg" class="aI"><h3>Détails item</h3></a></li></div>
       </div>
@@ -241,7 +241,7 @@ opacity: 1;
       <div class="row">
 
         <div class="col-sm-2">
-          <img src="img_items/papier_toilette.jpg" class="img-responsive" style="width:100%" alt="Image">
+          <img src="img_items/papier_toilette.jpg" class="img-responsive" style="width:140px; height: 140px;" alt="Image">
           <p>papier toilette insolite</p>
           <div class="centered"><li><a href="./Détailitem.php?pic1=papier_toilette.jpg" class="aI"><h3>Détails item</h3></a></li></div>
 
@@ -249,7 +249,7 @@ opacity: 1;
         </div>
 
         <div class="col-sm-2">
-          <img src="img_items/ferraille.jpg" class="img-responsive" style="width:100%" alt="Image">
+          <img src="img_items/ferraille.jpg" class="img-responsive" style="width:140px; height: 140px;" alt="Image">
           <p>8kg de ferraille</p>
           <div class="centered"><li><a href="./Détailitem.php?pic1=ferraille.jpg" class="aI"><h3>Détails item</h3></a></li></div>
 
@@ -258,14 +258,14 @@ opacity: 1;
 
 
         <div class="col-sm-2">
-          <img src="img_items/tableau-singe-poker-sylvain-binet.jpg" class="img-responsive" style="width:100%" alt="Image">
+          <img src="img_items/tableau-singe-poker-sylvain-binet.jpg" class="img-responsive" style="width:140px; height: 140px;" alt="Image">
           <p>Tableau : YOU</p>
           <div class="centered"><li><a href="./Détailitem.php?pic1=tableau-singe-poker-sylvain-binet.jpg" class="aI"><h3>Détails item</h3></a></li></div>
 
         </div>
 
         <div class="col-sm-2">
-          <img src="img_items/cocaine.jpg" class="img-responsive" style="width:100%" alt="Image">
+          <img src="img_items/cocaine.jpg" class="img-responsive" style="width:140px; height: 140px;" alt="Image">
           <p>Fake cocain, to shine in nightclub</p>
             <div class="centered"><li><a href="./Détailitem.php?pic1=cocaine.jpg" class="aI"><h3>Détails item</h3></a></li></div>
         </div>
@@ -275,7 +275,7 @@ opacity: 1;
 
 
         <div class="col-sm-2">
-          <img src="img_items/briquet_beurette.jpg" class="img-responsive" style="width:100%" alt="Image">
+          <img src="img_items/briquet_beurette.jpg" class="img-responsive" style="width:140px; height: 140px;" alt="Image">
           <p>Briquet Beurette</p>
           <div class="centered"><li><a href="./Détailitem.php?pic1=briquet_beurette.jpg" class="aI"><h3>Détails item</h3></a></li></div>
         </div>
@@ -283,7 +283,7 @@ opacity: 1;
 
 
         <div class="col-sm-2">
-          <img src="img_items/lv.jpg" class="img-responsive" style="width:100%" alt="Image">
+          <img src="img_items/lv.jpg" class="img-responsive" style="width:140px; height: 140px;" alt="Image">
           <p>Tableau : Luki/Vist</p>
           <div class="centered"><li><a href="./Détailitem.php?pic1=lv.jpg" class="aI"><h3>Détails item</h3></a></li></div>
         </div>

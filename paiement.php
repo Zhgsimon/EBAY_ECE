@@ -130,6 +130,12 @@ $row = $stmt->fetch();*/
     outline: none !important;
   }
 
+  input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 
   </style>
 
@@ -206,6 +212,7 @@ $("#new_card").css("display", "none");
           </div>
 
         </div>
+        </div>
 
         <div class="row">
           <div class="col-xs-12 col-md-4">
@@ -251,43 +258,158 @@ $("#new_card").css("display", "none");
                             </div>
                           </div>
 
-                          <div class="row">
-                            <div class="col-xs-7 col-md-7">
-                              <div class="col-xs-5 col-md-5 pull-right">
+
                                 <div class="form-group">
-                                  <label for="Name">
-                                    Nom</label>
-                                    <input type="text" class="form-control" name="nom_carte" id="Name" placeholder="Nom" required />
-                                  </div>
+                                  <label for="Name">Nom carte</label>
+                                    <input type="text" class="form-control" name="nom_carte" id="Name" placeholder="Nom carte" required />
                                 </div>
 
 
-                            </div>
 
 
-                        <div class="container">
+
                           <div class="row">
                             <input type="hidden" name="somme_totale" value=<?php echo $somme_a_paye; ?>>
                             <h5 class="text-center"> <b>Sommes à rélger : <?php echo $somme_a_paye; ?><b><span class="glyphicon glyphicon-euro"></span></h5>
                             </div>
                           </div>
+
+
+
+
+                      </div>
+
+                      <br/>
+                      <input type="hidden" name="pic1" value=<?php echo $pic1; ?>>
+                      <input type="hidden" name="type_achat" value=<?php echo $type_achat; ?>>
+                      <input type="submit" name="payer" class="btn-black btn-lg btn-block" role="button" value="Payer"></b>
+                    </div>
+
+
+
+
+                    <div class="col-xs-12 col-md-6">
+                      <div class="panel panel-default">
+                        <div class="panel-heading">
+                          <h3 class="panel-title">
+                            Formulaire de livraison
+                          </h3>
+
+                        </div>
+                        <div class="panel-body">
+
+                          <div class="row" style="margin-bottom: 15px">
+
+
+                            <div class="col-xs-5 col-md-5"
+                            <div class="form-group">
+                              <label for="Num_rue">
+                                Numéro address</label>
+                                <div class="input-group">
+                                  <input type="number" class="form-control" name="Num_rue" id="Num_rue" placeholder="Num"
+                                  required  />
+
+                                </div>
+                              </div>
+
+
+
+
+                            <div class="col-xs-7 col-md-7"
+                            <div class="form-group">
+                              <label for="Nom_rue">
+                                Adresse de livraison</label>
+                                <div class="input-group">
+                                  <input type="text" class="form-control" name="Nom_rue" id="Nom_rue" placeholder="Adresse de livraison"
+                                  required  />
+
+                                </div>
+                              </div>
+
                         </div>
 
 
-                        <br/>
-                        <input type="hidden" name="pic1" value=<?php echo $pic1; ?>>
-                        <input type="hidden" name="type_achat" value=<?php echo $type_achat; ?>>
-                        <input type="submit" name="payer" class="btn-black btn-lg btn-block" role="button" value="Payer"></b>
-                      </div>
-                    </div>
+
+
+                            <div class="row">
+                                <div class="col-xs-7 col-md-7">
+
+                                  <div class="form-group">
+                                    <label for="Nom">
+                                      Nom</label>
+                                      <div >
+                                        <input type="text" class="form-control" name="Nom" id="Nom" placeholder="Nom" required />
+                                      </div>
+
+                                    </div>
+                                  </div>
+
+                                    <div class="col-xs-5 col-md-5 pull-right">
+                                      <div class="form-group">
+                                        <label for="Prenom">
+                                          Prénom</label>
+                                          <input type="password" class="form-control" name="Prenom" id="Prenom" placeholder="Prénom" required />
+                                        </div>
+                                      </div>
+
+                            </div>
+
+                                          <div class="form-group">
+                                            <label for="Num_tel">Numéro de télephone</label>
+                                              <input type="number" class="form-control" name="Num_tel" id="Num_tel" placeholder="Numéro de télephone" required  />
+                                          </div>
+
+                                <div class="row">
+                                  <div class="col-xs-4 col-md-4">
+
+                                  <div class="form-group">
+                                    <label for="Pays">Pays</label>
+                                      <input type="text" class="form-control" name="Pays" id="Pays" placeholder="Pays" required  />
+                                  </div>
+
+                                </div>
+
+                                <div class="col-xs-4 col-md-4">
+
+                                <div class="form-group">
+                                  <label for="Ville">Ville</label>
+                                    <input type="text" class="form-control" name="Ville" id="Ville" placeholder="Ville" required  />
+                                </div>
+
+                              </div>
+
+                              <div class="col-xs-4 col-md-4">
+
+                              <div class="form-group">
+                                <label for="Code_postal">Code Postal</label>
+                                  <input type="number" class="form-control" name="Code_postal" id="Code_postal" placeholder="Code postal" required  />
+                              </div>
+
+                            </div>
+
+
+                                </div>
+                              </div>
+
+
+                                </div>
+
+
+
+
+                                </div>
+
+
+                              </div>
                   </div>
-                </div>
+
                 <!--Fin ajout infos bancaire d'une nouvelle carte-->
 
                 <!--Début infos bancaire de la carte par défaut-->
             </div>
-          </div>
+
         </form>
+        </div>
 
 
           <div id="old_card">
