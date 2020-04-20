@@ -15,6 +15,8 @@ session_start();
 
   $ID_user=$_SESSION['ID_user']; //ID_user good
   $req_nego=$bdd->query("SELECT *  FROM nego WHERE ID_vendeur = '$ID_user'  AND etat=2" );
+  $req_nego_attente_paiement=$bdd->query("SELECT *  FROM nego WHERE ID_vendeur = '$ID_user' AND etat=3" );
+  $req_nego_finies=$bdd->query("SELECT *  FROM nego WHERE ID_vendeur = '$ID_user' AND etat=4" );
 
  ?>
 
@@ -96,9 +98,13 @@ session_start();
                 <div class="col-sm-3" style="background-color: #E2E2E2"><h4>Notez bien que si vous acceptez une offre sur un article,<b> l'acheteur est sous contrat légal pour l'acheter</b></h4></div>
 
           </div>
+          <!-- Nego en cours -->
+
           <?php
           while ($donnee = $req_nego->fetch()):
           ?>
+          <div class="container" style="margin-bottom: 35px">
+
           <div class="row"><div class="col-sm-12"><h2>Vous négociez pour <b> L'item : </b></h2></div></div>
 
           <div class="row" style="margin-bottom: 50px">
@@ -123,13 +129,13 @@ session_start();
               <u><h3 class="text-left">
               <?php echo $item['name_item'];?>
               </h3></u>
-              <h4 class="text-center">   <?php echo $item['description'];?></h4>
-               <h4 class="text-center">   <?php echo $item['Categorie'];?></h4>
-                <h4 class="text-center">   <?php
-                $ID_acheteur=$item['ID_acheteur'];
+              <h4 class="text-left">   <?php echo $item['description'];?></h4>
+               <h4 class="text-left">   <?php echo $item['Categorie'];?></h4>
+                <h4 class="text-left">   <?php
+                $ID_acheteur=$donnee['ID_acheteur'];
                 $req_acheteur=$bdd->query("SELECT name,First_name  FROM user WHERE ID_user = '$ID_acheteur' " );
                 $acheteur=$req_acheteur->fetch();
-                echo "Negociation avec";
+                echo "Négociation avec ";
                 echo $acheteur['First_name'];
                 echo " ";
                 echo $acheteur['name'];?></h4>
@@ -164,6 +170,119 @@ session_start();
 <?php
 endwhile;
 ?>
+
+
+<!--Négos gagnées mais pas payées-->
+<?php
+while ($donnee = $req_nego_attente_paiement->fetch()):
+?>
+<div class="container" style="margin-bottom: 35px">
+
+<div class="row"><div class="col-sm-12"><h2>Vous êtes en attente de paiement pour <b> l'item : </b></h2></div></div>
+
+<div class="row" style="margin-bottom: 50px">
+    <div class="col-sm-2">
+      <?php
+      $ID_item=$donnee['ID_item'];
+      $req_item=$bdd->query("SELECT *  FROM item WHERE ID_item = '$ID_item' " );
+
+      $item=$req_item->fetch();
+
+      $photo=$item['pic1'];
+        if(!$photo) {
+          echo '<img src = "img_projet/vente.jpg"  height="175" width="175" alt="Photo"/>';
+        }
+        else{
+        echo '<img src = "img_items/'.$photo.' "  height="175" width="175" alt="Photo"/>';
+      }
+      ?>
+    </div>
+
+    <div class="col-sm-10" style="background-color: #E2E2E2 ">
+
+    <u><h3 class="text-left">
+    <?php echo $item['name_item'];?>
+    </h3></u>
+    <h4 class="text-right">   <?php echo $donnee['prix_final'];?> €</h4>
+    <h4 class="text-left">   <?php echo $item['description'];?></h4>
+     <h4 class="text-left">   <?php echo $item['Categorie'];?></h4>
+      <h4 class="text-left">   <?php
+      $ID_acheteur=$donnee['ID_acheteur'];
+      $req_acheteur=$bdd->query("SELECT name,First_name  FROM user WHERE ID_user = '$ID_acheteur' " );
+      $acheteur=$req_acheteur->fetch();
+      echo "Négociation avec ";
+      echo $acheteur['First_name'];
+      echo " ";
+      echo $acheteur['name'];?></h4>
+    </div>
+
+
+</div>
+
+
+
+<?php
+endwhile;
+?>
+</div>
+
+<!--Négos finies et payées-->
+<?php
+while ($donnee = $req_nego_finies->fetch()):
+?>
+<div class="container" style="margin-bottom: 35px">
+
+<div class="row"><div class="col-sm-12"><h2>Vous avez vendu via des négociations  <b> l'item : </b></h2></div></div>
+
+<div class="row" style="margin-bottom: 50px">
+    <div class="col-sm-2">
+      <?php
+      $ID_item=$donnee['ID_item'];
+      $req_item=$bdd->query("SELECT *  FROM item WHERE ID_item = '$ID_item' " );
+
+      $item=$req_item->fetch();
+
+      $photo=$item['pic1'];
+        if(!$photo) {
+          echo '<img src = "img_projet/vente.jpg"  height="175" width="175" alt="Photo"/>';
+        }
+        else{
+        echo '<img src = "img_items/'.$photo.' "  height="175" width="175" alt="Photo"/>';
+      }
+      ?>
+    </div>
+
+    <div class="col-sm-10" style="background-color: #E2E2E2 ">
+
+    <u><h3 class="text-left">
+    <?php echo $item['name_item'];?>
+    </h3></u>
+    <h4 class="text-right">   <?php echo $donnee['prix_final'];?> €</h4>
+    <h4 class="text-left">   <?php echo $item['description'];?></h4>
+     <h4 class="text-left">   <?php echo $item['Categorie'];?></h4>
+      <h4 class="text-left">   <?php
+      $ID_acheteur=$donnee['ID_acheteur'];
+      $req_acheteur=$bdd->query("SELECT name,First_name  FROM user WHERE ID_user = '$ID_acheteur' " );
+      $acheteur=$req_acheteur->fetch();
+      echo "Négociation avec ";
+      echo $acheteur['First_name'];
+      echo " ";
+      echo $acheteur['name'];?></h4>
+    </div>
+
+
+</div>
+
+
+
+<?php
+endwhile;
+?>
+
+</div>
+
+
+
 </div>
 
 </div>

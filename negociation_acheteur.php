@@ -98,7 +98,6 @@ session_start();
 
                 <div class="col-sm-3" style="background-color: #E2E2E2"><h4>Notez bien que si vous faites une offre sur un article,<b> vous êtes sous contrat légal pour l'acheter</b> si le vendeur accepte l'offre</h4></div>
 
-          </div>
         </div>
         <!-- Nego en cours -->
           <?php
@@ -131,13 +130,13 @@ session_start();
               <u><h3 class="text-left">
               <?php echo $item['name_item'];?>
               </h3></u>
-              <h4 class="text-center">   <?php echo $item['description'];?></h4>
-               <h4 class="text-center">   <?php echo $item['Categorie'];?></h4>
-                <h4 class="text-center">   <?php
-                $ID_vendeur=$item['ID_vendeur'];
+              <h4 class="text-left">   <?php echo $item['description'];?></h4>
+               <h4 class="text-left">   <?php echo $item['Categorie'];?></h4>
+                <h4 class="text-left">   <?php
+                $ID_vendeur=$donnee['ID_vendeur'];
                 $req_vendeur=$bdd->query("SELECT name,First_name  FROM user WHERE ID_user = '$ID_vendeur' " );
                 $vendeur=$req_vendeur->fetch();
-                echo "Negociation avec";
+                echo "Négociation avec ";
                 echo $vendeur['First_name'];
                 echo " ";
                 echo $vendeur['name'];?></h4>
@@ -211,10 +210,10 @@ while ($donnee = $req_nego_accept->fetch()):
     <h4 class="text-left">   <?php echo $item['description'];?></h4>
      <h4 class="text-left">   <?php echo $item['Categorie'];?></h4>
       <h4 class="text-left">   <?php
-      $ID_vendeur=$item['ID_vendeur'];
+      $ID_vendeur=$donnee['ID_vendeur'];
       $req_vendeur=$bdd->query("SELECT name,First_name  FROM user WHERE ID_user = '$ID_vendeur' " );
       $vendeur=$req_vendeur->fetch();
-      echo "Negociation avec";
+      echo "Négociation avec ";
       echo $vendeur['First_name'];
       echo " ";
       echo $vendeur['name'];?></h4>
@@ -265,10 +264,10 @@ while ($donnee = $req_nego_finies->fetch()):
     <h4 class="text-left">   <?php echo $item['description'];?></h4>
      <h4 class="text-left">   <?php echo $item['Categorie'];?></h4>
       <h4 class="text-left">   <?php
-      $ID_vendeur=$item['ID_vendeur'];
+      $ID_vendeur=$donnee['ID_vendeur'];
       $req_vendeur=$bdd->query("SELECT name,First_name  FROM user WHERE ID_user = '$ID_vendeur' " );
       $vendeur=$req_vendeur->fetch();
-      echo "Negociation avec";
+      echo "Négociation avec ";
       echo $vendeur['First_name'];
       echo " ";
       echo $vendeur['name'];?></h4>
