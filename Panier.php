@@ -38,7 +38,7 @@
       $ID_panier=$row_panier['ID_panier'];
 
       //si son panier existe déjà
-      echo "Assigned";
+      //echo "Assigned";
 
       //On récupère dans contient les items qui sont stockés dans le panier de l'utilisateur
       $req_panier_contient = $bdd->query("SELECT *
