@@ -180,14 +180,14 @@ opacity: 1;
         <center><h2>Catégories</h2></center>
 
         <div class="well" style="position: relative; top: 30px">
-          <li ><a href="Catégories Ferraille" class="aCat">Ferraille ou Trésor</a></li>
+          <li ><a href="Catégorie.php?Catégorie=Ferraille ou Trésor" class="aCat">Ferraille ou Trésor</a></li>
 
         </div>
         <div class="well" style="position: relative; top: 50px">
-           <li><a href="Catégories Musée" class="aCat">Bon pour le Musée</a></li>
+           <li><a href="Catégorie.php?Catégorie=Bon pour le Musée" class="aCat">Bon pour le Musée</a></li>
         </div>
         <div class="well" style="position: relative; top: 70px">
-          <li><a href="Catégories VIP"class="aCat"> Accessoire VIP</a></li>
+          <li><a href="Catégorie.php?Catégorie=Accessoire VIP"class="aCat"> Accessoire VIP</a></li>
         </div>
       </div>
 
