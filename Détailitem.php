@@ -33,11 +33,7 @@ $img="img_items/".$row['pic1'];
 
 ?>
 <?php include('includes/header.php'); ?>
-<<<<<<< HEAD
 
-=======
-<head>
->>>>>>> ec7161fb9846b22c41899aab93a11e91f0b17278
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
 <style>
