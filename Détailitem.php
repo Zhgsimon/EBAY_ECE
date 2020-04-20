@@ -136,24 +136,18 @@ $img="img_items/".$row['pic1'];
                  </form>
                 <?php endif; ?>
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-                <?php if (isset($row['prix_nego_init'])): ?>
+                <!--
+
+                <?//php if (isset($row['prix_nego_init'])): ?>
                   <form action="negocier.php" method="get">
-                    <button type="submit" name="submit_action" value=<?php echo $pic1; ?>>Négocier</button>
-                   <!--<input type="submit" name="submit_action" value= placeholder="Négocier avec le vendeur">-->
-                 </form>
-=======
->>>>>>> ec7161fb9846b22c41899aab93a11e91f0b17278
+                    <button type="submit" name="submit_action" value=<?//php echo $pic1; ?>>Négocier</button>
+
+                 </form>-->
+
                 <?php if (isset($row['prix_nego_init'])):
                   ?>
                   <a href="#negoModal" class="btn btn-black" rel="modal:open" role="button" name="modif" value="<?php $row['ID_item']?>"><span class="glyphicon glyphicon-plus"></span> Negocier</a>
 
-<<<<<<< HEAD
-=======
->>>>>>> ft_bouton_nego
->>>>>>> ec7161fb9846b22c41899aab93a11e91f0b17278
                 <?php endif; ?>
 
                 <?php if (isset($row['prix_enchere_2'])): ?>
