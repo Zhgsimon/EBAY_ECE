@@ -43,7 +43,7 @@
           <!--Mettre en vente un objet-->
           <li><a href="vendre_objets.php">Vendre un objet</a></li>
           <!--Liste de vos items en vente-->
-          <li><a href="objet_en_vente.php">Vos objets en vente</a></li>
+          <li><a href="liste_objet_vendeurs.php">Vos objets en vente</a></li>
           <!--Onglet Négociation-->
           <li><a href="negociation_vendeur.php">Négocier</a></li>
 
