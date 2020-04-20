@@ -14,7 +14,7 @@ session_start();
   }
 
   $ID_user=$_SESSION['ID_user']; //ID_user good
-  $req_nego=$bdd->query("SELECT *  FROM nego WHERE ID_vendeur = '$ID_user' AND prix_final is NULL  AND tour=1" );
+  $req_nego=$bdd->query("SELECT *  FROM nego WHERE ID_vendeur = '$ID_user'  AND etat=2" );
 
  ?>
 
@@ -150,6 +150,7 @@ session_start();
             </div></div></div>
 
             <input type="hidden" name="keytomodifV" value="<?php echo $donnee['ID_nego']; ?>" required>
+            <input type="hidden" name="prix_acheteur" value="<?php echo $donnee['prix_acheteur']; ?>" required>
       			<button type="submit" class="btn btn-black pull-right" name="ModifierV" value="Valider"> <span class="glyphicon glyphicon-ok"></span> Valider</button> </div>
 
           </form>
