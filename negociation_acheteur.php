@@ -49,7 +49,13 @@ session_start();
   <style>
 
 
-
+  .btn-black{
+  	background-color: #000 !important;
+  	color: #fff;
+  	margin-bottom: 5px ;
+  	margin-right: 5px;
+  	float: right;
+  }
 
 
 .row{
@@ -148,10 +154,11 @@ session_start();
 
             <div class="row"><div class="col-sm-4"><div class="form-group">
               <label style="display: none;">Contre offre</label>
-              <input type="number" class="form-control" placeholder="Votre proposition"  required name="nv_offre" style="display: none;" id="3">
+              <input type="number" class="form-control" placeholder="Votre proposition"  name="nv_offre" style="display: none;" id="3">
             </div></div></div>
 
             <input type="hidden" name="keytomodifA" value="<?php echo $donnee['ID_nego']; ?>" required>
+            <input type="hidden" name="prix_vendeur" value="<?php echo $donnee['prix_vendeur']; ?>" required>
       			<button type="submit" class="btn btn-black pull-right" name="ModifierA" value="Valider"> <span class="glyphicon glyphicon-ok"></span> Valider</button> </div>
 
           </form>
@@ -164,7 +171,7 @@ endwhile;
 <?php
 while ($donnee = $req_nego_accept->fetch()):
 ?>
-<div class="row"><div class="col-sm-12"><h2>Le vendeur a accepté votre offre pour  <b> l'item : </b></h2></div></div>
+<div class="row"><div class="col-sm-12"><h2>Vous avez gagné les négociations pour <b> l'item : </b></h2></div></div>
 
 <div class="row" style="margin-bottom: 50px">
     <div class="col-sm-2">
@@ -176,10 +183,10 @@ while ($donnee = $req_nego_accept->fetch()):
 
       $photo=$item['pic1'];
         if(!$photo) {
-          echo '<img src = "img_projet/vente.jpg"  height="150" width="150" alt="Photo"/>';
+          echo '<img src = "img_projet/vente.jpg"  height="175" width="175" alt="Photo"/>';
         }
         else{
-        echo '<img src = "img_items/'.$photo.' "  height="150" width="150" alt="Photo"/>';
+        echo '<img src = "img_items/'.$photo.' "  height="175" width="175" alt="Photo"/>';
       }
       ?>
     </div>
@@ -189,9 +196,11 @@ while ($donnee = $req_nego_accept->fetch()):
     <u><h3 class="text-left">
     <?php echo $item['name_item'];?>
     </h3></u>
-    <h4 class="text-center">   <?php echo $item['description'];?></h4>
-     <h4 class="text-center">   <?php echo $item['Categorie'];?></h4>
-      <h4 class="text-center">   <?php
+    <h4 class="text-right">   <?php echo $donnee['prix_final'];?> €</h4>
+    <a href=".php" class="btn btn-black pull right">Payer</a> <!--a modifier en fonction de ce qu'il faut faire pour le paiement-->
+    <h4 class="text-left">   <?php echo $item['description'];?></h4>
+     <h4 class="text-left">   <?php echo $item['Categorie'];?></h4>
+      <h4 class="text-left">   <?php
       $ID_vendeur=$item['ID_vendeur'];
       $req_vendeur=$bdd->query("SELECT name,First_name  FROM user WHERE ID_user = '$ID_vendeur' " );
       $vendeur=$req_vendeur->fetch();
@@ -201,9 +210,9 @@ while ($donnee = $req_nego_accept->fetch()):
       echo $vendeur['name'];?></h4>
     </div>
 
+
 </div>
 
-<a href="paiement.php" type="btn btn-black">Payer</a>
 
 
 <?php

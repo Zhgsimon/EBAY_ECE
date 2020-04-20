@@ -61,7 +61,13 @@ session_start();
 }
 
 
-
+.btn-black{
+	background-color: #000 !important;
+	color: #fff;
+	margin-bottom: 5px ;
+	margin-right: 5px;
+	float: right;
+}
 
 
 

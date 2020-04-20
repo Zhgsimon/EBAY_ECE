@@ -30,8 +30,15 @@ if(isset($_POST['ModifierA'])){
     ));
 
   }
-  else { //l'offre est acceptée
-
+  else { //l'offre est acceptée par l'acheteur
+    $prix_vendeur=$_POST['prix_vendeur'];
+    $query = $bdd->prepare('UPDATE nego SET etat =:etat, prix_acheteur=:prix_acheteur,prix_final=:prix_final WHERE ID_nego =:ID_nego');
+    $success=$query->execute(array(
+      ':ID_nego'=> $id_a_modif,
+      'etat'=>'3',
+      ':prix_acheteur'=>$prix_vendeur,
+      ':prix_final'=>$prix_vendeur
+    ));
   }
 }
   header('Location:negociation_acheteur.php');
