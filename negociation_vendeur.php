@@ -138,8 +138,8 @@ session_start();
             </h3><h3 class="text-right"> Nombre de tentatives restante : <?php echo $donnee['Nb_propositions_restantes']; ?></h3>
 
               <div class="form-group">
-              <input  type="radio" name="accepte" id="1"><label style="margin-right: 35px" >Accepter l'offre</label>
-              <input type="radio" name="refuse" id="2"><label>Refuser l'offre</label>
+              <input  type="radio" name="qst" value="accepte" id="1"><label style="margin-right: 35px" >Accepter l'offre</label>
+              <input type="radio" name="qst" value="refuse" id="2"><label>Refuser l'offre</label>
             </div>
 
             </div></div>

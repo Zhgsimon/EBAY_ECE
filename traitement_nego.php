@@ -15,7 +15,8 @@ catch (Exception $e)
 //L'acheteur a pris une decision
 if(isset($_POST['ModifierA'])){
   $id_a_modif=$_POST['keytomodifA'];
-  if(isset($_POST['refuse'])){ //l'offre est refusée
+  if(isset($_POST['qst'])){
+    if($_POST['qst']=='refuse'){ //l'offre est refusée
     $req_NB_PR=$bdd->query("SELECT `Nb_propositions_restantes` FROM `nego` WHERE `ID_nego`='$id_a_modif'");
     $fetch_NB_PR=$req_NB_PR->fetch();
     $NB_PR=$fetch_NB_PR['Nb_propositions_restantes'] -1;
@@ -31,7 +32,7 @@ if(isset($_POST['ModifierA'])){
   else { //l'offre est acceptée
 
   }
-
+}
   header('Location:negociation_acheteur.php');
 
 }
@@ -39,14 +40,14 @@ if(isset($_POST['ModifierA'])){
 //Le vendeur a pris une decision
 if(isset($_POST['ModifierV'])){
   $id_a_modif=$_POST['keytomodifV'];
-  if(isset($_POST['refuse'])){ //l'offre est refusée
+  if(isset($_POST['qst'])){
+  if($_POST['qst']=='refuse'){ //l'offre est refusée
     $query = $bdd->prepare('UPDATE nego SET etat =:etat, prix_vendeur=:prix_vendeur WHERE ID_nego =:ID_nego');
     $success=$query->execute(array(
       ':ID_nego'=> $id_a_modif,
       'etat'=>'1',
       ':prix_vendeur'=>$_POST['nv_offre']
     ));
-
   }
   else { //l'offre est acceptée par le vendeur
     $query = $bdd->prepare('UPDATE nego SET etat =:etat, prix_vendeur=:prix_vendeur,prix_final=:prix_final WHERE ID_nego =:ID_nego');
@@ -58,11 +59,11 @@ if(isset($_POST['ModifierV'])){
     ));
 
   }
-
-  header('Location:negociation_acheteur.php');
+}
+  header('Location:negociation_vendeur.php');
 
 }
 
-
+echo"je suis la";
 
  ?>
